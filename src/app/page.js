@@ -8,8 +8,9 @@ import Gallery from "./components/Gallery"
 import Experience from "./components/Experience"
 import SocialMarquee from "./components/SocialMarquee"
 import Contact from "./components/Contact"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <Navbar />
