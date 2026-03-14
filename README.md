@@ -2,7 +2,7 @@
 
 Personal portfolio website of **Kahlaa Aulia Jemima**, a Game Technology student at Politeknik Negeri Media Kreatif Jakarta with a focus on game programming and front-end web development.
 
-🔗 **Live:** [your-domain.vercel.app](https://jemsproject.vercel.app)
+🔗 **Live:** (https://jemsproject.vercel.app)
 
 ---
 
