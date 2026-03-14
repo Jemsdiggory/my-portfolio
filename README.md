@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# J. Universe — Portfolio Website
+
+Personal portfolio website of **Kahlaa Aulia Jemima**, a Game Technology student at Politeknik Negeri Media Kreatif Jakarta with a focus on game programming and front-end web development.
+
+🔗 **Live:** [your-domain.vercel.app](https://your-domain.vercel.app)
+
+---
+
+## About
+
+This portfolio showcases my projects, skills, and experience across game development and web development. It is built with a focus on clean design, smooth animations, and fast performance.
+
+---
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Hero landing page |
+| `/about` | Bio, tech stack, and skill proficiency |
+| `/projects` | Game and web project showcase |
+| `/gallery` | 2D art, GIF, and 3D work |
+| `/experience` | Organization and work experience timeline |
+| `/contact` | Contact information and social links |
+
+---
+
+## Tech Stack
+
+- **Framework** — Next.js 15 (App Router)
+- **Styling** — Tailwind CSS v4
+- **Animations** — Framer Motion
+- **Icons** — React Icons
+- **Fonts** — Space Grotesk, DM Mono (Google Fonts)
+- **Deployment** — Vercel
+
+---
+
+## Project Structure
+
+```
+app/
+├── page.js                 # Homepage
+├── layout.js               # Root layout
+├── globals.css             # Global styles & CSS variables
+├── about/page.js
+├── projects/page.js
+├── gallery/page.js
+├── experience/page.js
+├── contact/page.js
+└── components/
+    ├── Navbar.js
+    └── SocialMarquee.js
+public/
+├── game-icons/             # Game project icons
+├── gallery/                # Gallery images (2d, gif, 3d)
+└── web/                    # Web project screenshots
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contact
 
-## Learn More
+- **Email** — jemsdiggory@gmail.com
+- **LinkedIn** — [linkedin.com/in/jemima05](https://linkedin.com/in/jemima05)
+- **GitHub** — [github.com/JemsDiggory](https://github.com/JemsDiggory)
+- **Itch.io** — [jemsdiggory.itch.io](https://jemsdiggory.itch.io)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Built and designed by Kahlaa Aulia Jemima — 2025*
