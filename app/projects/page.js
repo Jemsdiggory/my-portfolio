@@ -176,6 +176,8 @@ export default function ProjectsPage() {
                     <img
                       src={game.icon}
                       alt={game.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-14 h-14 rounded-xl object-cover flex-shrink-0"
                       style={{ border: "1px solid var(--border)" }}
                     />
@@ -238,6 +240,8 @@ export default function ProjectsPage() {
                     <img
                       src={web.image}
                       alt={web.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                     <div

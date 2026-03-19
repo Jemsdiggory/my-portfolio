@@ -1,4 +1,5 @@
 import "./globals.css"
+import MusicPlayer from "./components/MusicPlayer"
 
 export const metadata = {
   title: "J. Universe — Kahlaa Aulia Jemima",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="relative overflow-x-hidden">
+        <MusicPlayer />
         <div className="relative z-10">
           {children}
         </div>
