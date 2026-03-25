@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar"
 
 const experiences = [
   {
-    year: "Feb 2026 — Present",
+    year: "Feb 2026 — Aug 2026",
     org: "PT. Ciptadra Softindo",
     role: "Web Developer Intern",
     description: 
