@@ -59,9 +59,9 @@ export default function GalleryPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="font-mono text-xs tracking-[0.3em] uppercase mb-4 flex items-center gap-3"
-            style={{ color: "var(--accent3)" }}
+            style={{ color: "var(--accent2)" }}
           >
-            <span className="inline-block w-8 h-px" style={{ background: "var(--accent3)" }} />
+            <span className="inline-block w-8 h-px" style={{ background: "var(--accent2)" }} />
             Creative Work
           </motion.p>
 

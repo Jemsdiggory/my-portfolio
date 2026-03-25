@@ -63,9 +63,9 @@ export default function ExperiencePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="font-mono text-xs tracking-[0.3em] uppercase mb-4 flex items-center gap-3"
-            style={{ color: "var(--accent)" }}
+            style={{ color: "var(--accent2)" }}
           >
-            <span className="inline-block w-8 h-px" style={{ background: "var(--accent)", boxShadow: "0 0 6px var(--accent)" }} />
+            <span className="inline-block w-8 h-px" style={{ background: "var(--accent2)",boxShadow: "0 0 6px var(--accent2)" }} />
             Track Record
           </motion.p>
 

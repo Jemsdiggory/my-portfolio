@@ -84,24 +84,6 @@ const webProjects = [
     source: "https://github.com/Jemsdiggory/Molevote-Dummy",
 
   },
-  {
-    title: "To-Do List Web",
-    image: "/web/web2.png",
-    tags: ["HTML", "CSS", "JavaScript"],
-    description:
-      "Task manager with completed task tracking, interactive sound effects, and a game-inspired dashboard UI.",
-    source: "https://github.com/Jemsdiggory/toolis-web",
-
-  },
-  {
-    title: "Valorant Info Web",
-    image: "/web/web3.png",
-    tags: ["HTML", "CSS", "JavaScript"],
-    description:
-      "VALORANT-inspired landing page with agent info, game details, and music showcase — front-end practice project.",
-    source: "https://github.com/Jemsdiggory/V-INFO-web",
-
-  },
 ]
 
 const tagColor = (tag) => {

@@ -5,8 +5,8 @@ import Navbar from "../components/Navbar"
 import {
   SiJavascript, SiHtml5, SiPhp, SiPython,
   SiNetlify, SiVercel, SiNextdotjs, SiReact, SiTailwindcss,
-  SiMysql, SiGithub, SiGit, SiGitlab, SiItchdotio,
-  SiUnity, SiSteam, SiCanva, SiBlender, SiFigma,
+  SiMysql, SiGithub, SiGit, SiGitlab,
+  SiUnity, SiCanva, SiBlender, SiFigma,
   SiLaravel, SiCodeigniter,
 } from "react-icons/si"
 import { FaGamepad, FaBolt } from "react-icons/fa"
@@ -14,7 +14,7 @@ import { TbBrandCSharp } from "react-icons/tb"
 
 // Each badge: { icon, label, bg, fg }
 const techStack = [
-  { icon: TbBrandCSharp,  label: "C#",           bg: "#6a1577", fg: "#fff" },
+  { icon: TbBrandCSharp,  label: "",           bg: "#6a1577", fg: "#fff" },
   { icon: SiJavascript,   label: "JavaScript",   bg: "#f7df1e", fg: "#000" },
   { icon: SiHtml5,        label: "HTML5",        bg: "#e34f26", fg: "#fff" },
   { icon: SiPhp,          label: "PHP",          bg: "#777bb4", fg: "#fff" },
@@ -30,11 +30,7 @@ const techStack = [
   { icon: SiGithub,       label: "GitHub",       bg: "#24292e", fg: "#fff" },
   { icon: SiGit,          label: "Git",          bg: "#f05032", fg: "#fff" },
   { icon: SiGitlab,       label: "GitLab",       bg: "#fc6d26", fg: "#fff" },
-  { icon: SiItchdotio,    label: "Itch.io",      bg: "#fa5c5c", fg: "#fff" },
   { icon: SiUnity,        label: "Unity",        bg: "#222",    fg: "#fff" },
-  { icon: SiSteam,        label: "Steam",        bg: "#1b2838", fg: "#c7d5e0" },
-  { icon: FaGamepad,      label: "Riot Games",   bg: "#d0312d", fg: "#fff" },
-  { icon: FaBolt,         label: "Epic Games",   bg: "#2a2a2a", fg: "#fff" },
   { icon: SiCanva,        label: "Canva",        bg: "#00c4cc", fg: "#fff" },
   { icon: SiBlender,      label: "Blender",      bg: "#f5792a", fg: "#fff" },
   { icon: SiFigma,        label: "Figma",        bg: "#a259ff", fg: "#fff" },
