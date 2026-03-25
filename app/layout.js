@@ -2,7 +2,7 @@ import "./globals.css"
 import MusicPlayer from "./components/MusicPlayer"
 
 export const metadata = {
-  title: "J. Universe — Kahlaa Aulia Jemima",
+  title: "Kahlaa Aulia Jemima",
   description: "Portfolio of Kahlaa Aulia Jemima — Game Developer & Front-End Developer",
 }
 
