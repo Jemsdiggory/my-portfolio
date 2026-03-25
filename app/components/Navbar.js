@@ -40,23 +40,12 @@ export default function Navbar() {
         {/* logo */}
         <Link href="/" className="group flex items-center gap-2">
           <span
-            className="font-display font-bold text-xl tracking-tight"
+            className="font-display font-bold text-3xl tracking-tight"
             style={{ color: "var(--text)" }}
           >
             J.
           </span>
-          <span
-            className="font-display font-bold text-xl tracking-tight transition-colors duration-300"
-            style={{ color: "var(--accent)" }}
-          >
-            Universe
-          </span>
-          <span
-            className="font-mono text-xs ml-1 opacity-0 group-hover:opacity-60 transition-opacity duration-300"
-            style={{ color: "var(--accent2)" }}
-          >
-            ▸
-          </span>
+          
         </Link>
 
         {/* desktop nav */}
