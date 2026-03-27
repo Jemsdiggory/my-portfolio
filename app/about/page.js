@@ -38,8 +38,8 @@ const techStack = [
 
 
 const stats = [
-  { label: "Projects",        value: "8+" },
-  { label: "Games on Itch",   value: "5"  },
+  { label: "Projects",        value: "10+" },
+  { label: "Games on Itch",   value: "4+"  },
   { label: "Web Apps",        value: "3+" },
   { label: "Experience",      value: "2+ years" },
 ]

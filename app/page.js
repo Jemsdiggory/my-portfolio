@@ -12,7 +12,6 @@ export default function Page() {
     <>
       <Navbar />
 
-      {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
         <div
           className="absolute rounded-full blur-[120px] opacity-20"
@@ -43,7 +42,6 @@ export default function Page() {
       >
         <div className="max-w-4xl w-full">
 
-          {/* Mono label */}
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -55,10 +53,9 @@ export default function Page() {
               className="inline-block w-8 h-px"
               style={{ background: "var(--accent2)", boxShadow: "0 0 6px var(--accent2)" }}
             />
-            Portfolio 
+            Portfolio
           </motion.p>
 
-          {/* Main heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +83,6 @@ export default function Page() {
             <span className="shimmer-text">Aulia Jemima</span>
           </motion.h1>
 
-          {/* Roles */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -108,7 +104,6 @@ export default function Page() {
             ))}
           </motion.div>
 
-          {/* Short description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -116,10 +111,9 @@ export default function Page() {
             className="font-display text-base sm:text-lg mb-10 max-w-xl leading-relaxed"
             style={{ color: "var(--text-muted)" }}
           >
-            Game Technology student at Polimedia Jakarta — building games, web experiences, and everything in between.
+            Game Developer & Web Developer — crafting interactive experiences through games, interfaces, and everything in between.
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -140,14 +134,14 @@ export default function Page() {
             </Link>
 
             <Link
-              href="/about"
+              href="/experience"
               className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border"
               style={{
                 borderColor: "var(--border)",
                 color: "var(--text-muted)",
               }}
             >
-              About Me
+              Experience
             </Link>
 
             <Link
@@ -161,9 +155,33 @@ export default function Page() {
               Contact
             </Link>
           </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.85 }}
+            className="flex flex-wrap gap-8 mt-12"
+          >
+            {[
+              { label: "Projects",      value: "10+" },
+              { label: "Games on Itch", value: "4+"  },
+              { label: "Web Apps",      value: "3+" },
+              { label: "Experience",    value: "2+ yrs" },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col">
+                <span className="font-display font-extrabold text-3xl" style={{ color: "var(--accent)" }}>
+                  {s.value}
+                </span>
+                <span className="font-mono text-xs uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </motion.div>
+
         </div>
 
-        {/* Marquee */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
