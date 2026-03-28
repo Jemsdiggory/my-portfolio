@@ -5,7 +5,7 @@ import Link from "next/link"
 import Navbar from "./components/Navbar"
 import SocialMarquee from "./components/SocialMarquee"
 
-const roles = ["Game Developer", "Web Developer", "Unity Programmer"]
+const roles = ["Game Developer", "Web Developer", "Software Developer"]
 
 export default function Page() {
   return (
@@ -94,7 +94,7 @@ export default function Page() {
                 key={role}
                 className="font-mono text-sm px-4 py-1.5 rounded-full border"
                 style={{
-                  color: i === 0 ? "var(--accent)" : i === 1 ? "var(--accent2)" : "var(--accent3)",
+                  color: i === 0 ? "var(--accent)" : i === 1 ? "var(--accent2)" : "var(--text-muted)",
                   borderColor: i === 0 ? "rgba(123,108,255,0.3)" : i === 1 ? "rgba(61,255,209,0.3)" : "rgba(255,107,138,0.3)",
                   background: i === 0 ? "rgba(123,108,255,0.06)" : i === 1 ? "rgba(61,255,209,0.06)" : "rgba(255,107,138,0.06)",
                 }}
