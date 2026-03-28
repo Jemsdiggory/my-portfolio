@@ -79,6 +79,13 @@ const webProjects = [
     description: "A mini CMS for a game blog with full CRUD and WYSIWYG editor.",
   },
   {
+    slug: "saku-aman-app",
+    title: "Saku Aman App",
+    subtitle: "A personal expense tracker",
+    image: "/web/saku-aman/logo_saku_aman.png",
+    tags: ["Flutter", "Dart", "SQLite"]
+  },
+  {
     slug: "mlbb-vote",
     title: "MLBB Vote",
     subtitle: "Web Login",
@@ -94,7 +101,8 @@ const tagColor = (tag) => {
     HTML: "var(--accent2)", CSS: "var(--accent2)", JavaScript: "var(--accent2)",
     PHP: "var(--accent2)", MySQL: "var(--accent2)", "Vanilla JS": "var(--accent2)",
     MYSQL: "var(--accent2)", TinyMCE: "var(--accent2)", Laravel: "var(--accent2)",
-    CodeIgniter: "var(--accent2)",
+    CodeIgniter: "var(--accent2)", Flutter: "var(--accent2)", Dart: "var(--accent2)",
+    SQLite: "var(--accent2)",
     Educational: "var(--accent3)", RPG: "var(--accent3)", FPS: "var(--accent3)",
   }
   return map[tag] || "var(--text-muted)"
@@ -102,7 +110,7 @@ const tagColor = (tag) => {
 
 const tabs = [
   { key: "game", label: "Game Projects", count: gameProjects.length },
-  { key: "web",  label: "Web Projects",  count: webProjects.length  },
+  { key: "web",  label: "Web Apps Projects",  count: webProjects.length  },
 ]
 
 export default function ProjectsPage() {

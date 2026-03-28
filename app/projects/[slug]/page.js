@@ -6,7 +6,11 @@ import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import Navbar from "../../components/Navbar"
 
-
+/* ── ScrollPreview ─────────────────────────────────────
+   Satu gambar full-height yang auto-scroll dari atas ke bawah
+   di dalam container fixed height. User bisa hover untuk pause,
+   atau drag scroll manual.
+───────────────────────────────────────────────────── */
 function ScrollPreview({ src, alt }) {
   const containerRef = useRef(null)
   const animRef = useRef(null)
@@ -207,8 +211,143 @@ function Carousel({ images, title }) {
   )
 }
 
-// ── All web project data 
+/* ── MobileCarousel — portrait screenshots, manual scroll only ── */
+function MobileCarousel({ images, title }) {
+  const [current, setCurrent] = useState(0)
+  const containerRef = useRef(null)
+
+  // reset scroll ke atas setiap ganti gambar
+  useEffect(() => {
+    const el = containerRef.current
+    if (el) el.scrollTop = 0
+  }, [current])
+
+  return (
+    <div className="flex flex-col gap-6">
+      {/* main area: phone frame + thumbnail strip */}
+      <div className="flex gap-6 items-start">
+
+        {/* phone mockup */}
+        <div className="flex-shrink-0 relative" style={{ width: "260px" }}>
+          {/* frame */}
+          <div
+            className="relative rounded-[2rem] overflow-hidden border-2"
+            style={{
+              borderColor: "var(--border)",
+              background: "var(--surface2)",
+              boxShadow: "0 0 40px rgba(99,102,241,0.1)",
+            }}
+          >
+            {/* notch */}
+            <div
+              className="absolute top-3 left-1/2 -translate-x-1/2 z-10 rounded-full"
+              style={{ width: "60px", height: "10px", background: "var(--bg)" }}
+            />
+
+            {/* scrollable image inside phone */}
+            <div
+              ref={containerRef}
+              style={{
+                height: "480px",
+                overflowY: "scroll",
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
+            >
+              <style>{`.phone-scroll::-webkit-scrollbar{display:none}`}</style>
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current}
+                  src={images[current]}
+                  alt={`${title} screenshot ${current + 1}`}
+                  loading="lazy"
+                  decoding="async"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full h-auto block phone-scroll"
+                />
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* hint */}
+          <p className="font-mono text-xs text-center mt-3" style={{ color: "var(--text-dim)" }}>
+            scroll to explore
+          </p>
+        </div>
+
+        {/* thumbnail strip — vertical */}
+        <div className="flex flex-col gap-3 overflow-y-auto" style={{ maxHeight: "520px" }}>
+          {images.map((src, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className="flex-shrink-0 overflow-hidden rounded-xl border transition-all duration-300"
+              style={{
+                width: "72px",
+                height: "130px",
+                borderColor: i === current ? "var(--accent)" : "var(--border)",
+                boxShadow: i === current ? "0 0 10px rgba(99,102,241,0.4)" : "none",
+                opacity: i === current ? 1 : 0.45,
+              }}
+            >
+              <img src={src} alt="" className="w-full h-full object-cover object-top" loading="lazy" />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* dot + counter row */}
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1.5">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className="rounded-full transition-all duration-300"
+              style={{
+                width: i === current ? "16px" : "4px",
+                height: "4px",
+                background: i === current ? "var(--accent)" : "var(--border)",
+                boxShadow: i === current ? "0 0 8px var(--accent)" : "none",
+              }}
+            />
+          ))}
+        </div>
+        <span className="font-mono text-xs" style={{ color: "var(--text-dim)" }}>
+          {current + 1} / {images.length}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+// ── All web project data lives here ──────────────────
 const webProjects = {
+  "saku-aman-app": {
+    title: "Saku Aman",
+    subtitle: "Personal Expense Tracker App",
+    year: "2026",
+    role: "Solo Project",
+    description: "A personal expense tracker mobile app built with Flutter. Saku Aman helps users monitor daily spending, categorize transactions, and visualize financial habits through clean charts and summaries. Designed with a simple and intuitive UI to make budgeting accessible for everyday users.",
+    screenshots: [
+      "/web/saku-aman/saku-aman-app1.png",
+      "/web/saku-aman/saku-aman-app2.png",
+      "/web/saku-aman/saku-aman-app3.png",
+      "/web/saku-aman/saku-aman-app4.png",
+      "/web/saku-aman/saku-aman-app5.png",
+    ],
+    techStack: [
+      { name: "Flutter",  role: "Cross-platform mobile UI framework" },
+      { name: "Dart",     role: "Programming language for all app logic" },
+      { name: "SQLite",   role: "Local database for storing transactions" },
+    ],
+    source: "",
+    tags: ["Flutter", "Dart", "SQLite"],
+    isMobile: true,
+  },
   "ciptadra": {
     title: "Company Website",
     subtitle: "PT. Ciptadra Softindo",
@@ -250,7 +389,7 @@ const webProjects = {
   "mini-cms": {
     title: "Mini CMS",
     subtitle: "Game Blog",
-    year: "2024",
+    year: "2026",
     role: "Solo Project",
     description: "A mini content management system built for a game blog. Features a custom admin panel with full CRUD operations, a WYSIWYG rich text editor powered by TinyMCE, user authentication, and a clean responsive front-end. Built as a learning project to understand full-stack PHP development.",
     screenshots: [
@@ -275,7 +414,7 @@ const webProjects = {
   "mlbb-vote": {
     title: "MLBB Vote",
     subtitle: "Web Login",
-    year: "2024",
+    year: "2026",
     role: "Front-End Practice Project",
     description: "A responsive game-inspired website with interactive hero cards, role-based filtering, a simulated login flow, and dynamic UI animations. Built as a front-end practice project to sharpen CSS animation, DOM manipulation, and responsive layout skills using vanilla web technologies.",
     screenshots: [
@@ -368,7 +507,10 @@ export default function WebProjectDetail({ params }) {
               Screenshots
             </p>
 
-            <Carousel images={project.screenshots} title={project.title} />
+            {project.isMobile
+              ? <MobileCarousel images={project.screenshots} title={project.title} />
+              : <Carousel images={project.screenshots} title={project.title} />
+            }
           </motion.div>
 
           {/* two-column: description + tech stack */}
