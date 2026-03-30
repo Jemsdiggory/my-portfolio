@@ -112,7 +112,7 @@ export default function ContactPage() {
             className="mb-16"
           >
             <a
-              href="mailto:jemsdiggory@gmail.com"
+              href="mailto:jemimadiggory@gmail.com"
               className="btn-glow inline-flex items-center gap-3 font-mono text-base px-8 py-4 rounded-xl border font-medium"
               style={{
                 background: "var(--accent)",
@@ -122,7 +122,7 @@ export default function ContactPage() {
               }}
             >
               <FaEnvelope />
-              jemsdiggory@gmail.com
+              jemimadiggory@gmail.com
             </a>
           </motion.div>
 
