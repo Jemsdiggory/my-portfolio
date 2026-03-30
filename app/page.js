@@ -5,7 +5,7 @@ import Link from "next/link"
 import Navbar from "./components/Navbar"
 import SocialMarquee from "./components/SocialMarquee"
 
-const roles = ["Game Developer", "Web Developer", "Software Developer"]
+const roles = ["Game Developer", "Web Developer", "Programmer"]
 
 export default function Page() {
   return (
