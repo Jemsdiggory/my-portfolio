@@ -8,6 +8,7 @@ import {
   SiMysql, SiGithub, SiGit, SiGitlab,
   SiUnity, SiCanva, SiBlender, SiFigma,
   SiLaravel, SiCodeigniter,
+  SiNotion,
 } from "react-icons/si"
 import { FaGamepad, FaBolt } from "react-icons/fa"
 import { TbBrandCSharp } from "react-icons/tb"
@@ -34,6 +35,8 @@ const techStack = [
   { icon: SiCanva,        label: "Canva",        bg: "#00c4cc", fg: "#fff" },
   { icon: SiBlender,      label: "Blender",      bg: "#f5792a", fg: "#fff" },
   { icon: SiFigma,        label: "Figma",        bg: "#a259ff", fg: "#fff" },
+  { icon: SiNotion, label:"Notion", bg: "var(--accent3)", fg: "#fff" },
+  
 ]
 
 

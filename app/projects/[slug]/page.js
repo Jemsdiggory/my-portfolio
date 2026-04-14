@@ -324,7 +324,7 @@ function MobileCarousel({ images, title }) {
   )
 }
 
-// ── All web project data lives here ──────────────────
+//  web project data lives here 
 const webProjects = {
   "saku-aman-app": {
     title: "Saku Aman",
@@ -363,6 +363,8 @@ const webProjects = {
       { name: "PHP",        role: "Server-side logic, routing, and data handling" },
       { name: "CSS3",       role: "Custom animations, responsive layout, and styling" },
       { name: "Vanilla JS", role: "Interactive UI components and DOM manipulation" },
+      { name: "Spread Sheet", role: "Sprint Planning by Project Manager" },
+      { name: "Notion", role:  "Documentation and Task Management",}
     ],
     source: "",
     tags: ["Laravel", "PHP", "CSS", "Vanilla JS"],
@@ -382,6 +384,8 @@ const webProjects = {
       { name: "PHP",         role: "Server-side scripting" },
       { name: "CSS3",        role: "Responsive layout and component styling" },
       { name: "Vanilla JS",  role: "UI interactions and dynamic content" },
+      { name: "Spread Sheet", role: "Sprint Planning by Project Manager" },
+      { name: "Notion", role:  "Documentation and Task Management" },
     ],
     source: "",
     tags: ["CodeIgniter", "PHP", "CSS", "Vanilla JS"],
@@ -407,6 +411,7 @@ const webProjects = {
       { name: "TinyMCE",   role: "WYSIWYG rich text editor for content creation" },
       { name: "Vanilla JS", role: "AJAX calls, UI interactions, and dynamic elements" },
       { name: "CSS3",       role: "Responsive admin panel and front-end styling" },
+      { name: "Notion", role:  "Documentation and Project Planning"},
     ],
     source: "https://github.com/Jemsdiggory/Mini-cms",
     tags: ["PHP", "MySQL", "Vanilla JS", "TinyMCE"],

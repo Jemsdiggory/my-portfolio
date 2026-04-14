@@ -64,7 +64,7 @@ const webProjects = [
     title: "Company Website",
     subtitle: "PT. Ciptadra Softindo",
     image: "/web/webCiptadra/webciptadra.png",
-    tags: ["Laravel", "PHP", "CSS", "Vanilla JS"],
+    tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Spread Sheet", "Notion"],
     description: "Redesigned and developed the company profile homepage for Ciptadra Softindo.",
   },
   {
@@ -72,7 +72,7 @@ const webProjects = [
     title: "Landing Page",
     subtitle: "Mall Management System Ciptadra",
     image: "/web/MallManagement/webMallManagement.png",
-    tags: ["CodeIgniter", "PHP", "CSS", "Vanilla JS"],
+    tags: ["CodeIgniter", "PHP", "CSS", "Vanilla JS", "Spread Sheet", "Notion"],
     description: "Developed a landing page for the Mall Management System of Ciptadra.",
   },
   {
@@ -80,7 +80,7 @@ const webProjects = [
     title: "Mini CMS",
     subtitle: "Game Blog",
     image: "/web/mini-cms/Mini-cms.png",
-    tags: ["PHP", "MySQL", "Vanilla JS", "TinyMCE"],
+    tags: ["PHP", "MySQL", "Vanilla JS", "TinyMCE", "Notion"],
     description: "A mini CMS for a game blog with full CRUD and WYSIWYG editor.",
   },
   {
@@ -108,7 +108,7 @@ const tagColor = (tag) => {
     PHP: "var(--accent2)", MySQL: "var(--accent2)", "Vanilla JS": "var(--accent2)",
     MYSQL: "var(--accent2)", TinyMCE: "var(--accent2)", Laravel: "var(--accent2)",
     CodeIgniter: "var(--accent2)", Flutter: "var(--accent2)", Dart: "var(--accent2)",
-    SQLite: "var(--accent2)",
+    SQLite: "var(--accent2)", "Spread Sheet": "var(--accent2)", Notion: "var(--accent2)",
     Educational: "var(--accent3)", RPG: "var(--accent3)", FPS: "var(--accent3)",
   }
   return map[tag] || "var(--text-muted)"
