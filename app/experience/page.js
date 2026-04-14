@@ -11,7 +11,7 @@ const experiences = [
     role: "Web Developer Intern",
     description:
       "Contributed to the maintenance of company and client websites, implemented new features, and developed updated layouts to support newly released products and enhance the website interface and user experience.",
-    tags: ["Web Development", "Collaboration", "Problem-Solving"],
+    tags: ["Web Development", "Collaboration", "Problem-Solving", "Git", "Gitlab", "Notion"],
   },
   {
     year: "2024 — Present",
@@ -20,7 +20,7 @@ const experiences = [
     role: "Game Programmer",
     description:
       "Collaborated in a team of 4 to develop an atmospheric narrative game using Unity, contributing to gameplay programming, optimization, and bug fixing, while gaining experience in version control and agile development practices.",
-    tags: ["Game Development", "Time Management", "Teamwork"],
+    tags: ["Game Development", "Time Management", "Teamwork", "Unity", "C#", "Notion", "Github"],
   },
   {
     year: "2024 — 2025",
