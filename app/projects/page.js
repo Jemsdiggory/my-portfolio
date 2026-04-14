@@ -40,7 +40,7 @@ const gameProjects = [
     title: "Roblorant",
     studio: "Solo Project",
     icon: "/game-icons/icongame4.png",
-    video: null, // tetep pakai icon
+    video: "/gameplay/roblorant.mp4",
     link: "https://jemsdiggory.itch.io/tugas-game-fps",
     tags: ["Unity", "3D", "FPS", "Assignment"],
     description: "3D FPS game assignment built with Unity. Core gameplay: player movement, shooting mechanics, enemy AI. Web-based.",
@@ -50,7 +50,7 @@ const gameProjects = [
     title: "Congklak Adventures",
     studio: "Team 7",
     icon: "/game-icons/icongame5.png",
-    video: "/gameplay/congklak-adventure.mp4", 
+    video: "/gameplay/congklak-adventures.mp4",
     link: "https://dycals.itch.io/congklak-adventures",
     tags: ["Unity", "2D", "Traditional", "Educational"],
     description: "2D Educational game on the traditional Congklak board game. My role: UI Artist & co-Game Designer. PC Platform.",
@@ -114,12 +114,12 @@ const tagColor = (tag) => {
   return map[tag] || "var(--text-muted)"
 }
 
-// game card 
+// game card
 function GameCard({ game, index }) {
   const videoRef = useRef(null)
   const [playing, setPlaying] = useState(false)
   const [hovered, setHovered] = useState(false)
-  const [srcLoaded, setSrcLoaded] = useState(false) // lazy: hanya load src saat pertama play
+  const [srcLoaded, setSrcLoaded] = useState(false)
 
   const togglePlay = (e) => {
     e.preventDefault()
@@ -128,7 +128,7 @@ function GameCard({ game, index }) {
     if (!v) return
 
     // lazy load: set src pertama kali user klik play
-    if (!srcLoaded && game.video) {
+    if (!srcLoaded) {
       v.src = game.video
       setSrcLoaded(true)
     }
@@ -154,88 +154,69 @@ function GameCard({ game, index }) {
     >
       {/* media area */}
       <div className="relative flex-shrink-0 overflow-hidden" style={{ height: "200px" }}>
-        {game.video ? (
-          <>
-            {/* video  */}
-            <video
-              ref={videoRef}
-              className="w-full h-full object-cover"
-              loop
-              muted
-              playsInline
-              preload="none"
-              poster={game.icon}
-            />
+        {/* video */}
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          loop
+          muted
+          playsInline
+          preload="none"
+          poster={game.icon}
+        />
 
-            {/* gradient overlay */}
-            <div
-              className="absolute inset-0"
-              style={{ background: "linear-gradient(to top, var(--surface) 0%, transparent 60%)" }}
-            />
+        {/* gradient overlay */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to top, var(--surface) 0%, transparent 60%)" }}
+        />
 
-            {/* play/pause button */}
-            <button
-              onClick={togglePlay}
-              className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
-              style={{ opacity: hovered || !playing ? 1 : 0 }}
-            >
-              <div
-                className="flex items-center justify-center rounded-full border transition-all duration-300"
-                style={{
-                  width: "44px",
-                  height: "44px",
-                  background: playing ? "rgba(13,17,23,0.7)" : "rgba(99,102,241,0.85)",
-                  borderColor: playing ? "var(--border)" : "var(--accent)",
-                  boxShadow: !playing ? "0 0 20px rgba(99,102,241,0.5)" : "none",
-                  backdropFilter: "blur(8px)",
-                }}
-              >
-                {playing ? (
-                  /* pause icon */
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <rect x="2" y="1" width="4" height="12" rx="1" fill="white"/>
-                    <rect x="8" y="1" width="4" height="12" rx="1" fill="white"/>
-                  </svg>
-                ) : (
-                  /* play icon */
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path d="M3 1.5L12 7L3 12.5V1.5Z" fill="white"/>
-                  </svg>
-                )}
-              </div>
-            </button>
-
-            {/* playing indicator */}
-            {playing && (
-              <div
-                className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-md font-mono text-xs"
-                style={{
-                  background: "rgba(13,17,23,0.75)",
-                  color: "var(--accent2)",
-                  border: "1px solid rgba(99,102,241,0.3)",
-                  backdropFilter: "blur(8px)",
-                }}
-              >
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--accent2)" }} />
-                Playing
-              </div>
+        {/* play/pause button */}
+        <button
+          onClick={togglePlay}
+          className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
+          style={{ opacity: hovered || !playing ? 1 : 0 }}
+        >
+          <div
+            className="flex items-center justify-center rounded-full border transition-all duration-300"
+            style={{
+              width: "44px",
+              height: "44px",
+              background: playing ? "rgba(13,17,23,0.7)" : "rgba(99,102,241,0.85)",
+              borderColor: playing ? "var(--border)" : "var(--accent)",
+              boxShadow: !playing ? "0 0 20px rgba(99,102,241,0.5)" : "none",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            {playing ? (
+              /* pause icon */
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <rect x="2" y="1" width="4" height="12" rx="1" fill="white"/>
+                <rect x="8" y="1" width="4" height="12" rx="1" fill="white"/>
+              </svg>
+            ) : (
+              /* play icon */
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 1.5L12 7L3 12.5V1.5Z" fill="white"/>
+              </svg>
             )}
-          </>
-        ) : (
-          /* no video — just icon */
-          <>
-            <img
-              src={game.icon}
-              alt={game.title}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover"
-            />
-            <div
-              className="absolute inset-0"
-              style={{ background: "linear-gradient(to top, var(--surface) 0%, transparent 60%)" }}
-            />
-          </>
+          </div>
+        </button>
+
+        {/* playing indicator */}
+        {playing && (
+          <div
+            className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-md font-mono text-xs"
+            style={{
+              background: "rgba(13,17,23,0.75)",
+              color: "var(--accent2)",
+              border: "1px solid rgba(99,102,241,0.3)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--accent2)" }} />
+            Playing
+          </div>
         )}
       </div>
 
