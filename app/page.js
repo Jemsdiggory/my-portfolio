@@ -166,8 +166,8 @@ export default function Page() {
             {[
               { label: "Projects",      value: "10+" },
               { label: "Games on Itch", value: "4+"  },
-              { label: "Web Apps",      value: "3+" },
-              { label: "Experience",    value: "2+ yrs" },
+              { label: "Web Apps",      value: "4+" },
+              { label: "Experience",    value: "3+ yrs" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col">
                 <span className="font-display font-extrabold text-3xl" style={{ color: "var(--accent)" }}>
