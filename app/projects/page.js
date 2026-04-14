@@ -50,7 +50,7 @@ const gameProjects = [
     title: "Congklak Adventures",
     studio: "Team 7",
     icon: "/game-icons/icongame5.png",
-    video: null, // tetep pakai icon
+    video: "/gameplay/congklak-adventure.mp4", 
     link: "https://dycals.itch.io/congklak-adventures",
     tags: ["Unity", "2D", "Traditional", "Educational"],
     description: "2D Educational game on the traditional Congklak board game. My role: UI Artist & co-Game Designer. PC Platform.",
