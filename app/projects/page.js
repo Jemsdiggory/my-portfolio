@@ -64,7 +64,7 @@ const webProjects = [
     title: "Company Website",
     subtitle: "PT. Ciptadra Softindo",
     image: "/web/webCiptadra/webciptadra.png",
-    tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Spread Sheet", "Notion"],
+    tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git", "Gitlab", "Notion"],
     description: "Redesigned and developed the company profile homepage for Ciptadra Softindo.",
   },
   {
@@ -72,7 +72,7 @@ const webProjects = [
     title: "Landing Page",
     subtitle: "Mall Management System Ciptadra",
     image: "/web/MallManagement/webMallManagement.png",
-    tags: ["CodeIgniter", "PHP", "CSS", "Vanilla JS", "Spread Sheet", "Notion"],
+    tags: ["CodeIgniter", "PHP", "CSS", "Vanilla JS", "Spread Sheet", "Git", "Gitlab"],
     description: "Developed a landing page for the Mall Management System of Ciptadra.",
   },
   {
@@ -109,6 +109,7 @@ const tagColor = (tag) => {
     MYSQL: "var(--accent2)", TinyMCE: "var(--accent2)", Laravel: "var(--accent2)",
     CodeIgniter: "var(--accent2)", Flutter: "var(--accent2)", Dart: "var(--accent2)",
     SQLite: "var(--accent2)", "Spread Sheet": "var(--accent2)", Notion: "var(--accent2)",
+    Git: "var(--accent2)", GitHub: "var(--accent2)", Gitlab: "var(--accent2)",
     Educational: "var(--accent3)", RPG: "var(--accent3)", FPS: "var(--accent3)",
   }
   return map[tag] || "var(--text-muted)"
