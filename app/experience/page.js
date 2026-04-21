@@ -11,6 +11,11 @@ const experiences = [
     role: "Web Developer Intern",
     description:
       "Contributed to the maintenance of company and client websites, implemented new features, and developed updated layouts to support newly released products and enhance the website interface and user experience.",
+    projects: [
+      "Company Profile Ciptadra Softindo",
+      "Landing Page for Ciptadra Mall Management System",
+      "Ciptadra Mall Management System",
+    ],
     tags: ["Web Development", "Collaboration", "Problem-Solving", "Git", "Gitlab", "Notion"],
   },
   {
@@ -20,6 +25,11 @@ const experiences = [
     role: "Game Programmer",
     description:
       "Collaborated in a team of 4 to develop an atmospheric narrative game using Unity, contributing to gameplay programming, optimization, and bug fixing, while gaining experience in version control and agile development practices.",
+    projects: [
+      "Let's Explore",
+      "Rise Against",
+      "Vita-dulu",
+    ],
     tags: ["Game Development", "Time Management", "Teamwork", "Unity", "C#", "Notion", "Github"],
   },
   {
@@ -153,6 +163,18 @@ export default function ExperiencePage() {
                       <p className="leading-relaxed mb-5 text-sm" style={{ color: "var(--text-muted)" }}>
                         {exp.description}
                       </p>
+
+                      {/* projects */}
+                      {exp.projects && (
+                        <div className="mb-5">
+                          <p className="font-mono text-xs mb-2 uppercase tracking-wider" style={{ color: "var(--accent)" }}>Projects:</p>
+                          <ul className="list-disc list-inside text-sm space-y-1" style={{ color: "var(--text-muted)" }}>
+                            {exp.projects.map((project, idx) => (
+                              <li key={idx}>{project}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
 
                       {/* tags */}
                       <div className="flex flex-wrap gap-2">
