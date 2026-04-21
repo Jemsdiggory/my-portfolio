@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useRef } from "react"
+import React, { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import Navbar from "../components/Navbar"
+import { image } from "framer-motion/client"
 
 const gameProjects = [
   {
@@ -76,6 +77,22 @@ const webProjects = [
     description: "Developed a landing page for the Mall Management System of Ciptadra.",
   },
   {
+    slug: "mall-management-system",
+    title: "Mall Management System",
+    subtitle: "Web-based Mall Management System Ciptadra",
+    image: "/web/sistemMall/sistMall1.png",
+    tags: ["CodeIgniter", "PHP", "MySQL", "CSS", "Vanilla JS", "Git", "Gitlab"],
+    description: "A web-based mall management system for Ciptadra, featuring tenant management, contract management, and billing generation.",
+  },
+  {
+    slug: "food-check",
+    title: "FoodCheck",
+    subtitle: "Web App to find food recipes based on available ingredients",
+    image: "/web/foodcheck/fc1.png",
+    tags: ["Laravel", "MySQL", "React.js", "Vite",  "Git", "GitHub", "Spoonacular API"],
+    description: "A full stack recipe finder web app built with React and Laravel. Users can search recipes based on available ingredients, save favorites, and track search history. Integrated with Spoonacular API for real-time recipe data.",
+  },
+  {
     slug: "mini-cms",
     title: "Mini CMS",
     subtitle: "Game Blog with CMS Features",
@@ -110,6 +127,7 @@ const tagColor = (tag) => {
     CodeIgniter: "var(--accent2)", Flutter: "var(--accent2)", Dart: "var(--accent2)",
     SQLite: "var(--accent2)", "Spread Sheet": "var(--accent2)", Notion: "var(--accent2)",
     Git: "var(--accent2)", GitHub: "var(--accent2)", Gitlab: "var(--accent2)",
+      "Spoonacular API": "var(--accent2)", "React.js": "var(--accent2)", Vite: "var(--accent2)",
     Educational: "var(--accent3)", RPG: "var(--accent3)", FPS: "var(--accent3)",
   }
   return map[tag] || "var(--text-muted)"

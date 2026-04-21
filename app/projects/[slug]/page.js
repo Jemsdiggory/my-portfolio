@@ -377,7 +377,7 @@ const webProjects = {
     role: "Web Developer Intern",
     description: "Developed a landing page for the Mall Management System product of Ciptadra Softindo. The page focuses on clean responsive design and clear information to support the company's.",
     screenshots: [
-      "/web/MallManagement/FullWebMallManagement.png",
+      "/web/MallManagement/webMallManagement.png",
       
     ],
     techStack: [
@@ -391,6 +391,51 @@ const webProjects = {
     ],
     source: "",
     tags: ["CodeIgniter", "PHP", "CSS", "Vanilla JS"],
+  },
+  "mall-management-system": {
+    title: "Mall Management System",
+    subtitle: "Web-based Mall Management System Ciptadra",
+    year: "2026",
+    role: "Web Developer Intern",
+    description: "A web-based mall management system for Ciptadra, featuring tenant management, contract management, and billing generation.",
+    screenshots: [
+      "/web/sistemMall/sistMall1.png",
+    ],
+    techStack: [
+      { name: "CodeIgniter", role: "PHP MVC framework for structure and routing" },
+      { name: "PHP",         role: "Server-side scripting" },
+      { name: "MySQL",       role: "Relational database for storing data" },
+      { name: "CSS3",        role: "Responsive layout and component styling" },
+      { name: "Vanilla JS",  role: "UI interactions and dynamic content" },
+      { name: "Git", role: "Version control and collaboration" },
+      { name: "Gitlab", role: "Code hosting and CI/CD pipelines" },
+    ],
+    source: "",
+    tags: ["CodeIgniter", "PHP", "MySQL", "CSS", "Vanilla JS"],
+  },
+  "food-check": {
+    title: "FoodCheck",
+    subtitle: "Web App to find food recipes based on available ingredients",
+    image: "/web/foodcheck/fc1.png",
+    year: "2026",
+    role: "Solo Project",
+    description: "A full stack recipe finder web app built with React and Laravel. Users can search recipes based on available ingredients, save favorites, and track search history. Integrated with Spoonacular API for real-time recipe data.",
+    screenshots: [
+      "/web/foodcheck/fc1.png",
+      "/web/foodcheck/fc2.png",
+      "/web/foodcheck/fc3.png",
+    ],
+    techStack: [
+      { name: "Laravel",    role: "Backend framework & Blade templating engine" },
+      { name: "MySQL",      role: "Relational database for storing data" },
+      { name: "React.js",   role: "Frontend library for building user interfaces" },
+      { name: "Vite",       role: "Build tool for fast development" },
+      { name: "Git",        role: "Version control and collaboration" },
+      { name: "GitHub",     role: "Code hosting and collaboration" },
+      { name: "Spoonacular API", role: "Recipe data provider" },
+    ],
+    source: "",
+    tags: ["Laravel", "MySQL", "React.js", "Vite", "Git", "GitHub", "Spoonacular API"],
   },
   "mini-cms": {
     title: "Mini CMS",
