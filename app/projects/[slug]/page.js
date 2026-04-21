@@ -350,7 +350,7 @@ const webProjects = {
   },
   "ciptadra": {
     title: "Company Website",
-    subtitle: "PT. Ciptadra Softindo",
+    subtitle: "Home Page Redesign for Ciptadra Softindo",
     year: "2026",
     role: "Web Developer Intern",
     description: "Redesigned and developed the company profile homepage for Ciptadra Softindo, including UI/UX improvements, custom CSS animations, interactive components, and multilingual content updates using Laravel Blade. The goal was to modernize the visual identity of the company's web presence while maintaining clarity and professionalism.",
@@ -372,7 +372,7 @@ const webProjects = {
   },
   "mall-management": {
     title: "Landing Page",
-    subtitle: "Mall Management System Ciptadra",
+    subtitle: "Designed Landing Page for Mall Management System Ciptadra",
     year: "2026",
     role: "Web Developer Intern",
     description: "Developed a landing page for the Mall Management System product of Ciptadra Softindo. The page focuses on clean responsive design and clear information to support the company's.",
@@ -394,7 +394,7 @@ const webProjects = {
   },
   "mini-cms": {
     title: "Mini CMS",
-    subtitle: "Game Blog",
+    subtitle: "Game Blog with CMS Features",
     year: "2026",
     role: "Solo Project",
     description: "A mini content management system built for a game blog. Features a custom admin panel with full CRUD operations, a WYSIWYG rich text editor powered by TinyMCE, user authentication, and a clean responsive front-end. Built as a learning project to understand full-stack PHP development.",
@@ -420,7 +420,7 @@ const webProjects = {
   },
   "mlbb-vote": {
     title: "MLBB Vote",
-    subtitle: "Web Login",
+    subtitle: "Web Login and Hero Filtering UI",
     year: "2026",
     role: "Front-End Practice Project",
     description: "A responsive game-inspired website with interactive hero cards, role-based filtering, a simulated login flow, and dynamic UI animations. Built as a front-end practice project to sharpen CSS animation, DOM manipulation, and responsive layout skills using vanilla web technologies.",

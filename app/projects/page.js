@@ -62,7 +62,7 @@ const webProjects = [
   {
     slug: "ciptadra",
     title: "Company Website",
-    subtitle: "PT. Ciptadra Softindo",
+    subtitle: "Home Page Redesign for Ciptadra Softindo",
     image: "/web/webCiptadra/webciptadra.png",
     tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git", "Gitlab", "Notion"],
     description: "Redesigned and developed the company profile homepage for Ciptadra Softindo.",
@@ -70,7 +70,7 @@ const webProjects = [
   {
     slug: "mall-management",
     title: "Landing Page",
-    subtitle: "Mall Management System Ciptadra",
+    subtitle: "Designed Landing Page for Mall Management System Ciptadra",
     image: "/web/MallManagement/webMallManagement.png",
     tags: ["CodeIgniter", "PHP", "CSS", "Vanilla JS", "Spread Sheet", "Git", "Gitlab"],
     description: "Developed a landing page for the Mall Management System of Ciptadra.",
@@ -78,7 +78,7 @@ const webProjects = [
   {
     slug: "mini-cms",
     title: "Mini CMS",
-    subtitle: "Game Blog",
+    subtitle: "Game Blog with CMS Features",
     image: "/web/mini-cms/Mini-cms.png",
     tags: ["PHP", "MySQL", "Vanilla JS", "TinyMCE", "Notion"],
     description: "A mini CMS for a game blog with full CRUD and WYSIWYG editor.",
@@ -94,7 +94,7 @@ const webProjects = [
   {
     slug: "mlbb-vote",
     title: "MLBB Vote",
-    subtitle: "Web Login",
+    subtitle: "Web Login and Hero Filtering UI",
     image: "/web/Mole-vote/mole-vote.png",
     tags: ["HTML", "CSS", "JavaScript"],
     description: "Responsive game-inspired website with hero cards and role-based filtering.",
