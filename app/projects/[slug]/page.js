@@ -489,6 +489,8 @@ const tagColor = (tag) => {
     HTML: "var(--accent2)", CSS: "var(--accent2)", JavaScript: "var(--accent2)",
     PHP: "var(--accent2)", MySQL: "var(--accent2)", "Vanilla JS": "var(--accent2)",
     TinyMCE: "var(--accent2)", Laravel: "var(--accent2)", CodeIgniter: "var(--accent2)",
+    "React.js": "var(--accent2)", Vite: "var(--accent2)", Git: "var(--accent2)", GitHub: "var(--accent2)", "Spoonacular API": "var(--accent2)",
+    Flutter: "var(--accent2)", Dart: "var(--accent2)", SQLite: "var(--accent2)",
   }
   return map[tag] || "var(--text-muted)"
 }
