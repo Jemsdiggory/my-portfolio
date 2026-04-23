@@ -109,6 +109,14 @@ const webProjects = [
     description: "A personal finance tracker mobile app built with Flutter.",
   },
   {
+    slug: "angular-spa",
+    title: "Angular SPA",
+    subtitle: "Single Page Application built with Angular",
+    image: "/web/angular-app/angular-spa.png",
+    tags: ["Angular", "TypeScript", "RxJS", "HTTP Client", "Git", "GitHub", "Joke API"],
+    description: "A Single Page Application built with Angular. This app demonstrates Reactive Forms, Form Validation, Business Logic, and HTTP calls to an external API.",
+  },
+  {
     slug: "mlbb-vote",
     title: "MLBB Vote",
     subtitle: "Web Login and Hero Filtering UI",
@@ -128,6 +136,7 @@ const tagColor = (tag) => {
     SQLite: "var(--accent2)", "Spread Sheet": "var(--accent2)", Notion: "var(--accent2)",
     Git: "var(--accent2)", GitHub: "var(--accent2)", Gitlab: "var(--accent2)",
       "Spoonacular API": "var(--accent2)", "React.js": "var(--accent2)", Vite: "var(--accent2)",
+      "Joke API": "var(--accent2)", Angular: "var(--accent2)", TypeScript: "var(--accent2)", RxJS: "var(--accent2)", "HTTP Client": "var(--accent2)",
     Educational: "var(--accent3)", RPG: "var(--accent3)", FPS: "var(--accent3)",
   }
   return map[tag] || "var(--text-muted)"

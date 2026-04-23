@@ -344,7 +344,7 @@ const webProjects = {
       { name: "Dart",     role: "Programming language for all app logic" },
       { name: "SQLite",   role: "Local database for storing transactions" },
     ],
-    source: "",
+    source: "https://github.com/Jemsdiggory/saku-aman-app",
     tags: ["Flutter", "Dart", "SQLite"],
     isMobile: true,
   },
@@ -434,7 +434,7 @@ const webProjects = {
       { name: "GitHub",     role: "Code hosting and collaboration" },
       { name: "Spoonacular API", role: "Recipe data provider" },
     ],
-    source: "",
+    source: "https://github.com/Jemsdiggory/foodcheck-backend",
     tags: ["Laravel", "MySQL", "React.js", "Vite", "Git", "GitHub", "Spoonacular API"],
   },
   "mini-cms": {
@@ -463,6 +463,29 @@ const webProjects = {
     source: "https://github.com/Jemsdiggory/Mini-cms",
     tags: ["PHP", "MySQL", "Vanilla JS", "TinyMCE"],
   },
+  "angular-spa": {
+    title: "Angular SPA",
+    subtitle: "Single Page Application built with Angular",
+    image: "/web/angular-app/angular-spa.png",
+    year: "2026",
+    role: "Front-End Practice Project",
+    description: "A Single Page Application built with Angular. This app demonstrates Reactive Forms, Form Validation, Business Logic, and HTTP calls to an external API.",
+    screenshots: [
+      "/web/angular-app/angular-spa.png",
+      "/web/angular-app/angular-spa2.png",
+    ],
+    techStack: [
+      { name: "Angular",      role: "Frontend framework" },
+      { name: "TypeScript",   role: "Programming language" },
+      { name: "RxJS",         role: "Reactive programming library" },
+      { name: "HTTP Client",  role: "For making HTTP requests" },
+      { name: "Git",          role: "Version control" },
+      { name: "GitHub",       role: "Code hosting" },
+      { name: "Joke API",     role: "External API for joke data" },
+    ],
+    source: "https://github.com/Jemsdiggory/antarikstech-angular",
+    tags: ["Angular", "TypeScript", "RxJS", "HTTP Client", "Git", "GitHub", "Joke API"],
+  },
   "mlbb-vote": {
     title: "MLBB Vote",
     subtitle: "Web Login and Hero Filtering UI",
@@ -490,7 +513,8 @@ const tagColor = (tag) => {
     PHP: "var(--accent2)", MySQL: "var(--accent2)", "Vanilla JS": "var(--accent2)",
     TinyMCE: "var(--accent2)", Laravel: "var(--accent2)", CodeIgniter: "var(--accent2)",
     "React.js": "var(--accent2)", Vite: "var(--accent2)", Git: "var(--accent2)", GitHub: "var(--accent2)", "Spoonacular API": "var(--accent2)",
-    Flutter: "var(--accent2)", Dart: "var(--accent2)", SQLite: "var(--accent2)",
+    Flutter: "var(--accent2)", Dart: "var(--accent2)", SQLite: "var(--accent2)", "Notion": "var(--accent2)", "Joke API": "var(--accent2)", Angular: "var(--accent2)", 
+    TypeScript: "var(--accent2)", RxJS: "var(--accent2)", "HTTP Client": "var(--accent2)",
   }
   return map[tag] || "var(--text-muted)"
 }
