@@ -15,6 +15,8 @@ const experiences = [
       "Company Profile Ciptadra Softindo",
       "Landing Page for Ciptadra Mall Management System",
       "Ciptadra Mall Management System",
+      "Onebox Website",
+      "Onebox Portal",
     ],
     tags: ["Web Development", "Collaboration", "Problem-Solving", "Git", "Gitlab", "Notion"],
   },
