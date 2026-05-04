@@ -66,7 +66,15 @@ const webProjects = [
     subtitle: "Home Page Redesign for Ciptadra Softindo",
     image: "/web/webCiptadra/webciptadra.png",
     tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git", "Gitlab", "Notion"],
-    description: "Redesigned and developed the company profile homepage for Ciptadra Softindo.",
+    description: "Redesigned and developed the company profile homepage and product pages for Ciptadra Softindo.",
+  },
+  {
+    slug: "onebox-ciptadra",
+    title: "OneBox Portal",
+    subtitle: "Redesign of OneBox Portal for Ciptadra Softindo",
+    image: "/web/web-onebox/thumbwanbok.png",
+    tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git", "Gitlab", "Notion"],
+    description: "Redesigned and developed the OneBox Portal for Ciptadra Softindo employees.",
   },
   {
     slug: "mall-management",

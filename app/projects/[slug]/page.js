@@ -6,11 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import Navbar from "../../components/Navbar"
 
-/* ── ScrollPreview ─────────────────────────────────────
-   Satu gambar full-height yang auto-scroll dari atas ke bawah
-   di dalam container fixed height. User bisa hover untuk pause,
-   atau drag scroll manual.
-───────────────────────────────────────────────────── */
+/* Scroll Preview */
 function ScrollPreview({ src, alt }) {
   const containerRef = useRef(null)
   const animRef = useRef(null)
@@ -370,6 +366,27 @@ const webProjects = {
     source: "",
     tags: ["Laravel", "PHP", "CSS", "Vanilla JS"],
   },
+  "onebox-ciptadra": {
+    title: "OneBox Portal",
+    subtitle: "Redesign of OneBox Portal for Ciptadra Softindo",
+    year: "2026",
+    role: "Web Developer Intern",
+    description: "Redesigned and developed the OneBox Portal for Ciptadra Softindo employees, focusing on improved UI clarity, dashboard layout, and consistent component styling for engagement.",
+    screenshots: [
+      "/web/web-onebox/wanbok.png",
+    ],
+    techStack: [
+      { name: "Laravel",    role: "Backend framework & Blade templating engine" },
+      { name: "PHP",        role: "Server-side logic, routing, and data handling" },
+      { name: "CSS3",       role: "Layout, component styling, and responsive UI" },
+      { name: "Vanilla JS", role: "Interactive UI components and DOM manipulation" },
+      { name: "Git",        role: "Version control and collaboration" },
+      { name: "Gitlab",     role: "Code hosting and CI/CD pipelines" },
+      { name: "Notion",     role: "Documentation and task management" },
+    ],
+    source: "",
+    tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git", "Gitlab", "Notion"],
+  },
   "mall-management": {
     title: "Landing Page",
     subtitle: "Designed Landing Page for Mall Management System Ciptadra",
@@ -512,7 +529,7 @@ const tagColor = (tag) => {
     HTML: "var(--accent2)", CSS: "var(--accent2)", JavaScript: "var(--accent2)",
     PHP: "var(--accent2)", MySQL: "var(--accent2)", "Vanilla JS": "var(--accent2)",
     TinyMCE: "var(--accent2)", Laravel: "var(--accent2)", CodeIgniter: "var(--accent2)",
-    "React.js": "var(--accent2)", Vite: "var(--accent2)", Git: "var(--accent2)", GitHub: "var(--accent2)", "Spoonacular API": "var(--accent2)",
+    "React.js": "var(--accent2)", Vite: "var(--accent2)", Git: "var(--accent2)", GitHub: "var(--accent2)", Gitlab: "var(--accent2)", "Spoonacular API": "var(--accent2)",
     Flutter: "var(--accent2)", Dart: "var(--accent2)", SQLite: "var(--accent2)", "Notion": "var(--accent2)", "Joke API": "var(--accent2)", Angular: "var(--accent2)", 
     TypeScript: "var(--accent2)", RxJS: "var(--accent2)", "HTTP Client": "var(--accent2)",
   }
