@@ -109,19 +109,19 @@ export default function AboutPage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a
+                {/*<a
                   href="/cv-jemima.pdf"
                   download
                   className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border font-medium"
                   style={{ background: "var(--accent)", borderColor: "var(--accent)", color: "#fff", boxShadow: "0 0 20px rgba(123,108,255,0.3)" }}
                 >
                   Download CV
-                </a>
+                </a> */}
                 <a
                   href="https://drive.google.com/drive/folders/1kt9f7LqDxekNFbaxsKN0Zo3FNiLahmDa?usp=drive_link"
                   target="_blank"
                   className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border"
-                  style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}
+                  style={{ background: "var(--accent)", borderColor: "var(--accent)", color: "#fff", boxShadow: "0 0 20px rgba(123,108,255,0.3)" }}
                 >
                   View Certificates
                 </a>
