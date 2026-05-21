@@ -334,7 +334,7 @@ export default function ProjectsPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display font-extrabold mb-10"
             style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", letterSpacing: "-0.03em" }}>
-            Projects
+            Digital Projects
           </motion.h1>
 
           {/* Tabs */}
