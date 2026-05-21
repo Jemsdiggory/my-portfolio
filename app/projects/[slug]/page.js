@@ -1,6 +1,6 @@
 "use client"
 
-import { use, useState, useRef, useEffect } from "react"
+import React, { use, useState, useRef, useEffect } from "react"
 import { notFound } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
@@ -207,7 +207,7 @@ function Carousel({ images, title }) {
   )
 }
 
-/* ── MobileCarousel — portrait screenshots, manual scroll only ── */
+/* MobileCarousel — portrait screenshots, manual scroll only ── */
 function MobileCarousel({ images, title }) {
   const [current, setCurrent] = useState(0)
   const containerRef = useRef(null)
@@ -387,27 +387,27 @@ const webProjects = {
     source: "",
     tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git", "Gitlab", "Notion"],
   },
-  "mall-management": {
-    title: "Landing Page",
-    subtitle: "Designed Landing Page for Mall Management System Ciptadra",
+    "portal-nextjs": {
+    title: "Portal Nextjs Ciptadra",
+    subtitle: "Modern Web Application built with Next.js",
+    image: "/web/portal-nextjs/portal-nextjs.png",
     year: "2026",
     role: "Web Developer Intern",
-    description: "Developed a landing page for the Mall Management System product of Ciptadra Softindo. The page focuses on clean responsive design and clear information to support the company's.",
+    description: "Modern UI/UX redesign of an existing web platform. Transformed outdated interfaces into a sleek, responsive, and commercial-ready application using Next.js and Tailwind CSS.",
     screenshots: [
-      "/web/MallManagement/webMallManagement.png",
+      "/web/portal-nextjs/portal-nextjs.png",
       
     ],
     techStack: [
-      { name: "CodeIgniter", role: "PHP MVC framework for structure and routing" },
-      { name: "PHP",         role: "Server-side scripting" },
-      { name: "CSS3",        role: "Responsive layout and component styling" },
-      { name: "Vanilla JS",  role: "UI interactions and dynamic content" },
-      { name: "Spread Sheet", role: "Sprint Planning by Project Manager" },
-      { name: "Git", role: "Version control and collaboration" },
-      { name: "Gitlab", role: "Code hosting and CI/CD pipelines" },
+      { name: "Next.js",     role: "Frontend framework for building server-side rendered applications" },
+      { name: "React",       role: "Library for building user interfaces" },
+      { name: "TypeScript",  role: "Typed superset of JavaScript" },
+      { name: "Tailwind CSS", role: "Utility-first CSS framework" },
+      { name: "Git",         role: "Version control and collaboration" },
+      { name: "GitHub",      role: "Code hosting and collaboration" },
     ],
     source: "",
-    tags: ["CodeIgniter", "PHP", "CSS", "Vanilla JS"],
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
   },
   "mall-management-system": {
     title: "Mall Management System",
@@ -531,7 +531,7 @@ const tagColor = (tag) => {
     TinyMCE: "var(--accent2)", Laravel: "var(--accent2)", CodeIgniter: "var(--accent2)",
     "React.js": "var(--accent2)", Vite: "var(--accent2)", Git: "var(--accent2)", GitHub: "var(--accent2)", Gitlab: "var(--accent2)", "Spoonacular API": "var(--accent2)",
     Flutter: "var(--accent2)", Dart: "var(--accent2)", SQLite: "var(--accent2)", "Notion": "var(--accent2)", "Joke API": "var(--accent2)", Angular: "var(--accent2)", 
-    TypeScript: "var(--accent2)", RxJS: "var(--accent2)", "HTTP Client": "var(--accent2)",
+    TypeScript: "var(--accent2)", RxJS: "var(--accent2)", "HTTP Client": "var(--accent2)", "Next.js": "var(--accent2)", "Tailwind CSS": "var(--accent2)", React: "var(--accent2)",
   }
   return map[tag] || "var(--text-muted)"
 }

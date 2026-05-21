@@ -77,6 +77,14 @@ const webProjects = [
     description: "Redesigned and developed the OneBox Portal for Ciptadra Softindo employees.",
   },
   {
+    slug: "portal-nextjs",
+    title: "Portal Nextjs Ciptadra",
+    subtitle: "Modern Web Application built with Next.js",
+    image: "/web/portal-nextjs/portal-nextjs.png",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
+    description: "Modern UI/UX redesign of an existing web platform. Transformed outdated interfaces into a sleek, responsive, and commercial-ready application using Next.js and Tailwind CSS.",
+  },
+  {
     slug: "mall-management",
     title: "Landing Page",
     subtitle: "Designed Landing Page for Mall Management System Ciptadra",
@@ -145,6 +153,7 @@ const tagColor = (tag) => {
     Git: "var(--accent2)", GitHub: "var(--accent2)", Gitlab: "var(--accent2)",
       "Spoonacular API": "var(--accent2)", "React.js": "var(--accent2)", Vite: "var(--accent2)",
       "Joke API": "var(--accent2)", Angular: "var(--accent2)", TypeScript: "var(--accent2)", RxJS: "var(--accent2)", "HTTP Client": "var(--accent2)",
+      "Next.js": "var(--accent2)", "Tailwind CSS": "var(--accent2)", React: "var(--accent2)",
     Educational: "var(--accent3)", RPG: "var(--accent3)", FPS: "var(--accent3)",
   }
   return map[tag] || "var(--text-muted)"
@@ -327,7 +336,7 @@ export default function ProjectsPage() {
             className="font-mono text-xs tracking-[0.3em] uppercase mb-4 flex items-center gap-3"
             style={{ color: "var(--accent2)" }}>
             <span className="inline-block w-8 h-px" style={{ background: "var(--accent2)" }} />
-            Selected Work
+            Creative Works
           </motion.p>
 
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
