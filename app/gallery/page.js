@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar"
 
 const galleryData = {
   "2D Art": [
+    "/gallery/2d/logo_jems.png",
     "/gallery/2d/CharEkspresi.png",
     "/gallery/2d/CongklakAdventure.png",
     "/gallery/2d/DesainSenjataJems.png",
@@ -62,7 +63,7 @@ export default function GalleryPage() {
             style={{ color: "var(--accent2)" }}
           >
             <span className="inline-block w-8 h-px" style={{ background: "var(--accent2)" }} />
-            Creative Work
+            Creative Works
           </motion.p>
 
           <motion.h1
