@@ -3,48 +3,60 @@
 import { motion } from "framer-motion"
 import Navbar from "../components/Navbar"
 import {
-  SiJavascript, SiHtml5, SiPhp, SiPython,
+  SiJavascript, SiPhp, SiPython,
   SiNetlify, SiVercel, SiNextdotjs, SiReact, SiTailwindcss,
-  SiMysql, SiGithub, SiGit, SiGitlab,
-  SiUnity, SiCanva, SiBlender, SiFigma,
-  SiLaravel, SiCodeigniter,
-  SiNotion,
+  SiMysql, SiGithub, SiGit,
+  SiUnity, SiBlender, SiFigma,
+  SiLaravel, SiCanva,
 } from "react-icons/si"
-import { FaGamepad, FaBolt } from "react-icons/fa"
+import { FaGamepad, FaCode, FaPaintBrush, FaToolbox, FaFileAlt, FaCertificate } from "react-icons/fa"
 import { TbBrandCSharp } from "react-icons/tb"
+import { MdOutlineDesignServices } from "react-icons/md"
 
-// Each badge: { icon, label, bg, fg }
-const techStack = [
-  { icon: TbBrandCSharp,  label: "",           bg: "#6a1577", fg: "#fff" },
-  { icon: SiJavascript,   label: "JavaScript",   bg: "#f7df1e", fg: "#000" },
-  { icon: SiHtml5,        label: "HTML5",        bg: "#e34f26", fg: "#fff" },
-  { icon: SiPhp,          label: "PHP",          bg: "#777bb4", fg: "#fff" },
-  { icon: SiPython,       label: "Python",       bg: "#3572a5", fg: "#fff" },
-  { icon: SiLaravel,      label: "Laravel",      bg: "#ff2d20", fg: "#fff" },
-  { icon: SiCodeigniter,  label: "CodeIgniter",  bg: "#ef4223", fg: "#fff" },
-  { icon: SiNetlify,      label: "Netlify",      bg: "#00c7b7", fg: "#fff" },
-  { icon: SiVercel,       label: "Vercel",       bg: "#000",    fg: "#fff" },
-  { icon: SiNextdotjs,    label: "Next.js",      bg: "#111",    fg: "#fff" },
-  { icon: SiReact,        label: "React",        bg: "#20232a", fg: "#61dafb" },
-  { icon: SiTailwindcss,  label: "Tailwind",     bg: "#0ea5e9", fg: "#fff" },
-  { icon: SiMysql,        label: "MySQL",        bg: "#00758f", fg: "#fff" },
-  { icon: SiGithub,       label: "GitHub",       bg: "#24292e", fg: "#fff" },
-  { icon: SiGit,          label: "Git",          bg: "#f05032", fg: "#fff" },
-  { icon: SiGitlab,       label: "GitLab",       bg: "#fc6d26", fg: "#fff" },
-  { icon: SiUnity,        label: "Unity",        bg: "#222",    fg: "#fff" },
-  { icon: SiCanva,        label: "Canva",        bg: "#00c4cc", fg: "#fff" },
-  { icon: SiBlender,      label: "Blender",      bg: "#f5792a", fg: "#fff" },
-  { icon: SiFigma,        label: "Figma",        bg: "#a259ff", fg: "#fff" },
-  { icon: SiNotion, label:"Notion", bg: "var(--accent3)", fg: "#fff" },
-  
+// Curated tech stack - grouped by category
+const techCategories = [
+  {
+    title: "Core Development",
+    icon: FaCode,
+    items: [
+      { icon: TbBrandCSharp, name: "", highlight: true },
+      { icon: SiReact, name: "React", highlight: true },
+      { icon: SiNextdotjs, name: "Next.js", highlight: true },
+      { icon: SiTailwindcss, name: "Tailwind", highlight: true },
+      { icon: SiUnity, name: "Unity", highlight: true },
+      { icon: SiLaravel, name: "Laravel", highlight: false },
+      { icon: SiJavascript, name: "JavaScript", highlight: false },
+      { icon: SiPhp, name: "PHP", highlight: false },
+      { icon: SiPython, name: "Python", highlight: false },
+    ]
+  },
+  {
+    title: "Design Tools",
+    icon: MdOutlineDesignServices,
+    items: [
+      { icon: SiFigma, name: "Figma", highlight: true },
+      { icon: SiCanva, name: "Canva", highlight: true },
+      { icon: SiBlender, name: "Blender", highlight: false },
+    ]
+  },
+  {
+    title: "Dev Tools & Workflow",
+    icon: FaToolbox,
+    items: [
+      { icon: SiGit, name: "Git", highlight: true },
+      { icon: SiGithub, name: "GitHub", highlight: true },
+      { icon: SiVercel, name: "Vercel", highlight: true },
+      { icon: SiMysql, name: "MySQL", highlight: false },
+      { icon: SiNetlify, name: "Netlify", highlight: false },
+    ]
+  }
 ]
 
-
 const stats = [
-  { label: "Projects",        value: "10+" },
-  { label: "Games on Itch",   value: "4+"  },
-  { label: "Web Apps",        value: "4+" },
-  { label: "Experience",      value: "3+ years" },
+  { label: "Digital Projects", value: "10+", icon: FaCode },
+  { label: "Games on Itch.io", value: "4+", icon: FaGamepad },
+  { label: "Responsive Web Apps", value: "4+", icon: FaCode },
+  { label: "Creative Experience", value: "3+ years", icon: FaPaintBrush },
 ]
 
 export default function AboutPage() {
@@ -89,75 +101,83 @@ export default function AboutPage() {
           {/* ── Top: bio + stats ── */}
           <div className="grid md:grid-cols-2 gap-16 items-start mb-20">
 
-            {/* Left — text */}
+            {/* Left — text (improved, more creative) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <p className="font-display text-lg leading-relaxed mb-5" style={{ color: "var(--text-muted)" }}>
-                My name is{" "}
+                I'm{" "}
                 <span style={{ color: "var(--text)" }} className="font-semibold">Kahlaa Aulia Jemima</span>
-                , a Game Technology student at{" "}
-                <span style={{ color: "var(--accent2)" }}>Politeknik Negeri Media Kreatif Jakarta</span>.
+                , a <span style={{ color: "var(--accent2)" }}>creative front-end developer</span> and{" "}
+                <span style={{ color: "var(--accent2)" }}>interactive technologist</span> passionate about building immersive digital experiences.
               </p>
               <p className="font-display leading-relaxed mb-5" style={{ color: "var(--text-muted)" }}>
-                Strong focus on game programming with Unity — most projects are team-based where I work as the programmer, building gameplay mechanics and systems.
+                Currently studying Game Technology at{" "}
+                <span style={{ color: "var(--accent2)" }}>Politeknik Negeri Media Kreatif Jakarta</span>, 
+                I specialize in game programming with Unity — most of my work involves team collaboration where I focus on 
+                gameplay mechanics and system architecture.
               </p>
               <p className="font-display leading-relaxed mb-10" style={{ color: "var(--text-muted)" }}>
-                I have experience building websites, mainly focusing on front-end development. Most of my projects involve creating responsive and interactive user interfaces. I also have skills in design, which help me craft visually appealing and user-friendly web experiences.
+                Beyond games, I craft responsive and interactive web interfaces with a strong attention to UI/UX details. 
+                My design background helps me create visually engaging experiences that feel both polished and intuitive.
               </p>
 
               <div className="flex flex-wrap gap-4">
-                {/*<a
-                  href="/cv-jemima.pdf"
-                  download
-                  className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border font-medium"
-                  style={{ background: "var(--accent)", borderColor: "var(--accent)", color: "#fff", boxShadow: "0 0 20px rgba(123,108,255,0.3)" }}
-                >
-                  Download CV
-                </a> */}
                 <a
                   href="https://drive.google.com/drive/folders/1kt9f7LqDxekNFbaxsKN0Zo3FNiLahmDa?usp=drive_link"
                   target="_blank"
-                  className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border"
+                  className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border inline-flex items-center gap-2"
                   style={{ background: "var(--accent)", borderColor: "var(--accent)", color: "#fff", boxShadow: "0 0 20px rgba(123,108,255,0.3)" }}
                 >
+                  <FaCertificate size={14} />
                   View Certificates
                 </a>
+                
               </div>
             </motion.div>
 
-            {/* Right — stats */}
+            {/* Right — stats (improved with icons and glow) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
               className="grid grid-cols-2 gap-4"
             >
-              {stats.map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35 + i * 0.07 }}
-                  className="p-5 rounded-xl border"
-                  style={{ borderColor: "var(--border)", background: "var(--surface2)" }}
-                >
-                  <p className="font-display font-extrabold text-3xl mb-1" style={{ color: "var(--accent)" }}>
-                    {s.value}
-                  </p>
-                  <p className="font-mono text-xs uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
-                    {s.label}
-                  </p>
-                </motion.div>
-              ))}
+              {stats.map((s, i) => {
+                const Icon = s.icon
+                return (
+                  <motion.div
+                    key={s.label}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.35 + i * 0.07 }}
+                    className="relative p-5 rounded-xl border group overflow-hidden"
+                    style={{ borderColor: "var(--border)", background: "var(--surface2)" }}
+                    whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  >
+                    {/* subtle corner gradient glow */}
+                    <div 
+                      className="absolute top-0 right-0 w-20 h-20 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+                      style={{ background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)", transform: "translate(30%, -30%)" }}
+                    />
+                    <Icon className="mb-3 opacity-40" size={24} style={{ color: "var(--accent)" }} />
+                    <p className="font-display font-extrabold text-3xl mb-1" style={{ color: "var(--accent)" }}>
+                      {s.value}
+                    </p>
+                    <p className="font-mono text-xs uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
+                      {s.label}
+                    </p>
+                  </motion.div>
+                )
+              })}
             </motion.div>
           </div>
 
           <hr className="hr-accent mb-20" />
 
-          {/* ── Tech Stack badges ── */}
+          {/* ── Tech Stack (improved: categorized, monochrome, premium) ── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -166,37 +186,62 @@ export default function AboutPage() {
           >
             <p className="font-mono text-xs tracking-[0.25em] uppercase mb-8 flex items-center gap-3" style={{ color: "var(--text-dim)" }}>
               <span className="inline-block w-6 h-px" style={{ background: "var(--text-dim)" }} />
-              Tech Stack
+              Tech Stack & Expertise
             </p>
 
-            <div className="flex flex-wrap gap-2">
-              {techStack.map((tech, i) => {
-                const Icon = tech.icon
+            <div className="grid md:grid-cols-3 gap-8">
+              {techCategories.map((category, catIdx) => {
+                const CategoryIcon = category.icon
                 return (
                   <motion.div
-                    key={tech.label}
-                    initial={{ opacity: 0, y: 8 }}
+                    key={category.title}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.45 + i * 0.03 }}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-md font-mono text-xs font-semibold uppercase tracking-wide select-none"
-                    style={{
-                      background: tech.bg,
-                      color: tech.fg,
-                      boxShadow: `0 2px 8px ${tech.bg}55`,
-                      border: `1px solid ${tech.bg}`,
-                      transition: "box-shadow 0.3s, filter 0.3s",
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.boxShadow = `0 0 16px ${tech.bg}cc`
-                      e.currentTarget.style.filter = "brightness(1.15)"
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.boxShadow = `0 2px 8px ${tech.bg}55`
-                      e.currentTarget.style.filter = "brightness(1)"
-                    }}
+                    transition={{ delay: 0.45 + catIdx * 0.1 }}
                   >
-                    <Icon style={{ fontSize: "0.9rem" }} />
-                    {tech.label}
+                    <div className="flex items-center gap-2 mb-4">
+                      <CategoryIcon size={18} style={{ color: "var(--accent2)" }} />
+                      <h3 className="font-mono text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--text-dim)" }}>
+                        {category.title}
+                      </h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {category.items.map((item, idx) => {
+                        const Icon = item.icon
+                        return (
+                          <motion.div
+                            key={item.name}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.5 + catIdx * 0.1 + idx * 0.03 }}
+                            className="group flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-xs font-medium tracking-wide transition-all duration-300 cursor-default"
+                            style={{
+                              background: "rgba(255,255,255,0.03)",
+                              border: `1px solid ${item.highlight ? "rgba(123,108,255,0.3)" : "rgba(255,255,255,0.06)"}`,
+                              color: item.highlight ? "var(--accent)" : "var(--text-muted)",
+                              backdropFilter: "blur(8px)",
+                            }}
+                            whileHover={{ 
+                              y: -2,
+                              transition: { duration: 0.2 }
+                            }}
+                            onMouseEnter={e => {
+                              e.currentTarget.style.borderColor = "var(--accent)"
+                              e.currentTarget.style.background = "rgba(123,108,255,0.1)"
+                              e.currentTarget.style.boxShadow = "0 0 16px rgba(123,108,255,0.2)"
+                            }}
+                            onMouseLeave={e => {
+                              e.currentTarget.style.borderColor = item.highlight ? "rgba(123,108,255,0.3)" : "rgba(255,255,255,0.06)"
+                              e.currentTarget.style.background = "rgba(255,255,255,0.03)"
+                              e.currentTarget.style.boxShadow = "none"
+                            }}
+                          >
+                            <Icon size={14} />
+                            {item.name}
+                          </motion.div>
+                        )
+                      })}
+                    </div>
                   </motion.div>
                 )
               })}
@@ -204,8 +249,6 @@ export default function AboutPage() {
           </motion.div>
 
           <hr className="hr-accent mb-20" />
-
-          
 
         </div>
       </main>
