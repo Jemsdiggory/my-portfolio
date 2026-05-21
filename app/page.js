@@ -56,7 +56,7 @@ const projects = [
   {
     badge: "UI/UX Design",
     title: "OneBox Portal",
-    desc: "Modern UI/UX redesign and marketing-driven copywriting for the OneBox portal. Transformed a legacy product page into a interactive business platform.",
+    desc: "Modern UI/UX redesign and marketing-driven copywriting for the OneBox portal. Transformed a legacy product page into a interactive business pf.",
     tags: ["Laravel", "PHP", "CSS"],
     stat: "Portal UI",
     accentColor: "#ff6b8a",
