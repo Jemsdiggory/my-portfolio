@@ -409,7 +409,7 @@ const webProjects = {
     source: "",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
   },
-  "mall-management-system": {
+  "mall-management": {
     title: "Mall Management System",
     subtitle: "Web-based Mall Management System Ciptadra",
     year: "2026",
