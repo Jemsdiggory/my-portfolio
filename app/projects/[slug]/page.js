@@ -409,7 +409,7 @@ const webProjects = {
     source: "",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
   },
-  "mall-management": {
+  "mall-management-system": {
     title: "Mall Management System",
     subtitle: "Web-based Mall Management System Ciptadra",
     year: "2026",
@@ -430,6 +430,28 @@ const webProjects = {
     source: "",
     tags: ["CodeIgniter", "PHP", "MySQL", "CSS", "Vanilla JS"],
   },
+  "mall-management" : {
+    title: "Landing Page for Mall Management System",
+    subtitle: "Web-based Mall Management System Ciptadra",
+    year: "2026",
+    role: "Web Developer Intern",
+    description: "A landing page for a mall management system project, designed to showcase the features and benefits of the system to potential clients and stakeholders.",
+    screenshots: [
+      "/web/MallManagement/webMallManagement.png",
+    ],
+      techStack: [
+        { name: "CodeIgniter", role: "PHP MVC framework for structure and routing" },
+        { name: "PHP",         role: "Server-side scripting" },
+        { name: "MySQL",       role: "Relational database for storing data" },
+        { name: "CSS3",        role: "Responsive layout and component styling" },
+        { name: "Vanilla JS",  role: "UI interactions and dynamic content" },
+        { name: "Git", role: "Version control and collaboration" },
+        { name: "Gitlab", role: "Code hosting and CI/CD pipelines" },
+      ],
+    source: "",
+    tags: ["CodeIgniter", "PHP", "MySQL", "CSS", "Vanilla JS"],
+    },
+
   "food-check": {
     title: "FoodCheck",
     subtitle: "Web App to find food recipes based on available ingredients",
