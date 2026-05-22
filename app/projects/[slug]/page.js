@@ -390,7 +390,7 @@ const webProjects = {
     "portal-nextjs": {
     title: "Portal Nextjs Ciptadra",
     subtitle: "Modern Web Application built with Next.js",
-    image: "/web/portal-nextjs/portal-nextjs.png",
+    image: "/web/portal-Nextjs/portal-nextjs.png",
     year: "2026",
     role: "Web Developer Intern",
     description: "Modern UI/UX redesign of an existing web platform. Transformed outdated interfaces into a sleek, responsive, and commercial-ready application using Next.js and Tailwind CSS.",

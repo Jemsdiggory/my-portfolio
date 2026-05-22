@@ -310,7 +310,7 @@ export default function Page() {
     { label: "Digital Projects", value: "10+" },
     { label: "Games on Itch.io", value: "4+" },
     { label: "Responsive Web Apps", value: "4+" },
-    { label: "Creating Interactive Experiences", value: "3+" },
+    { label: "Years of Creating Interactive Experiences", value: "3+" },
   ]
 
   return (
