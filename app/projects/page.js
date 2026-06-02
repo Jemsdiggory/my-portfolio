@@ -85,6 +85,15 @@ const webProjects = [
     type: "front-end development",
   },
   {
+    slug: "personal-website",
+    title: "Personal Website",
+    subtitle: "Personal Website built with Next.js",
+    image: "/web/personal-website/personal-website.png",
+    tags: ["Next.js", "React", "JavaScript", "Tailwind CSS", "GSAP", "Github"],
+    description: "Interactive personal portfolio website built with Next.js featuring smooth animations, custom cursor, music player, and responsive design for Cretivox Internship Experience endurance test",
+    type: "front-end development",
+  },
+  {
     slug: "portal-nextjs",
     title: "Portal Nextjs Ciptadra",
     subtitle: "Modern Web Application built with Next.js",
@@ -164,7 +173,8 @@ const CORE_TAGS = {
   "Next.js": true, React: true, "React.js": true, TypeScript: true,
   Laravel: true, "Tailwind CSS": true, Flutter: true, Angular: true,
   Unity: true, PHP: true, MySQL: true, CodeIgniter: true,
-  "Vanilla JS": true, JavaScript: true, Dart: true,
+  "Vanilla JS": true, JavaScript: true, Dart: true, 
+  "GSAP": true, "Github": true,
 }
 
 function coreTags(tags, max = 4) {

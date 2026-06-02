@@ -544,6 +544,27 @@ const webProjects = {
     source: "https://github.com/Jemsdiggory/Molevote-Dummy",
     tags: ["HTML", "CSS", "JavaScript"],
   },
+  "personal-website": {
+    title: "Personal Website",
+    subtitle: "Interactive personal portfolio website built with Next.js",
+    year: "2026",
+    role: "Front-End Project for Cretivox Internship Experience",
+    description: "Interactive personal portfolio website built with Next.js featuring smooth animations, custom cursor, music player, and responsive design for Cretivox Internship Experience endurance test",
+    screenshots: [
+      "/web/personal-website/personal-website-Copy.png",
+    ],
+    techStack: [
+      { name: "Next.js", role: "Frontend framework for building server-side rendered applications" },
+      { name: "React", role: "Library for building user interfaces" },
+      { name: "TypeScript", role: "Typed superset of JavaScript" },
+      { name: "Tailwind CSS", role: "Utility-first CSS framework" },
+      { name: "GSAP", role: "Animation library for smooth transitions" },
+      { name: "Git", role: "Version control and collaboration" },
+      { name: "GitHub", role: "Code hosting and collaboration" },
+    ],
+    source: "https://github.com/Jemsdiggory/personal-website",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP", "Git", "GitHub"],
+  },
 }
 
 const tagColor = (tag) => {
@@ -554,6 +575,7 @@ const tagColor = (tag) => {
     "React.js": "var(--accent2)", Vite: "var(--accent2)", Git: "var(--accent2)", GitHub: "var(--accent2)", Gitlab: "var(--accent2)", "Spoonacular API": "var(--accent2)",
     Flutter: "var(--accent2)", Dart: "var(--accent2)", SQLite: "var(--accent2)", "Notion": "var(--accent2)", "Joke API": "var(--accent2)", Angular: "var(--accent2)", 
     TypeScript: "var(--accent2)", RxJS: "var(--accent2)", "HTTP Client": "var(--accent2)", "Next.js": "var(--accent2)", "Tailwind CSS": "var(--accent2)", React: "var(--accent2)",
+    "GSAP": "var(--accent2)", "Github": "var(--accent2)",
   }
   return map[tag] || "var(--text-muted)"
 }
