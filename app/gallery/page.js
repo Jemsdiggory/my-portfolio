@@ -5,6 +5,13 @@ import { motion, AnimatePresence } from "framer-motion"
 import Navbar from "../components/Navbar"
 
 const galleryData = {
+  "Graphic Design": [
+    "/gallery/graphic-design/ramen-dash1.png",
+    "/gallery/graphic-design/ramen-dash2.png",
+    "/gallery/graphic-design/ramen-dash3.png",
+    "/gallery/graphic-design/car-poster.png",
+    "/gallery/graphic-design/locker-poster.png",
+  ],
   "2D Art": [
     "/gallery/2d/logo_jems.png",
     "/gallery/2d/CharEkspresi.png",
