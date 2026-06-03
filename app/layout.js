@@ -4,11 +4,11 @@ import MusicPlayer from "./components/MusicPlayer"
 export const metadata = {
   metadataBase: new URL("https://jemsprojects.vercel.app/"), 
   title: {
-    default: "Kahlaa Aulia Jemima — Game & Web Developer",
+    default: "Kahlaa Aulia Jemima — Creative Developer",
     template: "%s | Kahlaa Aulia Jemima",
   },
   description:
-    "Portfolio of Kahlaa Aulia Jemima — Game Technology student at Polimedia Jakarta. Unity programmer, game developer, and  web developer.",
+    "Portfolio of Kahlaa Aulia Jemima — Creative Developer.",
   keywords: [
     "Kahlaa Aulia Jemima",
     "Jemima portfolio",
@@ -25,15 +25,15 @@ export const metadata = {
     locale: "en_US",
     url: "https://jemsprojects.vercel.app/",
     siteName: "jemsprojects",
-    title: "Kahlaa Aulia Jemima — Game & Web Developer",
+    title: "Kahlaa Aulia Jemima — Creative Developer",
     description:
-      "Portfolio of Kahlaa Aulia Jemima — Unity programmer, game developer, and front-end web developer based in Jakarta.",
+      "Portfolio of Kahlaa Aulia Jemima — Creative Developer.",
     
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kahlaa Aulia Jemima — Game & Web Developer",
-    description: "Unity programmer, game developer, and front-end web developer based in Jakarta.",
+    title: "Kahlaa Aulia Jemima — Creative Developer",
+    description: "Portfolio of Kahlaa Aulia Jemima — Creative Developer.",
     images: ["/og-image.png"],
   },
   robots: {
