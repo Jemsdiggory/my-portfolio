@@ -5,6 +5,15 @@ import Navbar from "../components/Navbar"
 
 const experiences = [
   {
+    year: "June 2025 — Present",
+    type: "Part-Time",
+    org: "PT. Ciptadra Softindo",
+    role: "Web Designer & Developer",
+    description:
+      "Responsible for designing and developing user-friendly websites for the company and its clients, utilizing HTML, CSS, JavaScript, and other Frameworks to create responsive layouts, implement new features, and optimize website performance while ensuring a seamless user experience.",
+    tags: ["Web Development", "Web Design", "Collaboration", "Problem-Solving", "Git", "Gitlab", "Notion"],
+  },
+  {
     year: "Feb 2026 — June 2026",
     type: "Internship",
     org: "PT. Ciptadra Softindo",
