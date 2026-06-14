@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar"
 const experiences = [
   {
     year: "June 2025 — Present",
-    type: "Part-Time",
+    type: "PartTime",
     org: "PT. Ciptadra Softindo",
     role: "Web Designer & Developer",
     description:
@@ -67,6 +67,7 @@ const typeStyle = {
   Internship:   { bg: "rgba(61,255,209,0.08)",  border: "rgba(61,255,209,0.25)",  color: "var(--accent2)" },
   Freelance:    { bg: "rgba(99,102,241,0.08)",  border: "rgba(99,102,241,0.25)",  color: "var(--accent)"  },
   Organization: { bg: "rgba(100,116,139,0.08)", border: "rgba(100,116,139,0.25)", color: "var(--accent3)" },
+  PartTime:      { bg: "rgba(255,99,102,0.08)", border: "rgba(255,99,102,0.25)", color: "var(--accent4)"  },
 }
 
 export default function ExperiencePage() {
