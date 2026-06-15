@@ -19,13 +19,14 @@ const experiences = [
     org: "PT. Ciptadra Softindo",
     role: "Web Developer Intern",
     description:
-      "Contributed to the maintenance of company and client websites, implemented new features, and developed updated layouts to support newly released products and enhance the website interface and user experience.",
+      "Selected to contribute to multiple company and client web projects, ranging from corporate websites to enterprise management systems. Designed and developed responsive user interfaces, enhanced user experience through layout and feature improvements, and delivered interactive web prototypes to support product presentations and stakeholder engagement. Contributed to strengthening the company's digital portfolio by supporting the development of business-critical platforms and client-facing solutions.",
     projects: [
       "Company Profile Ciptadra Softindo",
       "Landing Page for Ciptadra Mall Management System",
       "Ciptadra Mall Management System",
       "Onebox Website",
-      "Onebox Portal",
+      "TNI AU Proposal Web Design Enhancement",
+      "Kementrian Lingkungan Hidup Proposal Web Design Enhancement",
     ],
     tags: ["Web Development", "Collaboration", "Problem-Solving", "Git", "Gitlab", "Notion"],
   },
