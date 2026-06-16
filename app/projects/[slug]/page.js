@@ -327,7 +327,7 @@ const webProjects = {
     subtitle: "Personal Expense Tracker App",
     year: "2026",
     role: "Solo Project",
-    description: "A personal expense tracker mobile app built with Flutter. Saku Aman helps users monitor daily spending, categorize transactions, and visualize financial habits through clean charts and summaries. Designed with a simple and intuitive UI to make budgeting accessible for everyday users.",
+    description: "Created a mobile expense tracking application that helps users record transactions, monitor spending habits, and manage personal finances efficiently.",
     screenshots: [
       "/web/saku-aman/saku-aman-app1.png",
       "/web/saku-aman/saku-aman-app2.png",
@@ -349,7 +349,7 @@ const webProjects = {
     subtitle: "Home Page Redesign for Ciptadra Softindo",
     year: "2026",
     role: "Web Developer Intern",
-    description: "Redesigned and developed the company profile homepage for Ciptadra Softindo, including UI/UX improvements, custom CSS animations, interactive components, and multilingual content updates using Laravel Blade. The goal was to modernize the visual identity of the company's web presence while maintaining clarity and professionalism.",
+    description: "Redesigned and developed the company profile website, enhancing user experience, visual consistency, and product presentation through responsive layouts and interactive UI components.",
     screenshots: [
       "/web/webCiptadra/fullWebsiteCiptadra.png",
       
@@ -371,7 +371,7 @@ const webProjects = {
     subtitle: "Redesign of OneBox Portal for Ciptadra Softindo",
     year: "2026",
     role: "Web Developer Intern",
-    description: "Redesigned and developed the OneBox Portal for Ciptadra Softindo employees, focusing on improved UI clarity, dashboard layout, and consistent component styling for engagement.",
+    description: "Revamped the internal employee portal with an improved user interface, streamlined navigation, and responsive design to create a more efficient user experience.",
     screenshots: [
       "/web/web-onebox/wanbok.png",
     ],
@@ -393,7 +393,7 @@ const webProjects = {
     image: "/web/portal-Nextjs/portal-nextjs.png",
     year: "2026",
     role: "Web Developer Intern",
-    description: "Modern UI/UX redesign of an existing web platform. Transformed outdated interfaces into a sleek, responsive, and commercial-ready application using Next.js and Tailwind CSS.",
+    description: "Modernized an existing enterprise platform by redesigning outdated interfaces into a responsive, scalable, and user-friendly web application using Next.js and TypeScript.",
     screenshots: [
       "/web/portal-nextjs/portal-nextjs.png",
       
@@ -414,7 +414,7 @@ const webProjects = {
     subtitle: "Web-based Mall Management System Ciptadra",
     year: "2026",
     role: "Web Developer Intern",
-    description: "A web-based mall management system for Ciptadra, featuring tenant management, contract management, and billing generation.",
+    description: "Developed a full-stack mall management system featuring tenant management, contract administration, and automated billing workflows to support daily operational processes.",
     screenshots: [
       "/web/sistemMall/sistMall1.png",
     ],
@@ -435,7 +435,7 @@ const webProjects = {
     subtitle: "Web-based Mall Management System Ciptadra",
     year: "2026",
     role: "Web Developer Intern",
-    description: "A landing page for a mall management system project, designed to showcase the features and benefits of the system to potential clients and stakeholders.",
+    description: "Designed and developed a responsive landing page for a mall management solution, focusing on clear product communication, modern UI, and conversion-oriented user experience.",
     screenshots: [
       "/web/MallManagement/webMallManagement.png",
     ],
@@ -458,7 +458,7 @@ const webProjects = {
     image: "/web/foodcheck/fc1.png",
     year: "2026",
     role: "Solo Project",
-    description: "A full stack recipe finder web app built with React and Laravel. Users can search recipes based on available ingredients, save favorites, and track search history. Integrated with Spoonacular API for real-time recipe data.",
+    description: "Built a full-stack recipe discovery platform that helps users find recipes based on available ingredients, save favorites, and manage search history through an intuitive interface.",
     screenshots: [
       "/web/foodcheck/fc1.png",
       "/web/foodcheck/fc2.png",
@@ -481,7 +481,7 @@ const webProjects = {
     subtitle: "Game Blog with CMS Features",
     year: "2026",
     role: "Solo Project",
-    description: "A mini content management system built for a game blog. Features a custom admin panel with full CRUD operations, a WYSIWYG rich text editor powered by TinyMCE, user authentication, and a clean responsive front-end. Built as a learning project to understand full-stack PHP development.",
+    description: "Developed a lightweight content management system for a gaming blog, featuring article management, rich-text editing, and complete CRUD functionality.",
     screenshots: [
       "/web/mini-cms/homeBlog.png",
       "/web/mini-cms/dashboardAdmin.png",
@@ -508,7 +508,7 @@ const webProjects = {
     image: "/web/angular-app/angular-spa.png",
     year: "2026",
     role: "Front-End Practice Project",
-    description: "A Single Page Application built with Angular. This app demonstrates Reactive Forms, Form Validation, Business Logic, and HTTP calls to an external API.",
+    description: "Built a Single Page Application using Angular to demonstrate reactive forms, validation workflows, state handling, and external API integration.",
     screenshots: [
       "/web/angular-app/angular-spa.png",
       "/web/angular-app/angular-spa2.png",
@@ -530,7 +530,7 @@ const webProjects = {
     subtitle: "Web Login and Hero Filtering UI",
     year: "2026",
     role: "Front-End Practice Project",
-    description: "A responsive game-inspired website with interactive hero cards, role-based filtering, a simulated login flow, and dynamic UI animations. Built as a front-end practice project to sharpen CSS animation, DOM manipulation, and responsive layout skills using vanilla web technologies.",
+    description: "Developed a responsive game-inspired web interface featuring hero exploration, role-based filtering, and interactive user experiences inspired by MOBA game design.",
     screenshots: [
       "/web/Mole-vote/mole-vote.png",
       "/web/Mole-vote/molevote-login.png",
@@ -549,7 +549,7 @@ const webProjects = {
     subtitle: "Interactive personal portfolio website built with Next.js",
     year: "2026",
     role: "Front-End Project for Cretivox Internship Experience",
-    description: "Interactive personal portfolio website built with Next.js featuring smooth animations, custom cursor, music player, and responsive design for Cretivox Internship Experience endurance test",
+    description: "Interactive portfolio website built with Next.js, featuring smooth animations, custom interactions, responsive design, and modern web technologies to showcase projects and professional experience.",
     screenshots: [
       "/web/personal-website/personal-website-Copy.png",
     ],
