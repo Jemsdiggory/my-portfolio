@@ -136,13 +136,13 @@ const webProjects = [
   {
     slug: "mall-management-system",
     title: "Mall Management System",
-    subtitle: "Full-Stack Mall Operations Management Platform",
+    subtitle: "Enterprise Web Platform Enhancement",
     image: "/thumbnail/sistmall.svg",
     tags: ["CodeIgniter", "PHP", "MySQL", "CSS", "Vanilla JS"],
     description:
-      "A full-stack web platform for mall operations management, covering tenant management, contract lifecycle, and automated billing generation.",
+      "Contributed to the modernization of an enterprise web platform used for mall operations management. Improved interface design, refined user workflows, and implemented functional enhancements, while supporting backend updates and database integration requirements.",
     type: "Professional Project",
-    category: "Full-Stack Development",
+    category: "Front-End Development",
   },
   {
     slug: "food-check",
