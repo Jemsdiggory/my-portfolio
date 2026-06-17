@@ -1,8 +1,3 @@
-// ─────────────────────────────────────────────────────────────────────────
-// Shared color tokens for badges and tags across the listing page and the
-// case study detail page. Keeping these in one place means a new category,
-// status, or tag only needs to be added once.
-// ─────────────────────────────────────────────────────────────────────────
 
 export const CATEGORY_COLORS = {
   "Front-End Development": "rgba(99,102,241,0.15)",
@@ -22,7 +17,6 @@ export const CATEGORY_TEXT = {
   "UX Research & Prototyping": "rgba(252,211,77,0.95)",
 }
 
-// "Type" is the headline badge: Professional / Proposal / Concept / Academic / Personal.
 export const TYPE_COLORS = {
   "Professional Project": "rgba(99,102,241,0.16)",
   "Proposal Project": "rgba(245,158,11,0.16)",
@@ -38,8 +32,6 @@ export const TYPE_TEXT = {
   "Personal Project": "rgba(253,230,138,1)",
 }
 
-// Project "status" describes where the work currently stands, distinct
-// from "type" which describes what kind of engagement it was.
 export const STATUS_COLORS = {
   "Live Product": "rgba(34,197,94,0.14)",
   "Internal Project": "rgba(99,102,241,0.14)",

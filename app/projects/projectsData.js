@@ -171,7 +171,7 @@ export const webProjects = {
     category: "UX Research & Prototyping",
     status: "Concept & Prototype",
     year: "2026",
-    role: "UI/UX Designer and Frontend Developer (Freelance)",
+    role: "Web Designer & Developer (Part-time)",
     thumbnail: "/thumbnail/kemenlh.svg",
     screenshots: [
       "/web/kemenlh/KLH-Web.png",
@@ -197,7 +197,7 @@ export const webProjects = {
     category: "UX Research & Prototyping",
     status: "Concept & Prototype",
     year: "2026",
-    role: "UI/UX Designer and Frontend Developer (Freelance)",
+    role: "Web Designer & Developer (Part-time)",
     thumbnail: "/thumbnail/puskesal.svg",
     screenshots: [
       "/web/puskesal/puskesal-home.png",
@@ -223,7 +223,7 @@ export const webProjects = {
     category: "UX Research & Prototyping",
     status: "Proposal Stage",
     year: "2026",
-    role: "UI/UX Designer and Frontend Developer (Freelance)",
+    role: "Web Developer Intern",
     thumbnail: "/thumbnail/dispenau.svg",
     screenshots: [
       "/web/dispenau/dispenau-home.png",
