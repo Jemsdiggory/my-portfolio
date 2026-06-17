@@ -2,45 +2,41 @@
 
 import React, { use, useState, useRef, useEffect } from "react"
 import { notFound } from "next/navigation"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import Navbar from "../../components/Navbar"
+import { webProjects } from "../projectsData"
+import {
+  TYPE_COLORS,
+  TYPE_TEXT,
+  CATEGORY_COLORS,
+  CATEGORY_TEXT,
+  STATUS_COLORS,
+  STATUS_TEXT,
+  tagColor,
+} from "../styleTokens"
 
-/* Scroll Preview */
+// ── Auto-scrolling preview for a single tall screenshot. Pauses on hover. ──
 function ScrollPreview({ src, alt }) {
   const containerRef = useRef(null)
   const animRef = useRef(null)
   const posRef = useRef(0)
   const pausedRef = useRef(false)
   const [ready, setReady] = useState(false)
-  const [maxScroll, setMaxScroll] = useState(0)
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     const el = containerRef.current
     if (!el) return
-
-    const update = () => {
-      setMaxScroll(el.scrollHeight - el.clientHeight)
-      setReady(true)
-    }
-    update()
-    window.addEventListener("resize", update)
-    return () => window.removeEventListener("resize", update)
-  }, [])
-
-  // auto-scroll loop
-  useEffect(() => {
-    const el = containerRef.current
-    if (!el || !ready) return
-
-    const speed = 0.6 // px per frame
+    const speed = 0.5
 
     const tick = () => {
       if (!pausedRef.current) {
         const max = el.scrollHeight - el.clientHeight
-        if (max <= 0) { animRef.current = requestAnimationFrame(tick); return }
-
+        if (max <= 0) {
+          animRef.current = requestAnimationFrame(tick)
+          return
+        }
         posRef.current += speed
         if (posRef.current >= max) posRef.current = 0
         el.scrollTop = posRef.current
@@ -64,21 +60,14 @@ function ScrollPreview({ src, alt }) {
   }
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden border"
-      style={{ borderColor: "var(--border)" }}>
-
-      {/* scrollable container */}
+    <div className="relative w-full rounded-2xl overflow-hidden border" style={{ borderColor: "var(--border)" }}>
       <div
         ref={containerRef}
         onScroll={handleScroll}
         onMouseEnter={() => { pausedRef.current = true }}
         onMouseLeave={() => { pausedRef.current = false }}
-        className="w-full overflow-y-scroll"
-        style={{
-          height: "520px",
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-        }}
+        className="w-full overflow-y-scroll hide-scroll"
+        style={{ height: "520px", scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         <style>{`.hide-scroll::-webkit-scrollbar{display:none}`}</style>
         <img
@@ -86,31 +75,18 @@ function ScrollPreview({ src, alt }) {
           alt={alt}
           loading="lazy"
           decoding="async"
-          className="w-full h-auto block hide-scroll"
-          onLoad={() => {
-            const el = containerRef.current
-            if (el) setMaxScroll(el.scrollHeight - el.clientHeight)
-            setReady(true)
-          }}
+          className="w-full h-auto block"
+          onLoad={() => setReady(true)}
         />
       </div>
 
-      {/* progress bar — right side */}
-      <div
-        className="absolute right-0 top-0 bottom-0 w-1 rounded-full overflow-hidden"
-        style={{ background: "var(--border)" }}
-      >
+      <div className="absolute right-0 top-0 bottom-0 w-1 rounded-full overflow-hidden" style={{ background: "var(--border)" }}>
         <div
-          className="w-full rounded-full transition-none"
-          style={{
-            height: `${progress * 100}%`,
-            background: "var(--accent)",
-            boxShadow: "0 0 8px var(--accent)",
-          }}
+          className="w-full rounded-full"
+          style={{ height: `${progress * 100}%`, background: "var(--accent)", boxShadow: "0 0 8px var(--accent)" }}
         />
       </div>
 
-      {/* hover hint overlay — only shown on load */}
       {ready && (
         <div
           className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs px-3 py-1.5 rounded-lg pointer-events-none"
@@ -122,462 +98,76 @@ function ScrollPreview({ src, alt }) {
             opacity: 0.8,
           }}
         >
-          hover to pause · scroll to control
+          hover to pause · scroll to explore
         </div>
       )}
     </div>
   )
 }
 
-/* ── Carousel (multiple images) ────────────────────── */
-function Carousel({ images, title }) {
-  const [current, setCurrent] = useState(0)
-  const prev = () => setCurrent((c) => (c - 1 + images.length) % images.length)
-  const next = () => setCurrent((c) => (c + 1) % images.length)
-  const isFullPage = images[current]?.endsWith?.(".png") || images[current]?.endsWith?.(".jpg")
-
-  // single image → use ScrollPreview
-  if (images.length === 1) {
-    return <ScrollPreview src={images[0]} alt={title} />
-  }
-
-  return (
-    <div className="w-full rounded-2xl overflow-hidden border" style={{ borderColor: "var(--border)" }}>
-      <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9", background: "#000" }}>
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={current}
-            src={images[current]}
-            alt={`${title} screenshot ${current + 1}`}
-            loading="lazy"
-            decoding="async"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </AnimatePresence>
-
-        <button onClick={prev}
-          className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-lg border font-mono text-base transition-all duration-300"
-          style={{ background: "rgba(13,17,23,0.75)", borderColor: "var(--border)", color: "var(--text-muted)", backdropFilter: "blur(8px)" }}
-          onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.color = "var(--text)" }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-muted)" }}
-        >‹</button>
-        <button onClick={next}
-          className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-lg border font-mono text-base transition-all duration-300"
-          style={{ background: "rgba(13,17,23,0.75)", borderColor: "var(--border)", color: "var(--text-muted)", backdropFilter: "blur(8px)" }}
-          onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.color = "var(--text)" }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--text-muted)" }}
-        >›</button>
-
-        <div className="absolute top-3 right-3 font-mono text-xs px-2.5 py-1 rounded-lg"
-          style={{ background: "rgba(13,17,23,0.75)", color: "var(--text-muted)", backdropFilter: "blur(8px)", border: "1px solid var(--border)" }}>
-          {current + 1} / {images.length}
-        </div>
-      </div>
-
-      <div className="flex items-center justify-center gap-2 py-3"
-        style={{ borderTop: "1px solid var(--border)", background: "var(--surface2)" }}>
-        {images.map((_, i) => (
-          <button key={i} onClick={() => setCurrent(i)}
-            className="rounded-full transition-all duration-300"
-            style={{
-              width: i === current ? "20px" : "5px", height: "5px",
-              background: i === current ? "var(--accent)" : "var(--border)",
-              boxShadow: i === current ? "0 0 8px var(--accent)" : "none",
-            }} />
-        ))}
-      </div>
-
-      {images.length >= 3 && (
-        <div className="flex gap-2 p-3 overflow-x-auto"
-          style={{ borderTop: "1px solid var(--border)", background: "var(--surface2)" }}>
-          {images.map((src, i) => (
-            <button key={i} onClick={() => setCurrent(i)}
-              className="flex-shrink-0 overflow-hidden rounded-lg border transition-all duration-300"
-              style={{ width: "72px", height: "48px", borderColor: i === current ? "var(--accent)" : "var(--border)", opacity: i === current ? 1 : 0.5 }}>
-              <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
-
-/* MobileCarousel — portrait screenshots, manual scroll only ── */
-function MobileCarousel({ images, title }) {
-  const [current, setCurrent] = useState(0)
-  const containerRef = useRef(null)
-
-  // reset scroll ke atas setiap ganti gambar
+// ── Click-to-enlarge lightbox for the gallery grid. ──
+function Lightbox({ images, index, onClose, onNavigate }) {
   useEffect(() => {
-    const el = containerRef.current
-    if (el) el.scrollTop = 0
-  }, [current])
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose()
+      if (e.key === "ArrowRight") onNavigate((index + 1) % images.length)
+      if (e.key === "ArrowLeft") onNavigate((index - 1 + images.length) % images.length)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [index, images.length, onClose, onNavigate])
+
+  if (index === null) return null
 
   return (
-    <div className="flex flex-col gap-6">
-      {/* main area: phone frame + thumbnail strip */}
-      <div className="flex gap-6 items-start">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-6"
+      style={{ background: "rgba(5,7,10,0.92)", backdropFilter: "blur(6px)" }}
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-5 right-5 font-mono text-xs px-3 py-2 rounded-lg border"
+        style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}
+      >
+        close ✕
+      </button>
 
-        {/* phone mockup */}
-        <div className="flex-shrink-0 relative" style={{ width: "260px" }}>
-          {/* frame */}
-          <div
-            className="relative rounded-[2rem] overflow-hidden border-2"
-            style={{
-              borderColor: "var(--border)",
-              background: "var(--surface2)",
-              boxShadow: "0 0 40px rgba(99,102,241,0.1)",
-            }}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={(e) => { e.stopPropagation(); onNavigate((index - 1 + images.length) % images.length) }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border flex items-center justify-center"
+            style={{ borderColor: "var(--border)", color: "var(--text-muted)", background: "rgba(13,17,23,0.6)" }}
           >
-            {/* notch */}
-            <div
-              className="absolute top-3 left-1/2 -translate-x-1/2 z-10 rounded-full"
-              style={{ width: "60px", height: "10px", background: "var(--bg)" }}
-            />
+            ‹
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); onNavigate((index + 1) % images.length) }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border flex items-center justify-center"
+            style={{ borderColor: "var(--border)", color: "var(--text-muted)", background: "rgba(13,17,23,0.6)" }}
+          >
+            ›
+          </button>
+        </>
+      )}
 
-            {/* scrollable image inside phone */}
-            <div
-              ref={containerRef}
-              style={{
-                height: "480px",
-                overflowY: "scroll",
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-              }}
-            >
-              <style>{`.phone-scroll::-webkit-scrollbar{display:none}`}</style>
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={current}
-                  src={images[current]}
-                  alt={`${title} screenshot ${current + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-full h-auto block phone-scroll"
-                />
-              </AnimatePresence>
-            </div>
-          </div>
+      <img
+        src={images[index]}
+        alt=""
+        onClick={(e) => e.stopPropagation()}
+        className="max-h-[88vh] max-w-[88vw] object-contain rounded-xl"
+        style={{ border: "1px solid var(--border)" }}
+      />
 
-          {/* hint */}
-          <p className="font-mono text-xs text-center mt-3" style={{ color: "var(--text-dim)" }}>
-            scroll to explore
-          </p>
-        </div>
-
-        {/* thumbnail strip — vertical */}
-        <div className="flex flex-col gap-3 overflow-y-auto" style={{ maxHeight: "520px" }}>
-          {images.map((src, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className="flex-shrink-0 overflow-hidden rounded-xl border transition-all duration-300"
-              style={{
-                width: "72px",
-                height: "130px",
-                borderColor: i === current ? "var(--accent)" : "var(--border)",
-                boxShadow: i === current ? "0 0 10px rgba(99,102,241,0.4)" : "none",
-                opacity: i === current ? 1 : 0.45,
-              }}
-            >
-              <img src={src} alt="" className="w-full h-full object-cover object-top" loading="lazy" />
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* dot + counter row */}
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-1.5">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className="rounded-full transition-all duration-300"
-              style={{
-                width: i === current ? "16px" : "4px",
-                height: "4px",
-                background: i === current ? "var(--accent)" : "var(--border)",
-                boxShadow: i === current ? "0 0 8px var(--accent)" : "none",
-              }}
-            />
-          ))}
-        </div>
-        <span className="font-mono text-xs" style={{ color: "var(--text-dim)" }}>
-          {current + 1} / {images.length}
-        </span>
+      <div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-xs px-3 py-1.5 rounded-lg"
+        style={{ background: "rgba(13,17,23,0.8)", color: "var(--text-muted)", border: "1px solid var(--border)" }}
+      >
+        {index + 1} / {images.length}
       </div>
     </div>
   )
-}
-
-//  web project data lives here 
-const webProjects = {
-  "saku-aman-app": {
-    title: "Saku Aman",
-    subtitle: "Personal Expense Tracker App",
-    year: "2026",
-    role: "Solo Project",
-    description: "Created a mobile expense tracking application that helps users record transactions, monitor spending habits, and manage personal finances efficiently.",
-    screenshots: [
-      "/web/saku-aman/saku-aman-app1.png",
-      "/web/saku-aman/saku-aman-app2.png",
-      "/web/saku-aman/saku-aman-app3.png",
-      "/web/saku-aman/saku-aman-app4.png",
-      "/web/saku-aman/saku-aman-app5.png",
-    ],
-    techStack: [
-      { name: "Flutter",  role: "Cross-platform mobile UI framework" },
-      { name: "Dart",     role: "Programming language for all app logic" },
-      { name: "SQLite",   role: "Local database for storing transactions" },
-    ],
-    source: "https://github.com/Jemsdiggory/saku-aman-app",
-    tags: ["Flutter", "Dart", "SQLite"],
-    isMobile: true,
-  },
-  "ciptadra": {
-    title: "Company Website",
-    subtitle: "Home Page Redesign for Ciptadra Softindo",
-    year: "2026",
-    role: "Web Developer Intern",
-    description: "Redesigned and developed the company profile website, enhancing user experience, visual consistency, and product presentation through responsive layouts and interactive UI components.",
-    screenshots: [
-      "/web/webCiptadra/fullWebsiteCiptadra.png",
-      
-    ],
-    techStack: [
-      { name: "Laravel",    role: "Backend framework & Blade templating engine" },
-      { name: "PHP",        role: "Server-side logic, routing, and data handling" },
-      { name: "CSS3",       role: "Custom animations, responsive layout, and styling" },
-      { name: "Vanilla JS", role: "Interactive UI components and DOM manipulation" },
-      { name: "Git", role: "Version control and collaboration" },
-      { name: "Gitlab", role: "Code hosting and CI/CD pipelines" },
-      { name: "Notion", role:  "Documentation and Task Management",}
-    ],
-    source: "",
-    tags: ["Laravel", "PHP", "CSS", "Vanilla JS"],
-  },
-  "onebox-ciptadra": {
-    title: "OneBox Portal",
-    subtitle: "Redesign of OneBox Portal for Ciptadra Softindo",
-    year: "2026",
-    role: "Web Developer Intern",
-    description: "Revamped the internal employee portal with an improved user interface, streamlined navigation, and responsive design to create a more efficient user experience.",
-    screenshots: [
-      "/web/web-onebox/wanbok.png",
-    ],
-    techStack: [
-      { name: "Laravel",    role: "Backend framework & Blade templating engine" },
-      { name: "PHP",        role: "Server-side logic, routing, and data handling" },
-      { name: "CSS3",       role: "Layout, component styling, and responsive UI" },
-      { name: "Vanilla JS", role: "Interactive UI components and DOM manipulation" },
-      { name: "Git",        role: "Version control and collaboration" },
-      { name: "Gitlab",     role: "Code hosting and CI/CD pipelines" },
-      { name: "Notion",     role: "Documentation and task management" },
-    ],
-    source: "",
-    tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git", "Gitlab", "Notion"],
-  },
-    "portal-nextjs": {
-    title: "Portal Nextjs Ciptadra",
-    subtitle: "Modern Web Application built with Next.js",
-    image: "/web/portal-Nextjs/portal-nextjs.png",
-    year: "2026",
-    role: "Web Developer Intern",
-    description: "Modernized an existing enterprise platform by redesigning outdated interfaces into a responsive, scalable, and user-friendly web application using Next.js and TypeScript.",
-    screenshots: [
-      "/web/portal-nextjs/portal-nextjs.png",
-      
-    ],
-    techStack: [
-      { name: "Next.js",     role: "Frontend framework for building server-side rendered applications" },
-      { name: "React",       role: "Library for building user interfaces" },
-      { name: "TypeScript",  role: "Typed superset of JavaScript" },
-      { name: "Tailwind CSS", role: "Utility-first CSS framework" },
-      { name: "Git",         role: "Version control and collaboration" },
-      { name: "GitHub",      role: "Code hosting and collaboration" },
-    ],
-    source: "",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Git", "GitHub"],
-  },
-  "mall-management-system": {
-    title: "Mall Management System",
-    subtitle: "Web-based Mall Management System Ciptadra",
-    year: "2026",
-    role: "Web Developer Intern",
-    description: "Developed a full-stack mall management system featuring tenant management, contract administration, and automated billing workflows to support daily operational processes.",
-    screenshots: [
-      "/web/sistemMall/sistMall1.png",
-    ],
-    techStack: [
-      { name: "CodeIgniter", role: "PHP MVC framework for structure and routing" },
-      { name: "PHP",         role: "Server-side scripting" },
-      { name: "MySQL",       role: "Relational database for storing data" },
-      { name: "CSS3",        role: "Responsive layout and component styling" },
-      { name: "Vanilla JS",  role: "UI interactions and dynamic content" },
-      { name: "Git", role: "Version control and collaboration" },
-      { name: "Gitlab", role: "Code hosting and CI/CD pipelines" },
-    ],
-    source: "",
-    tags: ["CodeIgniter", "PHP", "MySQL", "CSS", "Vanilla JS"],
-  },
-  "mall-management" : {
-    title: "Landing Page for Mall Management System",
-    subtitle: "Web-based Mall Management System Ciptadra",
-    year: "2026",
-    role: "Web Developer Intern",
-    description: "Designed and developed a responsive landing page for a mall management solution, focusing on clear product communication, modern UI, and conversion-oriented user experience.",
-    screenshots: [
-      "/web/MallManagement/webMallManagement.png",
-    ],
-      techStack: [
-        { name: "CodeIgniter", role: "PHP MVC framework for structure and routing" },
-        { name: "PHP",         role: "Server-side scripting" },
-        { name: "MySQL",       role: "Relational database for storing data" },
-        { name: "CSS3",        role: "Responsive layout and component styling" },
-        { name: "Vanilla JS",  role: "UI interactions and dynamic content" },
-        { name: "Git", role: "Version control and collaboration" },
-        { name: "Gitlab", role: "Code hosting and CI/CD pipelines" },
-      ],
-    source: "",
-    tags: ["CodeIgniter", "PHP", "MySQL", "CSS", "Vanilla JS"],
-    },
-
-  "food-check": {
-    title: "FoodCheck",
-    subtitle: "Web App to find food recipes based on available ingredients",
-    image: "/web/foodcheck/fc1.png",
-    year: "2026",
-    role: "Solo Project",
-    description: "Built a full-stack recipe discovery platform that helps users find recipes based on available ingredients, save favorites, and manage search history through an intuitive interface.",
-    screenshots: [
-      "/web/foodcheck/fc1.png",
-      "/web/foodcheck/fc2.png",
-      "/web/foodcheck/fc3.png",
-    ],
-    techStack: [
-      { name: "Laravel",    role: "Backend framework & Blade templating engine" },
-      { name: "MySQL",      role: "Relational database for storing data" },
-      { name: "React.js",   role: "Frontend library for building user interfaces" },
-      { name: "Vite",       role: "Build tool for fast development" },
-      { name: "Git",        role: "Version control and collaboration" },
-      { name: "GitHub",     role: "Code hosting and collaboration" },
-      { name: "Spoonacular API", role: "Recipe data provider" },
-    ],
-    source: "https://github.com/Jemsdiggory/foodcheck-backend",
-    tags: ["Laravel", "MySQL", "React.js", "Vite", "Git", "GitHub", "Spoonacular API"],
-  },
-  "mini-cms": {
-    title: "Mini CMS",
-    subtitle: "Game Blog with CMS Features",
-    year: "2026",
-    role: "Solo Project",
-    description: "Developed a lightweight content management system for a gaming blog, featuring article management, rich-text editing, and complete CRUD functionality.",
-    screenshots: [
-      "/web/mini-cms/homeBlog.png",
-      "/web/mini-cms/dashboardAdmin.png",
-      "/web/mini-cms/Mini-cms.png",
-      "/web/mini-cms/admin-add-post.png",
-      "/web/mini-cms/admin-users.png",
-      "/web/mini-cms/admin-categories.png",
-      
-    ],
-    techStack: [
-      { name: "PHP",        role: "Server-side scripting, routing, and session management" },
-      { name: "MySQL",      role: "Relational database for storing posts and user data" },
-      { name: "TinyMCE",   role: "WYSIWYG rich text editor for content creation" },
-      { name: "Vanilla JS", role: "AJAX calls, UI interactions, and dynamic elements" },
-      { name: "CSS3",       role: "Responsive admin panel and front-end styling" },
-      { name: "Notion", role:  "Documentation and Project Planning"},
-    ],
-    source: "https://github.com/Jemsdiggory/Mini-cms",
-    tags: ["PHP", "MySQL", "Vanilla JS", "TinyMCE"],
-  },
-  "angular-spa": {
-    title: "Angular SPA",
-    subtitle: "Single Page Application built with Angular",
-    image: "/web/angular-app/angular-spa.png",
-    year: "2026",
-    role: "Front-End Practice Project",
-    description: "Built a Single Page Application using Angular to demonstrate reactive forms, validation workflows, state handling, and external API integration.",
-    screenshots: [
-      "/web/angular-app/angular-spa.png",
-      "/web/angular-app/angular-spa2.png",
-    ],
-    techStack: [
-      { name: "Angular",      role: "Frontend framework" },
-      { name: "TypeScript",   role: "Programming language" },
-      { name: "RxJS",         role: "Reactive programming library" },
-      { name: "HTTP Client",  role: "For making HTTP requests" },
-      { name: "Git",          role: "Version control" },
-      { name: "GitHub",       role: "Code hosting" },
-      { name: "Joke API",     role: "External API for joke data" },
-    ],
-    source: "https://github.com/Jemsdiggory/antarikstech-angular",
-    tags: ["Angular", "TypeScript", "RxJS", "HTTP Client", "Git", "GitHub", "Joke API"],
-  },
-  "mlbb-vote": {
-    title: "MLBB Vote",
-    subtitle: "Web Login and Hero Filtering UI",
-    year: "2026",
-    role: "Front-End Practice Project",
-    description: "Developed a responsive game-inspired web interface featuring hero exploration, role-based filtering, and interactive user experiences inspired by MOBA game design.",
-    screenshots: [
-      "/web/Mole-vote/mole-vote.png",
-      "/web/Mole-vote/molevote-login.png",
-      
-    ],
-    techStack: [
-      { name: "HTML5",      role: "Semantic structure and markup" },
-      { name: "CSS3",       role: "Animations, grid layout, and responsive design" },
-      { name: "JavaScript", role: "Hero filtering, login flow simulation, and DOM interactions" },
-    ],
-    source: "https://github.com/Jemsdiggory/Molevote-Dummy",
-    tags: ["HTML", "CSS", "JavaScript"],
-  },
-  "personal-website": {
-    title: "Personal Website",
-    subtitle: "Interactive personal portfolio website built with Next.js",
-    year: "2026",
-    role: "Front-End Project for Cretivox Internship Experience",
-    description: "Interactive portfolio website built with Next.js, featuring smooth animations, custom interactions, responsive design, and modern web technologies to showcase projects and professional experience.",
-    screenshots: [
-      "/web/personal-website/personal-website-Copy.png",
-    ],
-    techStack: [
-      { name: "Next.js", role: "Frontend framework for building server-side rendered applications" },
-      { name: "React", role: "Library for building user interfaces" },
-      { name: "TypeScript", role: "Typed superset of JavaScript" },
-      { name: "Tailwind CSS", role: "Utility-first CSS framework" },
-      { name: "GSAP", role: "Animation library for smooth transitions" },
-      { name: "Git", role: "Version control and collaboration" },
-      { name: "GitHub", role: "Code hosting and collaboration" },
-    ],
-    source: "https://github.com/Jemsdiggory/personal-website",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP", "Git", "GitHub"],
-  },
-}
-
-const tagColor = (tag) => {
-  const map = {
-    HTML: "var(--accent2)", CSS: "var(--accent2)", JavaScript: "var(--accent2)",
-    PHP: "var(--accent2)", MySQL: "var(--accent2)", "Vanilla JS": "var(--accent2)",
-    TinyMCE: "var(--accent2)", Laravel: "var(--accent2)", CodeIgniter: "var(--accent2)",
-    "React.js": "var(--accent2)", Vite: "var(--accent2)", Git: "var(--accent2)", GitHub: "var(--accent2)", Gitlab: "var(--accent2)", "Spoonacular API": "var(--accent2)",
-    Flutter: "var(--accent2)", Dart: "var(--accent2)", SQLite: "var(--accent2)", "Notion": "var(--accent2)", "Joke API": "var(--accent2)", Angular: "var(--accent2)", 
-    TypeScript: "var(--accent2)", RxJS: "var(--accent2)", "HTTP Client": "var(--accent2)", "Next.js": "var(--accent2)", "Tailwind CSS": "var(--accent2)", React: "var(--accent2)",
-    "GSAP": "var(--accent2)", "Github": "var(--accent2)",
-  }
-  return map[tag] || "var(--text-muted)"
 }
 
 export default function WebProjectDetail({ params }) {
@@ -585,13 +175,18 @@ export default function WebProjectDetail({ params }) {
   const project = webProjects[slug]
   if (!project) notFound()
 
+  const [galleryIndex, setGalleryIndex] = useState(null)
+  const heroImage = project.screenshots?.[0]
+
   return (
     <>
       <Navbar />
 
       <div className="fixed inset-0 pointer-events-none -z-10">
-        <div className="absolute rounded-full blur-[120px] opacity-8"
-          style={{ width: 500, height: 500, top: "20%", right: "-5%", background: "var(--accent)" }} />
+        <div
+          className="absolute rounded-full blur-[120px] opacity-8"
+          style={{ width: 500, height: 500, top: "20%", right: "-5%", background: "var(--accent)" }}
+        />
         <div className="absolute inset-0 dot-grid opacity-20" />
       </div>
 
@@ -609,130 +204,170 @@ export default function WebProjectDetail({ params }) {
             </Link>
           </motion.div>
 
-          {/* header */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }} className="mb-16">
+          {/* ── Hero ── */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="mb-16">
 
             <div className="flex flex-wrap items-center gap-2 mb-6">
-              {project.tags.map((tag) => (
-                <span key={tag} className="font-mono text-xs px-2 py-0.5 rounded"
-                  style={{ color: tagColor(tag), background: `${tagColor(tag)}18`, border: `1px solid ${tagColor(tag)}30` }}>
-                  {tag}
+              <span
+                className="font-mono text-xs px-3 py-1 rounded-full border"
+                style={{ color: TYPE_TEXT[project.type], background: TYPE_COLORS[project.type], borderColor: `${TYPE_TEXT[project.type]}30` }}
+              >
+                {project.type}
+              </span>
+              <span
+                className="font-mono text-xs px-3 py-1 rounded-full border"
+                style={{ color: CATEGORY_TEXT[project.category], background: CATEGORY_COLORS[project.category], borderColor: `${CATEGORY_TEXT[project.category]}30` }}
+              >
+                {project.category}
+              </span>
+              <span
+                className="font-mono text-xs px-3 py-1 rounded-full border"
+                style={{ color: STATUS_TEXT[project.status], background: STATUS_COLORS[project.status], borderColor: `${STATUS_TEXT[project.status]}30` }}
+              >
+                {project.status}
+              </span>
+            </div>
+
+            <h1
+              className="font-display font-extrabold leading-tight mb-2"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", letterSpacing: "-0.03em", color: "var(--text)" }}
+            >
+              {project.title}
+            </h1>
+            <p className="font-display text-xl mb-4" style={{ color: "var(--text-muted)" }}>
+              {project.subtitle}
+            </p>
+
+            <div className="flex flex-wrap gap-6 font-mono text-xs mb-8" style={{ color: "var(--text-dim)" }}>
+              <span><span style={{ color: "var(--text-muted)" }}>Year</span> — {project.year}</span>
+              <span><span style={{ color: "var(--text-muted)" }}>Role</span> — {project.role}</span>
+            </div>
+
+            <div className="flex flex-wrap gap-2 mb-10">
+              {project.techStack.map((t) => (
+                <span
+                  key={t.name}
+                  className="font-mono text-xs px-2.5 py-1 rounded-lg border"
+                  style={{ color: tagColor(t.name), background: `${tagColor(t.name)}18`, borderColor: `${tagColor(t.name)}30` }}
+                >
+                  {t.name}
                 </span>
               ))}
             </div>
 
-            <h1 className="font-display font-extrabold leading-tight mb-2"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", letterSpacing: "-0.03em", color: "var(--text)" }}>
-              {project.title}
-            </h1>
-            <p className="font-display text-xl mb-6" style={{ color: "var(--text-muted)" }}>
-              {project.subtitle}
-            </p>
-
-            <div className="flex flex-wrap gap-6 font-mono text-xs" style={{ color: "var(--text-dim)" }}>
-              <span><span style={{ color: "var(--text-muted)" }}>Year</span> — {project.year}</span>
-              <span><span style={{ color: "var(--text-muted)" }}>Role</span> — {project.role}</span>
-            </div>
-          </motion.div>
-
-          {/* screenshots — carousel */}
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }} className="mb-20">
-
-            <p className="font-mono text-xs tracking-widest uppercase mb-6 flex items-center gap-3"
-              style={{ color: "var(--text-dim)" }}>
-              <span className="inline-block w-6 h-px" style={{ background: "var(--text-dim)" }} />
-              Screenshots
-            </p>
-
-            {project.isMobile
-              ? <MobileCarousel images={project.screenshots} title={project.title} />
-              : <Carousel images={project.screenshots} title={project.title} />
-            }
-          </motion.div>
-
-          {/* two-column: description + tech stack */}
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-
-            {/* description */}
-            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}>
-              <p className="font-mono text-xs tracking-widest uppercase mb-6 flex items-center gap-3"
-                style={{ color: "var(--text-dim)" }}>
-                <span className="inline-block w-6 h-px" style={{ background: "var(--text-dim)" }} />
-                About the Project
-              </p>
-              <p className="font-display text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                {project.description}
-              </p>
-
-              {project.source && (
-                <a
-                  href={project.source}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-glow inline-block mt-8 font-mono text-xs px-6 py-3 rounded-xl border"
-                  style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}
-                >
-                  View Source →
-                </a>
-              )}
-            </motion.div>
-
-            {/* tech stack timeline */}
-            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}>
-              <p className="font-mono text-xs tracking-widest uppercase mb-6 flex items-center gap-3"
-                style={{ color: "var(--text-dim)" }}>
-                <span className="inline-block w-6 h-px" style={{ background: "var(--text-dim)" }} />
-                Tech Stack
-              </p>
-
-              {/* vertical timeline */}
-              <div className="relative pl-6" style={{ borderLeft: "1px solid var(--border)" }}>
-                {project.techStack.map((t, i) => (
-                  <motion.div
-                    key={t.name}
-                    initial={{ opacity: 0, x: -16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-                    className="relative pb-7 last:pb-0"
+            {/* main image */}
+            {heroImage ? (
+              project.isMobile ? (
+                <div className="flex justify-center">
+                  <div
+                    className="relative rounded-[2rem] overflow-hidden border-2"
+                    style={{ width: "280px", borderColor: "var(--border)", background: "var(--surface2)", boxShadow: "0 0 40px rgba(99,102,241,0.12)" }}
                   >
-                    {/* dot */}
                     <div
-                      className="absolute -left-[1.55rem] top-[0.3rem] w-3 h-3 rounded-full flex items-center justify-center"
-                      style={{ background: "var(--surface2)", border: "1px solid var(--accent)", boxShadow: "0 0 8px rgba(99,102,241,0.4)" }}
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--accent)" }} />
-                    </div>
+                      className="absolute top-3 left-1/2 -translate-x-1/2 z-10 rounded-full"
+                      style={{ width: "60px", height: "10px", background: "var(--bg)" }}
+                    />
+                    <img src={heroImage} alt={project.title} loading="lazy" decoding="async" className="w-full h-auto block" />
+                  </div>
+                </div>
+              ) : (
+                <ScrollPreview src={heroImage} alt={project.title} />
+              )
+            ) : (
+              <div
+                className="relative w-full rounded-2xl overflow-hidden border flex flex-col items-center justify-center text-center px-8"
+                style={{
+                  height: "320px",
+                  borderColor: "var(--border)",
+                  background: "radial-gradient(circle at 30% 20%, rgba(99,102,241,0.16), transparent 55%), var(--surface2)",
+                }}
+              >
+                <p className="font-mono text-xs max-w-xs" style={{ color: "var(--text-dim)" }}>
+                  Prototype and supporting documentation available on request.
+                </p>
+              </div>
+            )}
+          </motion.div>
 
-                    {/* number */}
-                    <span className="font-mono text-xs mb-1 block" style={{ color: "var(--text-dim)" }}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+          {/* ── About the Project ── */}
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-16">
+            <p
+              className="font-mono text-xs tracking-widest uppercase mb-6 flex items-center gap-3"
+              style={{ color: "var(--text-dim)" }}
+            >
+              <span className="inline-block w-6 h-px" style={{ background: "var(--text-dim)" }} />
+              About the Project
+            </p>
+            <p className="font-display text-lg leading-relaxed max-w-3xl" style={{ color: "var(--text-muted)" }}>
+              {project.description}
+            </p>
+          </motion.div>
 
-                    <p className="font-mono font-medium text-sm mb-1" style={{ color: "var(--text)" }}>
-                      {t.name}
-                    </p>
-                    <p className="font-mono text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                      {t.role}
-                    </p>
-
-                    {/* connector line accent */}
-                    {i < project.techStack.length - 1 && (
-                      <div className="absolute -left-[1.32rem] top-6 bottom-0 w-px"
-                        style={{ background: "linear-gradient(to bottom, var(--accent) 0%, var(--border) 100%)", opacity: 0.3 }} />
-                    )}
-                  </motion.div>
+          {/* ── My Contributions ── */}
+          {project.contributions?.length > 0 && (
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="mb-16">
+              <p
+                className="font-mono text-xs tracking-widest uppercase mb-6 flex items-center gap-3"
+                style={{ color: "var(--text-dim)" }}
+              >
+                <span className="inline-block w-6 h-px" style={{ background: "var(--text-dim)" }} />
+                My Contributions
+              </p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {project.contributions.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl border px-4 py-3"
+                    style={{ borderColor: "var(--border)", background: "var(--surface2)" }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "var(--accent)" }} />
+                    <span className="font-display text-sm" style={{ color: "var(--text)" }}>{item}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>
+          )}
 
-          </div>
+          {/* ── Project Gallery ── */}
+          {project.screenshots?.length > 1 && (
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
+              <p
+                className="font-mono text-xs tracking-widest uppercase mb-6 flex items-center gap-3"
+                style={{ color: "var(--text-dim)" }}
+              >
+                <span className="inline-block w-6 h-px" style={{ background: "var(--text-dim)" }} />
+                Project Gallery
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {project.screenshots.map((src, i) => (
+                  <button
+                    key={src}
+                    onClick={() => setGalleryIndex(i)}
+                    className="relative rounded-xl overflow-hidden border text-left"
+                    style={{ borderColor: "var(--border)" }}
+                  >
+                    <img
+                      src={src}
+                      alt={`${project.title} screenshot ${i + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-auto block"
+                    />
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
         </div>
       </main>
+
+      <Lightbox
+        images={project.screenshots || []}
+        index={galleryIndex}
+        onClose={() => setGalleryIndex(null)}
+        onNavigate={setGalleryIndex}
+      />
     </>
   )
 }

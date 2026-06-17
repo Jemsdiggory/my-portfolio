@@ -6,238 +6,18 @@ import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import Navbar from "../components/Navbar"
+import { getOrderedWebProjects, gameProjects } from "./projectsData"
+import {
+  CATEGORY_COLORS,
+  CATEGORY_TEXT,
+  TYPE_COLORS,
+  TYPE_TEXT,
+  coreTags,
+} from "./styleTokens"
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
-const gameProjects = [
-  {
-    title: "Vita-Dulu",
-    studio: "Tealcean Studio",
-    icon: "/game-icons/icongame1.jpg",
-    video: "/gameplay/vita-dulu.mp4",
-    link: "https://jemsdiggory.itch.io/vita-dulu",
-    tags: ["Unity", "3D", "Simulation", "Educational"],
-    description:
-      "3D Simulation & Educational game about traditional Indonesian snacks. Responsible for overall gameplay mechanics, NPC AI behaviour, and interactive systems. PC & Mobile.",
-    team: "Programmer · Designer",
-    type: "SIMULATION GAME",
-    category: "Game Development",
-  },
-  {
-    title: "Rise Against",
-    studio: "Tealcean Studio",
-    icon: "/game-icons/icongame2.png",
-    video: "/gameplay/rise-against.mp4",
-    link: "https://jemsdiggory.itch.io/rise-against",
-    tags: ["Unity", "2D", "RPG", "Educational"],
-    description:
-      "2D RPG about environmental issues. Programmed quest systems, AI & combat, dialogue, and inventory management. PC Platform.",
-    team: "Programmer · Designer",
-    type: "RPG GAME",
-    category: "Game Development",
-  },
-  {
-    title: "Let's Explore",
-    studio: "Tealcean Studio",
-    icon: "/game-icons/icongame3.png",
-    video: "/gameplay/lets-explore.mp4",
-    link: "https://jemsdiggory.itch.io/lets-explore",
-    tags: ["Unity", "2D", "Kids", "Educational"],
-    description:
-      "2D Educational game on arithmetic and Indonesian tourism for children aged 6–9. Mini-game mechanics, interactive systems & UI/UX. PC Platform.",
-    team: "Programmer · Designer",
-    type: "EDUCATIONAL GAME",
-    category: "Game Development",
-  },
-  {
-    title: "Roblorant",
-    studio: "Solo Project",
-    icon: "/game-icons/icongame4.png",
-    video: "/gameplay/roblorant.mp4",
-    link: "https://jemsdiggory.itch.io/tugas-game-fps",
-    tags: ["Unity", "3D", "FPS", "Assignment"],
-    description:
-      "3D FPS game assignment built with Unity. Core gameplay: player movement, shooting mechanics, enemy AI. Web-based.",
-    team: "Programmer (Solo Project)",
-    type: "FPS GAME",
-    category: "Game Development",
-  },
-  {
-    title: "Congklak Adventures",
-    studio: "Team 7",
-    icon: "/game-icons/icongame5.png",
-    video: "/gameplay/congklak-adventures.mp4",
-    link: "https://dycals.itch.io/congklak-adventures",
-    tags: ["Unity", "2D", "Traditional", "Educational"],
-    description:
-      "2D Educational game on the traditional Congklak board game. My role: UI Artist & co-Game Designer. PC Platform.",
-    team: "UI Artist · Designer",
-    type: "TRADITIONAL GAME",
-    category: "Game Development",
-  },
-]
-
-const webProjects = [
-  {
-    slug: "ciptadra",
-    title: "Ciptadra Softindo",
-    subtitle: "Enterprise Website Redesign & Development",
-    image: "/thumbnail/webciptadra.svg",
-    tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git"],
-    description:
-      "Redesigned the company profile homepage and product pages for Ciptadra Softindo, improving visual identity and user engagement.",
-    type: "Professional Project",
-    category: "Front-End Development",
-  },
-  {
-    slug: "onebox-ciptadra",
-    title: "OneBox Portal",
-    subtitle: "Products Portal Modernization",
-    image: "/thumbnail/webonebox.svg",
-    tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git"],
-    description:
-      "Modernized the Product portal of Ciptadra Softindo with an improved UI/UX, streamlined navigation, and responsive layout.",
-    type: "Professional Project",
-    category: "Front-End Development",
-  },
-  {
-    slug: "personal-website",
-    title: "Personal Portfolio",
-    subtitle: "Interactive Portfolio Website with Next.js",
-    image: "/thumbnail/webpersonal.svg",
-    tags: ["Next.js", "React", "Tailwind CSS", "GSAP", "GitHub"],
-    description:
-      "Interactive personal portfolio built with Next.js. Features smooth animations, custom cursor, music player, and fully responsive design.",
-    type: "Personal Project",
-    category: "Front-End Development",
-  },
-  {
-    slug: "portal-nextjs",
-    title: "Portal Onebox.go.id",
-    subtitle: "Enterprise Platform Redesign with Next.js",
-    image: "/thumbnail/portalnextjs.svg",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Git"],
-    description:
-      "Transformed an outdated web platform into a sleek, responsive, and commercial-ready application using Next.js and Tailwind CSS.",
-    type: "Professional Project",
-    category: "Front-End Development",
-  },
-  {
-    slug: "mall-management",
-    title: "Mall Management Landing",
-    subtitle: "Product Landing Page for Mall Management Solution",
-    image: "/thumbnail/landingpagemall.svg",
-    tags: ["CodeIgniter", "PHP", "CSS", "Vanilla JS", "Git"],
-    description:
-      "Developed a conversion-focused product landing page for Ciptadra's Mall Management System, communicating key features and value proposition.",
-    type: "Professional Project",
-    category: "Front-End Development",
-  },
-  {
-    slug: "mall-management-system",
-    title: "Mall Management System",
-    subtitle: "Enterprise Web Platform Enhancement",
-    image: "/thumbnail/sistmall.svg",
-    tags: ["CodeIgniter", "PHP", "MySQL", "CSS", "Vanilla JS"],
-    description:
-      "Contributed to the modernization of an enterprise web platform used for mall operations management. Improved interface design, refined user workflows, and implemented functional enhancements, while supporting backend updates and database integration requirements.",
-    type: "Professional Project",
-    category: "Front-End Development",
-  },
-  {
-    slug: "food-check",
-    title: "FoodCheck",
-    subtitle: "AI-Powered Recipe Discovery Platform",
-    image: "/thumbnail/foodcheck.svg",
-    tags: ["Laravel", "MySQL", "React.js", "Vite", "Spoonacular API"],
-    description:
-      "Full-stack recipe discovery app. Users input available ingredients to get AI-curated recipe suggestions, save favorites, and track search history.",
-    type: "Academic Project",
-    category: "Full-Stack Development",
-  },
-  {
-    slug: "mini-cms",
-    title: "Gaming Blog CMS",
-    subtitle: "Content Management System for Gaming Blog",
-    image: "/thumbnail/minicms.svg",
-    tags: ["PHP", "MySQL", "Vanilla JS", "TinyMCE"],
-    description:
-      "A lightweight CMS for a gaming blog with full CRUD operations and a WYSIWYG editor for rich content publishing.",
-    type: "Academic Project",
-    category: "Web Application",
-  },
-  {
-    slug: "saku-aman-app",
-    title: "Saku Aman",
-    subtitle: "Personal Finance Tracking Mobile Application",
-    image: "/thumbnail/sakuaman.svg",
-    tags: ["Flutter", "Dart", "SQLite"],
-    description:
-      "A cross-platform mobile finance tracker built with Flutter, allowing users to log income, expenses, and view spending summaries.",
-    type: "Academic Project",
-    category: "Mobile Application",
-  },
-  {
-    slug: "angular-spa",
-    title: "Angular SPA",
-    subtitle: "Angular Single Page Application Showcase",
-    image: "/thumbnail/antarikstech.svg",
-    tags: ["Angular", "TypeScript", "RxJS", "HTTP Client", "Joke API"],
-    description:
-      "Demonstrates Reactive Forms, form validation, business logic separation, and HTTP client integration with an external REST API.",
-    type: "Academic Project",
-    category: "Web Application",
-  },
-  {
-    slug: "mlbb-vote",
-    title: "MLBB Vote",
-    subtitle: "Interactive Game-Themed Voting Interface",
-    image: "/thumbnail/molevote.svg",
-    tags: ["HTML", "CSS", "JavaScript"],
-    description:
-      "Responsive game-inspired voting site with hero card gallery, role-based filtering, and interactive voting functionality.",
-    type: "Personal Project",
-    category: "Front-End Development",
-  },
-]
-
-// ─── HELPERS ─────────────────────────────────────────────────────────────────
-
-const CORE_TAGS = {
-  "Next.js": true, React: true, "React.js": true, TypeScript: true,
-  Laravel: true, "Tailwind CSS": true, Flutter: true, Angular: true,
-  Unity: true, PHP: true, MySQL: true, CodeIgniter: true,
-  "Vanilla JS": true, JavaScript: true, Dart: true,
-  GSAP: true, GitHub: true,
-}
-
-function coreTags(tags, max = 4) {
-  const core = tags.filter((t) => CORE_TAGS[t])
-  const rest = tags.filter((t) => !CORE_TAGS[t])
-  return [...core, ...rest].slice(0, max)
-}
-
-const CATEGORY_COLORS = {
-  "Front-End Development": "rgba(99,102,241,0.15)",
-  "Full-Stack Development": "rgba(34,197,94,0.12)",
-  "Mobile Application": "rgba(251,146,60,0.12)",
-  "Web Application": "rgba(168,85,247,0.12)",
-  "Game Development": "rgba(236,72,153,0.12)",
-  "Professional Project": "rgba(99,102,241,0.15)",
-  "Academic Project": "rgba(34,197,94,0.12)",
-  "Personal Project": "rgba(251,191,36,0.12)",
-}
-
-const CATEGORY_TEXT = {
-  "Front-End Development": "rgba(165,180,252,0.9)",
-  "Full-Stack Development": "rgba(134,239,172,0.9)",
-  "Mobile Application": "rgba(253,186,116,0.9)",
-  "Web Application": "rgba(216,180,254,0.9)",
-  "Game Development": "rgba(249,168,212,0.9)",
-  "Professional Project": "rgba(165,180,252,0.9)",
-  "Academic Project": "rgba(134,239,172,0.9)",
-  "Personal Project": "rgba(253,230,138,0.9)",
-}
+const webProjects = getOrderedWebProjects()
 
 // ─── ARROW BUTTON ────────────────────────────────────────────────────────────
 
@@ -339,6 +119,48 @@ function DotIndicators({ count, selected, onSelect }) {
   )
 }
 
+// ─── THUMBNAIL PLACEHOLDER ───────────────────────────────────────────────────
+// Used when a project has no real thumbnail asset yet (proposal/concept
+// projects awaiting uploaded artwork). Keeps the card layout intentional
+// instead of a broken next/image request.
+
+function ThumbnailPlaceholder({ title, hovered }) {
+  const initials = title
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase()
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background:
+          "radial-gradient(circle at 30% 20%, rgba(99,102,241,0.18), transparent 55%), rgba(255,255,255,0.04)",
+        transform: hovered ? "scale(1.04)" : "scale(1)",
+        transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1)",
+      }}
+    >
+      <span
+        style={{
+          fontWeight: 800,
+          fontSize: "2.6rem",
+          letterSpacing: "-0.03em",
+          color: "rgba(255,255,255,0.18)",
+        }}
+      >
+        {initials}
+      </span>
+    </div>
+  )
+}
+
 // ─── WEB PROJECT CARD ────────────────────────────────────────────────────────
 
 function WebProjectCard({ web }) {
@@ -346,6 +168,9 @@ function WebProjectCard({ web }) {
 
   const catBg = CATEGORY_COLORS[web.category] || "rgba(99,102,241,0.12)"
   const catText = CATEGORY_TEXT[web.category] || "rgba(165,180,252,0.9)"
+  const typeText = TYPE_TEXT[web.type] || "rgba(255,255,255,0.55)"
+  const typeBg = TYPE_COLORS[web.type] || "rgba(255,255,255,0.06)"
+  const showStatus = web.status && web.status !== "Live Product"
 
   return (
     <Link
@@ -379,18 +204,22 @@ function WebProjectCard({ web }) {
           background: "rgba(255,255,255,0.04)",
         }}
       >
-        <Image
-          src={web.image}
-          alt={web.title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          style={{
-            objectFit: "cover",
-            transform: hovered ? "scale(1.06)" : "scale(1)",
-            filter: hovered ? "brightness(1.05)" : "brightness(0.88)",
-            transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease",
-          }}
-        />
+        {web.thumbnail ? (
+          <Image
+            src={web.thumbnail}
+            alt={web.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            style={{
+              objectFit: "cover",
+              transform: hovered ? "scale(1.06)" : "scale(1)",
+              filter: hovered ? "brightness(1.05)" : "brightness(0.88)",
+              transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease",
+            }}
+          />
+        ) : (
+          <ThumbnailPlaceholder title={web.title} hovered={hovered} />
+        )}
         <div
           style={{
             position: "absolute",
@@ -418,10 +247,10 @@ function WebProjectCard({ web }) {
             fontSize: "0.6rem",
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.55)",
-            background: "rgba(13,17,23,0.7)",
+            color: typeText,
+            background: typeBg,
             backdropFilter: "blur(8px)",
-            border: "1px solid rgba(255,255,255,0.1)",
+            border: `1px solid ${typeText}40`,
             padding: "3px 10px",
             borderRadius: "999px",
           }}
@@ -440,22 +269,41 @@ function WebProjectCard({ web }) {
           flex: 1,
         }}
       >
-        {/* Category badge */}
-        <span
-          style={{
-            fontSize: "0.65rem",
-            fontFamily: "monospace",
-            letterSpacing: "0.06em",
-            color: catText,
-            background: catBg,
-            border: `1px solid ${catText.replace("0.9", "0.25")}`,
-            padding: "2px 10px",
-            borderRadius: "999px",
-            alignSelf: "flex-start",
-          }}
-        >
-          {web.category}
-        </span>
+        {/* Category + status badges */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+          <span
+            style={{
+              fontSize: "0.65rem",
+              fontFamily: "monospace",
+              letterSpacing: "0.06em",
+              color: catText,
+              background: catBg,
+              border: `1px solid ${catText.replace("0.9", "0.25").replace("0.95", "0.25")}`,
+              padding: "2px 10px",
+              borderRadius: "999px",
+              alignSelf: "flex-start",
+            }}
+          >
+            {web.category}
+          </span>
+          {showStatus && (
+            <span
+              style={{
+                fontSize: "0.65rem",
+                fontFamily: "monospace",
+                letterSpacing: "0.06em",
+                color: "rgba(255,255,255,0.4)",
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                padding: "2px 10px",
+                borderRadius: "999px",
+                alignSelf: "flex-start",
+              }}
+            >
+              {web.status}
+            </span>
+          )}
+        </div>
 
         {/* Title + subtitle */}
         <div>
