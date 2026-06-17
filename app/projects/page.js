@@ -113,7 +113,7 @@ const webProjects = [
   },
   {
     slug: "portal-nextjs",
-    title: "Portal Ciptadra",
+    title: "Portal Onebox.go.id",
     subtitle: "Enterprise Platform Redesign with Next.js",
     image: "/thumbnail/portalnextjs.svg",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Git"],
