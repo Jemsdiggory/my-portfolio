@@ -85,7 +85,7 @@ const webProjects = [
     image: "/thumbnail/webciptadra.svg",
     tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git"],
     description:
-      "Redesigned and developed the company profile homepage and product pages for Ciptadra Softindo, improving visual identity and user engagement.",
+      "Redesigned the company profile homepage and product pages for Ciptadra Softindo, improving visual identity and user engagement.",
     type: "Professional Project",
     category: "Front-End Development",
   },
