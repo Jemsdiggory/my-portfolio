@@ -1,13 +1,4 @@
-// ─────────────────────────────────────────────────────────────────────────
-// Single source of truth for every web project.
-// Used by app/projects/page.js (listing) and app/projects/[slug]/page.js
-// (case study detail page). Edit content here only — both pages read from
-// this file, so nothing needs to be duplicated.
-// ─────────────────────────────────────────────────────────────────────────
 
-// Display order controls how projects appear on the listing page.
-// Professional work leads, followed by proposal/concept work, then
-// academic and personal projects.
 export const webProjectOrder = [
   "ciptadra",
   "onebox-ciptadra",
@@ -26,7 +17,7 @@ export const webProjectOrder = [
 ]
 
 export const webProjects = {
-  // ── PROFESSIONAL PROJECTS ────────────────────────────────────────────
+  //  PROFESSIONAL PROJECTS 
   "ciptadra": {
     slug: "ciptadra",
     title: "Ciptadra Softindo",
@@ -91,7 +82,7 @@ export const webProjects = {
     subtitle: "Smart City Portal Modernization",
     type: "Professional Project",
     category: "Front-End Development",
-    status: "Live Product",
+    status: "Internal Project",
     year: "2026",
     role: "Web Developer Intern",
     thumbnail: "/thumbnail/portalnextjs.svg",
@@ -119,7 +110,7 @@ export const webProjects = {
     subtitle: "Product Landing Page for a Mall Management Solution",
     type: "Professional Project",
     category: "Front-End Development",
-    status: "Live Product",
+    status: "Internal Project",
     year: "2026",
     role: "Web Developer Intern",
     thumbnail: "/thumbnail/landingpagemall.svg",
@@ -171,7 +162,7 @@ export const webProjects = {
     contributions: ["Front-End Development", "Workflow Improvement", "Database Analysis", "Backend Support"],
   },
 
-  // ── PROPOSAL / CONCEPT PROJECTS ──────────────────────────────────────
+  // PROPOSAL / CONCEPT PROJECTS 
   "kemen-lh": {
     slug: "kemen-lh",
     title: "Kemen LH Website Modernization",
@@ -181,8 +172,10 @@ export const webProjects = {
     status: "Concept & Prototype",
     year: "2026",
     role: "UI/UX Designer and Frontend Developer (Freelance)",
-    thumbnail: null,
-    screenshots: [],
+    thumbnail: "/thumbnail/kemenlh.svg",
+    screenshots: [
+      "/web/kemenlh/KLH-Web.png",
+    ],
     isMobile: false,
     description:
       "Conducted website audits, regional benchmarking, and user research to support a government website modernization initiative, delivered through high-fidelity HTML prototypes.",
@@ -205,8 +198,10 @@ export const webProjects = {
     status: "Concept & Prototype",
     year: "2026",
     role: "UI/UX Designer and Frontend Developer (Freelance)",
-    thumbnail: null,
-    screenshots: [],
+    thumbnail: "/thumbnail/puskesal.svg",
+    screenshots: [
+      "/web/puskesal/puskesal-home.png",
+    ],
     isMobile: false,
     description:
       "Designed a scalable design system and high-fidelity prototypes for a multi-platform healthcare ecosystem, supporting proposal validation and stakeholder review.",
@@ -229,8 +224,10 @@ export const webProjects = {
     status: "Proposal Stage",
     year: "2026",
     role: "UI/UX Designer and Frontend Developer (Freelance)",
-    thumbnail: null,
-    screenshots: [],
+    thumbnail: "/thumbnail/dispenau.svg",
+    screenshots: [
+      "/web/dispenau/dispenau-home.png",
+    ],
     isMobile: false,
     description:
       "Developed a UI/UX modernization proposal for a defense institution website, backed by international benchmark research and high-fidelity prototypes.",
@@ -244,12 +241,12 @@ export const webProjects = {
     contributions: ["Competitive Benchmarking", "Design Strategy", "HTML Prototype Development", "Content Accessibility Improvement"],
   },
 
-  // ── ACADEMIC PROJECTS ─────────────────────────────────────────────────
+  // Personal PROJECTS 
   "food-check": {
     slug: "food-check",
     title: "FoodCheck",
     subtitle: "Recipe Discovery Platform Based on Available Ingredients",
-    type: "Academic Project",
+    type: "Personal Project",
     category: "Full-Stack Development",
     status: "Concept & Prototype",
     year: "2026",
@@ -280,7 +277,7 @@ export const webProjects = {
     slug: "mini-cms",
     title: "Mini CMS",
     subtitle: "Lightweight Content Management System for a Gaming Blog",
-    type: "Academic Project",
+    type: "Personal Project",
     category: "Web Application",
     status: "Concept & Prototype",
     year: "2026",
@@ -313,7 +310,7 @@ export const webProjects = {
     slug: "saku-aman-app",
     title: "Saku Aman",
     subtitle: "Personal Expense Tracker App",
-    type: "Academic Project",
+    type: "Personal Project",
     category: "Mobile Application",
     status: "Concept & Prototype",
     year: "2026",
@@ -342,7 +339,7 @@ export const webProjects = {
     slug: "angular-spa",
     title: "Angular SPA",
     subtitle: "Single Page Application Built with Angular",
-    type: "Academic Project",
+    type: "Personal Project",
     category: "Web Application",
     status: "Concept & Prototype",
     year: "2026",
@@ -374,7 +371,7 @@ export const webProjects = {
     subtitle: "Web Login and Hero Filtering UI",
     type: "Personal Project",
     category: "Front-End Development",
-    status: "Concept & Prototype",
+    status: "Live Product",
     year: "2026",
     role: "Front-End Practice Project",
     thumbnail: "/thumbnail/molevote.svg",
@@ -394,7 +391,7 @@ export const webProjects = {
     contributions: ["Front-End Development", "Interactive UI Design", "DOM Manipulation"],
   },
 
-  // ── PERSONAL PROJECTS ─────────────────────────────────────────────────
+   
   "personal-website": {
     slug: "personal-website",
     title: "Personal Website",
@@ -425,7 +422,7 @@ export const webProjects = {
   },
 }
 
-// ── GAME PROJECTS (unchanged content, kept here for a single source of truth) ──
+// GAME PROJECTS 
 export const gameProjects = [
   {
     title: "Vita-Dulu",

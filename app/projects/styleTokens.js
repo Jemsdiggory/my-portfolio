@@ -27,7 +27,6 @@ export const TYPE_COLORS = {
   "Professional Project": "rgba(99,102,241,0.16)",
   "Proposal Project": "rgba(245,158,11,0.16)",
   "Concept Project": "rgba(168,85,247,0.16)",
-  "Academic Project": "rgba(34,197,94,0.14)",
   "Personal Project": "rgba(251,191,36,0.14)",
 }
 
@@ -35,7 +34,7 @@ export const TYPE_TEXT = {
   "Professional Project": "rgba(165,180,252,1)",
   "Proposal Project": "rgba(252,211,77,1)",
   "Concept Project": "rgba(216,180,254,1)",
-  "Academic Project": "rgba(134,239,172,1)",
+ 
   "Personal Project": "rgba(253,230,138,1)",
 }
 
