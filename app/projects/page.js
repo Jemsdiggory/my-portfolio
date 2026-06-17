@@ -92,7 +92,7 @@ const webProjects = [
   {
     slug: "onebox-ciptadra",
     title: "OneBox Portal",
-    subtitle: "Employee Portal Modernization",
+    subtitle: "Products Portal Modernization",
     image: "/thumbnail/webonebox.svg",
     tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git"],
     description:
