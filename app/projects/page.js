@@ -96,7 +96,7 @@ const webProjects = [
     image: "/thumbnail/webonebox.svg",
     tags: ["Laravel", "PHP", "CSS", "Vanilla JS", "Git"],
     description:
-      "Modernized the internal employee portal for Ciptadra Softindo with an improved UI/UX, streamlined navigation, and responsive layout.",
+      "Modernized the Product portal of Ciptadra Softindo with an improved UI/UX, streamlined navigation, and responsive layout.",
     type: "Professional Project",
     category: "Front-End Development",
   },
