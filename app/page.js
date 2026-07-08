@@ -22,7 +22,7 @@ const socials = [
 const projects = [
   {
     badge: "Government Project",
-    title: "Kemen LH Website Modernization",
+    title: "Kemen LH Website Modernization(Proposal)",
     desc: "Environmental Agency Website Modernization Proposal. Conducted website audits, regional benchmarking, and user research to support a government website modernization initiative.",
     tags: ["UX Research", "Benchmarking", "Government"],
     stat: "Gov Project",
@@ -56,7 +56,7 @@ const projects = [
   },
   {
     badge: "Healthcare Project",
-    title: "Puskesal Health Ecosystem",
+    title: "Puskesal Health Ecosystem(Proposal)",
     desc: "Healthcare Platform Design System and Prototype. Designed a scalable design system and high-fidelity prototypes for a multi-platform healthcare ecosystem.",
     tags: ["Design System", "Healthcare", "UX Research"],
     stat: "Gov Healthcare",
