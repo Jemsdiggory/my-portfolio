@@ -2,15 +2,14 @@
 
 import { motion, useMotionValue, useTransform } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import {
-  FaInstagram, FaLinkedin, FaDiscord, FaGithub, FaYoutube, FaGitlab,
+  FaInstagram, FaLinkedin, FaGithub, FaGitlab,
 } from "react-icons/fa"
 import { SiItchdotio } from "react-icons/si"
 import Navbar from "./components/Navbar"
 import CountUp from "./components/CountUp"
-
-const roles = ["Creative Developer"]
 
 const socials = [
   { icon: FaGithub,    url: "https://github.com/JemsDiggory",   label: "github"    },
@@ -22,11 +21,12 @@ const socials = [
 
 const projects = [
   {
-    badge: "Game Project",
-    title: "Rise Against",
-    desc: "2D RPG about environmental issues. Programmed quest systems, AI & combat, dialogue, and inventory management. PC Platform.",
-    tags: ["Unity", "2D", "RPG"],
-    stat: "2D RPG",
+    badge: "Government Project",
+    title: "Kemen LH Website Modernization",
+    desc: "Environmental Agency Website Modernization Proposal. Conducted website audits, regional benchmarking, and user research to support a government website modernization initiative.",
+    tags: ["UX Research", "Benchmarking", "Government"],
+    stat: "Gov Project",
+    thumbnail: "/thumbnail/kemenlh.svg",
     accentColor: "#7b6cff",
     thumbGradient: "linear-gradient(135deg, rgba(123,108,255,0.2) 0%, rgba(61,255,209,0.1) 100%)",
     gridColor: "rgba(123,108,255,0.08)",
@@ -38,11 +38,12 @@ const projects = [
     ],
   },
   {
-    badge: "Web App",
-    title: "Mini CMS",
-    desc: "Game blog with CMS features including full CRUD operations and WYSIWYG editor. Built with PHP and MySQL for content management.",
-    tags: ["PHP", "MySQL", "Vanilla JS"],
-    stat: "PHP/MySQL",
+    badge: "Professional Project",
+    title: "OneBox Portal",
+    desc: "Product Website Redesign and Content Strategy. Redesigned the OneBox product website to align with market expectations, restructuring content hierarchy and applying SEO improvements.",
+    tags: ["Laravel", "PHP", "CSS"],
+    stat: "Live Product",
+    thumbnail: "/thumbnail/webonebox.svg",
     accentColor: "#3dffd1",
     thumbGradient: "linear-gradient(135deg, rgba(61,255,209,0.15) 0%, rgba(123,108,255,0.1) 100%)",
     gridColor: "rgba(61,255,209,0.07)",
@@ -54,11 +55,12 @@ const projects = [
     ],
   },
   {
-    badge: "UI/UX Design",
-    title: "OneBox Portal",
-    desc: "Modern UI/UX redesign and marketing-driven copywriting for the OneBox portal. Transformed a legacy product page into a interactive business pf.",
-    tags: ["Laravel", "PHP", "CSS"],
-    stat: "Portal UI",
+    badge: "Healthcare Project",
+    title: "Puskesal Health Ecosystem",
+    desc: "Healthcare Platform Design System and Prototype. Designed a scalable design system and high-fidelity prototypes for a multi-platform healthcare ecosystem.",
+    tags: ["Design System", "Healthcare", "UX Research"],
+    stat: "Gov Healthcare",
+    thumbnail: "/thumbnail/puskesal.svg",
     accentColor: "#ff6b8a",
     thumbGradient: "linear-gradient(135deg, rgba(255,107,138,0.15) 0%, rgba(123,108,255,0.1) 100%)",
     gridColor: "rgba(255,107,138,0.07)",
@@ -236,28 +238,22 @@ function FeaturedCard() {
                     borderColor: i===activeIdx ? `${p.accentColor}50` : "rgba(255,255,255,0.08)",
                     color:       i===activeIdx ? p.accentColor        : "rgba(255,255,255,0.3)",
                   }}>
-                  {["Game","Web","UI"][i]}
+                  {["Gov","Web","UI"][i]}
                 </button>
               ))}
             </div>
 
             {/* thumbnail */}
-            <div className="relative w-full rounded-xl mb-4 overflow-hidden flex items-center justify-center"
+            <div className="relative w-full rounded-xl mb-4 overflow-hidden"
               style={{ height:"130px", background:proj.thumbGradient, border:`1px solid ${proj.accentColor}15` }}>
-              <div className="absolute inset-0" style={{ backgroundImage:`linear-gradient(${proj.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${proj.gridColor} 1px, transparent 1px)`, backgroundSize:"22px 22px" }} />
-              <div className="absolute top-2 left-2.5 flex gap-1.5">
-                {["#ef4444","#f59e0b","#22c55e"].map(c => (
-                  <div key={c} className="w-2 h-2 rounded-full" style={{ background:c, opacity:0.8 }} />
-                ))}
-              </div>
-              <div className="relative flex flex-col gap-2 w-3/4">
-                {proj.barColors.map((bg,i) => (
-                  <motion.div key={i} className="h-2 rounded-full"
-                    style={{ background:bg, width:["100%","70%","85%"][i] }}
-                    animate={{ opacity:[0.7,1,0.7] }}
-                    transition={{ duration:2.5, delay:i*0.3, repeat:Infinity }} />
-                ))}
-              </div>
+              <Image
+                src={proj.thumbnail}
+                alt={proj.title}
+                fill
+                style={{ objectFit:"cover", objectPosition:"center" }}
+                sizes="320px"
+              />
+              <div className="absolute inset-0" style={{ background:`linear-gradient(to top, rgba(13,17,23,0.7) 0%, rgba(13,17,23,0.2) 50%, transparent 100%)` }} />
             </div>
 
             <motion.h3 key={proj.title} initial={{ opacity:0, y:6 }} animate={{ opacity:1, y:0 }}
@@ -307,9 +303,9 @@ export default function Page() {
   }, [])
 
   const statItems = [
-    { label: "Digital Projects", value: "10+" },
-    { label: "Games on Itch.io", value: "4+" },
-    { label: "Responsive Web Apps", value: "4+" },
+    { label: "Professional Projects", value: "10+" },
+    { label: "Government Projects", value: "5+" },
+    { label: "Digital Products", value: "8+" },
     { label: "Years of Creating Interactive Experiences", value: "3+" },
   ]
 
@@ -334,36 +330,26 @@ export default function Page() {
             <motion.p initial={{ opacity:0, x:-20 }} animate={{ opacity:1, x:0 }} transition={{ duration:0.5, delay:0.1 }}
               className="font-mono text-xs tracking-[0.3em] uppercase mb-6 flex items-center gap-3" style={{ color:"var(--accent2)" }}>
               <span className="inline-block w-8 h-px" style={{ background:"var(--accent2)", boxShadow:"0 0 6px var(--accent2)" }} />
-              Creative Portfolio
+              Professional Portfolio
             </motion.p>
 
             <motion.h1 initial={{ opacity:0, y:30 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.7, delay:0.2, ease:[0.22,1,0.36,1] }}
-              className="font-display font-extrabold leading-[1.0] mb-3"
-              style={{ fontSize:"clamp(3rem, 8vw, 7rem)", color:"var(--text)", letterSpacing:"-0.03em" }}>
-              Kahlaa
+              className="font-display font-extrabold leading-[1.1] mb-6"
+              style={{ fontSize:"clamp(2.5rem, 7vw, 5.5rem)", letterSpacing:"-0.02em" }}>
+              <span className="shimmer-text">Frontend Developer<br/>& Design Engineer</span>
             </motion.h1>
 
-            <motion.h1 initial={{ opacity:0, y:30 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.7, delay:0.3, ease:[0.22,1,0.36,1] }}
-              className="font-display font-extrabold leading-[1.0] mb-8"
-              style={{ fontSize:"clamp(3rem, 8vw, 7rem)", letterSpacing:"-0.03em" }}>
-              <span className="shimmer-text">Aulia Jemima</span>
-            </motion.h1>
-
-            <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ duration:0.6, delay:0.5 }} className="flex flex-wrap gap-3 mb-10">
-              {roles.map((role,i) => (
-                <span key={role} className="font-mono text-sm px-4 py-1.5 rounded-full border"
-                  style={{ color:i===0?"var(--accent2)":"var(--text-muted)", borderColor:i===0?"rgba(123,108,255,0.3)":"rgba(61,255,209,0.3)", background:i===0?"rgba(123,108,255,0.06)":"rgba(61,255,209,0.06)" }}>
-                  {role}
-                </span>
-              ))}
-            </motion.div>
-
-            <motion.p initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.6 }}
-              className="font-display text-base sm:text-lg mb-10 max-w-xl leading-relaxed" style={{ color:"var(--text-muted)" }}>
-              Creative Front-End Developer with a background in game development and visual design.
+            <motion.p initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.35 }}
+              className="font-mono text-sm mb-8" style={{ color:"var(--text-muted)", opacity:0.6 }}>
+              Kahlaa Aulia Jemima
             </motion.p>
 
-            <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.7 }} className="flex flex-wrap gap-4">
+            <motion.p initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.45 }}
+              className="font-display text-base sm:text-lg mb-10 max-w-xl leading-relaxed" style={{ color:"var(--text-muted)" }}>
+              Building modern digital experiences through frontend engineering, UX research, design systems, and interactive prototyping.
+            </motion.p>
+
+            <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.55 }} className="flex flex-wrap gap-4">
               <Link href="/projects" className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border font-medium"
                 style={{ background:"var(--accent)", borderColor:"var(--accent)", color:"#fff", boxShadow:"0 0 20px rgba(123,108,255,0.3)" }}>
                 View Projects
@@ -372,7 +358,7 @@ export default function Page() {
               <Link href="/contact"    className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border" style={{ borderColor:"var(--border)", color:"var(--text-muted)" }}>Contact</Link>
             </motion.div>
 
-            <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.85 }} className="flex flex-wrap gap-8 mt-12">
+            <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.7 }} className="flex flex-wrap gap-8 mt-12">
               {statItems.map((s, idx) => (
                 <motion.div
                   key={s.label}
@@ -381,7 +367,7 @@ export default function Page() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: isMobile ? 0.4 : 0.5,
-                    delay: 0.85 + (isMobile ? idx * 0.05 : idx * 0.08),
+                    delay: 0.7 + (isMobile ? idx * 0.05 : idx * 0.08),
                     ease: "easeOut"
                   }}
                   whileHover={isMobile ? {} : { scale: 1.05 }}
