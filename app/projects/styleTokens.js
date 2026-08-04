@@ -6,6 +6,7 @@ export const CATEGORY_COLORS = {
   "Web Application": "rgba(168,85,247,0.12)",
   "Game Development": "rgba(236,72,153,0.12)",
   "UX Research & Prototyping": "rgba(245,158,11,0.14)",
+  "UI/UX & Front-End Development": "rgba(14,165,233,0.14)",
 }
 
 export const CATEGORY_TEXT = {
@@ -15,6 +16,7 @@ export const CATEGORY_TEXT = {
   "Web Application": "rgba(216,180,254,0.9)",
   "Game Development": "rgba(249,168,212,0.9)",
   "UX Research & Prototyping": "rgba(252,211,77,0.95)",
+  "UI/UX & Front-End Development": "rgba(125,211,252,0.95)",
 }
 
 export const TYPE_COLORS = {

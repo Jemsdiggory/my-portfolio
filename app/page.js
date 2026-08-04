@@ -21,6 +21,7 @@ const socials = [
 
 const projects = [
   {
+    tabLabel: "Government",
     badge: "Government Project",
     title: "Kemen LH Website Modernization(Proposal)",
     desc: "Environmental Agency Website Modernization Proposal. Conducted website audits, regional benchmarking, and user research to support a government website modernization initiative.",
@@ -38,6 +39,7 @@ const projects = [
     ],
   },
   {
+    tabLabel: "Digital Product",
     badge: "Professional Project",
     title: "OneBox Portal",
     desc: "Product Website Redesign and Content Strategy. Redesigned the OneBox product website to align with market expectations, restructuring content hierarchy and applying SEO improvements.",
@@ -55,20 +57,21 @@ const projects = [
     ],
   },
   {
-    badge: "Healthcare Project",
-    title: "Puskesal Health Ecosystem(Proposal)",
-    desc: "Healthcare Platform Design System and Prototype. Designed a scalable design system and high-fidelity prototypes for a multi-platform healthcare ecosystem.",
-    tags: ["Design System", "Healthcare", "UX Research"],
-    stat: "Gov Healthcare",
-    thumbnail: "/thumbnail/puskesal.svg",
-    accentColor: "#ff6b8a",
-    thumbGradient: "linear-gradient(135deg, rgba(255,107,138,0.15) 0%, rgba(123,108,255,0.1) 100%)",
-    gridColor: "rgba(255,107,138,0.07)",
-    barColors: ["rgba(255,107,138,0.5)", "rgba(123,108,255,0.35)", "rgba(255,107,138,0.3)"],
+    tabLabel: "Defense",
+    badge: "Defense Organization Project",
+    title: "TNI AU Website Modernization",
+    desc: "Redesigned the homepage, profile, and news pages for a defense organization website, supported by international air force benchmarking and high-fidelity UI/UX prototypes.",
+    tags: ["PHP", "Benchmarking", "HTML Prototype"],
+    stat: "Proposal Stage",
+    thumbnail: "/thumbnail/dispenau.svg",
+    accentColor: "#67e8f9",
+    thumbGradient: "linear-gradient(135deg, rgba(6,182,212,0.15) 0%, rgba(123,108,255,0.1) 100%)",
+    gridColor: "rgba(6,182,212,0.07)",
+    barColors: ["rgba(6,182,212,0.5)", "rgba(123,108,255,0.35)", "rgba(6,182,212,0.3)"],
     tagStyles: [
-      { bg: "rgba(255,107,138,0.1)", color: "#ff6b8a", border: "rgba(255,107,138,0.22)" },
-      { bg: "rgba(255,107,138,0.1)", color: "#ff6b8a", border: "rgba(255,107,138,0.22)" },
-      { bg: "rgba(249,115,22,0.08)", color: "#fdba74", border: "rgba(249,115,22,0.2)"   },
+      { bg: "rgba(6,182,212,0.1)", color: "#67e8f9", border: "rgba(6,182,212,0.22)" },
+      { bg: "rgba(6,182,212,0.1)", color: "#67e8f9", border: "rgba(6,182,212,0.22)" },
+      { bg: "rgba(123,108,255,0.1)", color: "#a99fff", border: "rgba(123,108,255,0.22)" },
     ],
   },
 ]
@@ -238,7 +241,7 @@ function FeaturedCard() {
                     borderColor: i===activeIdx ? `${p.accentColor}50` : "rgba(255,255,255,0.08)",
                     color:       i===activeIdx ? p.accentColor        : "rgba(255,255,255,0.3)",
                   }}>
-                  {["Gov","Web","UI"][i]}
+                  {p.tabLabel}
                 </button>
               ))}
             </div>

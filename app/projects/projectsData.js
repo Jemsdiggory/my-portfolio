@@ -2,12 +2,13 @@
 export const webProjectOrder = [
   "ciptadra",
   "onebox-ciptadra",
-  "portal-nextjs",
-  "mall-management",
-  "mall-management-system",
-  "kemen-lh",
-  "puskesal",
   "tni-au-proposal",
+  "jagoti-lms",
+  "puskesal",
+  "mall-management",
+  "kemen-lh",
+  "portal-nextjs",
+  "mall-management-system",
   "food-check",
   "mini-cms",
   "saku-aman-app",
@@ -230,7 +231,7 @@ export const webProjects = {
     ],
     isMobile: false,
     description:
-      "Developed a UI/UX modernization proposal for a defense institution website, backed by international benchmark research and high-fidelity prototypes.",
+      "Redesigned key sections of an existing defense organization website, including the homepage, profile, and news pages, and developed high-fidelity HTML-based prototypes for a UI/UX modernization proposal. Conducted comparative research on leading international air force websites to identify best practices in information architecture, content strategy, and user experience design. Presented the proposed design direction and interactive prototypes to institutional stakeholders to support website modernization discussions.",
     techStack: [
       { name: "PHP", role: "Existing website being redesigned" },
       { name: "HTML5", role: "Prototype structure" },
@@ -238,7 +239,45 @@ export const webProjects = {
       { name: "JavaScript", role: "Prototype interactivity" },
     ],
     tags: ["PHP", "Benchmarking", "Design Strategy", "HTML Prototype"],
-    contributions: ["Competitive Benchmarking", "Design Strategy", "HTML Prototype Development", "Content Accessibility Improvement"],
+    contributions: [
+      "Homepage, Profile & News Page Redesign",
+      "High-Fidelity HTML Prototype Development",
+      "International Air Force Website Benchmarking",
+      "Information Architecture & Content Strategy Analysis",
+      "Stakeholder Design Direction Presentation",
+    ],
+  },
+
+  "jagoti-lms": {
+    slug: "jagoti-lms",
+    title: "Jagoti LMS",
+    subtitle: "Learning Platform UI Modernization",
+    type: "Professional Project",
+    category: "UI/UX & Front-End Development",
+    status: "Internal Project",
+    year: "2026",
+    role: "Web Developer Intern",
+    thumbnail: "/thumbnail/lms.svg",
+    screenshots: [
+      "/web/lms-jagoti/lms.png",
+    ],
+    isMobile: false,
+    description:
+      "Redesigned the user interface of an existing learning management system (LMS) to create a more modern, engaging, and user-friendly learning experience. Improved visual hierarchy, course discovery, dashboard layout, and overall usability by benchmarking leading online learning platforms such as Udemy, Dicoding, and other contemporary education platforms.",
+    techStack: [
+      { name: "PHP", role: "Server-side rendering and existing LMS integration" },
+      { name: "Laravel Blade", role: "Template development for redesigned learning interfaces" },
+      { name: "CSS", role: "Custom styling, spacing, typography, and visual consistency" },
+      { name: "JavaScript", role: "Interactive interface behavior" },
+    ],
+    tags: ["PHP", "Laravel Blade", "CSS", "JavaScript"],
+    contributions: [
+      "LMS Platform Benchmarking",
+      "Course Listing & Dashboard Redesign",
+      "Learning Page UI Improvement",
+      "Visual Hierarchy & Design Consistency",
+      "PHP Blade & Custom CSS Implementation",
+    ],
   },
 
   // Personal PROJECTS 
