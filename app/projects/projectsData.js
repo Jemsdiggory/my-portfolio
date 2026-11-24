@@ -491,6 +491,7 @@ export const gameProjects = [
     ],
     studio: "GEPHIUM",
     icon: null,
+    youtubeId: "783EEWVtExs",
     video: "/gameplay/B4NDUP.mp4",
     link: "https://jemsdiggory.itch.io/b4nd-up",
     tags: ["Unity", "Android", "2D", "Mobile", "Simulation"],

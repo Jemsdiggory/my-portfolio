@@ -14,7 +14,9 @@ export default function GameVideo({ game }) {
   }, [])
 
   return <div ref={ref} className="relative aspect-video bg-black/40">
-    {game.video && inView
+    {game.youtubeId && inView
+      ? <iframe src={`https://www.youtube.com/embed/${game.youtubeId}?playsinline=1&rel=0`} title={`${game.title} gameplay`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 h-full w-full border-0" />
+      : game.video && inView
       ? <video src={game.video} poster={game.icon || undefined} muted loop playsInline autoPlay className="h-full w-full object-cover" />
       : game.icon
         ? <Image src={game.icon} alt={`${game.title} artwork`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />

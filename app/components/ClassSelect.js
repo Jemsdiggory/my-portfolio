@@ -105,7 +105,7 @@ export default function ClassSelect() {
                   <span className={`shrink-0 mt-1 h-4 w-4 rounded-full border ${active ? "border-cyan-300 bg-cyan-300 shadow-[0_0_12px_#67e8f9]" : "border-white/40"}`} />
                 </div>
                 <div className="relative overflow-hidden rounded-2xl h-40 sm:h-48 mb-6 bg-black/40">
-                  {isGame ? <video src={firstGame.video} poster={firstGame.icon} muted loop playsInline autoPlay className="h-full w-full object-cover" /> : <Image src={webProjects["kemen-lh"].thumbnail} alt="Kemen LH project preview" fill sizes="(max-width: 1024px) 90vw, 50vw" className="object-cover" />}
+                  {isGame ? firstGame.youtubeId ? <img src={`https://i.ytimg.com/vi/${firstGame.youtubeId}/hqdefault.jpg`} alt={`${firstGame.title} gameplay preview`} loading="lazy" className="h-full w-full object-cover" /> /* eslint-disable-line @next/next/no-img-element */ : <video src={firstGame.video} poster={firstGame.icon || undefined} muted loop playsInline autoPlay className="h-full w-full object-cover" /> : <Image src={webProjects["kemen-lh"].thumbnail} alt="Kemen LH project preview" fill sizes="(max-width: 1024px) 90vw, 50vw" className="object-cover" />}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <span className="absolute bottom-3 left-4 font-mono text-[10px] tracking-widest text-white/80">{isGame ? firstGame.title : "KEMEN LH / UX PROPOSAL"}</span>
                 </div>

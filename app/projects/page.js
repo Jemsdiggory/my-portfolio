@@ -430,6 +430,10 @@ function GameProjectCard({ game }) {
   const togglePlay = (e) => {
     e.preventDefault()
     e.stopPropagation()
+    if (game.youtubeId) {
+      setPlaying((current) => !current)
+      return
+    }
     const v = videoRef.current
     if (!v) return
     if (!srcLoaded) {
@@ -475,24 +479,40 @@ function GameProjectCard({ game }) {
           background: "rgba(255,255,255,0.04)",
         }}
       >
-        <video
-          ref={videoRef}
-          loop
-          muted
-          playsInline
-          preload="none"
-          poster={game.icon}
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            transform: hovered ? "scale(1.05)" : "scale(1)",
-            filter: hovered ? "brightness(1.05)" : "brightness(0.88)",
-            transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease",
-          }}
-        />
+        {game.youtubeId && playing ? (
+          <iframe
+            src={`https://www.youtube.com/embed/${game.youtubeId}?autoplay=1&playsinline=1&rel=0`}
+            title={`${game.title} gameplay`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+          />
+        ) : !game.youtubeId ? (
+          <video
+            ref={videoRef}
+            loop
+            muted
+            playsInline
+            preload="none"
+            poster={game.icon || undefined}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: game.videoFit || "cover",
+              transform: hovered ? "scale(1.05)" : "scale(1)",
+              filter: hovered ? "brightness(1.05)" : "brightness(0.88)",
+              transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease",
+            }}
+          />
+        ) : (
+          <div style={{ position: "absolute", inset: 0, display: "grid", placeContent: "center", textAlign: "center", background: "linear-gradient(135deg,#4a044e,#10111b,#083344)", fontFamily: "monospace", color: "white" }}>
+            <span style={{ color: "#a5f3fc", fontSize: "0.65rem", letterSpacing: "0.2em" }}>GEPHIUM / ANDROID</span>
+            <strong style={{ fontSize: "1.5rem", marginTop: "0.5rem" }}>B4ND UP!!</strong>
+          </div>
+        )}
         <div
           style={{
             position: "absolute",
@@ -520,7 +540,7 @@ function GameProjectCard({ game }) {
         >
           {game.type}
         </div>
-        <button
+        {!(game.youtubeId && playing) && <button
           onClick={togglePlay}
           aria-label={playing ? "Pause gameplay video" : "Play gameplay video"}
           style={{
@@ -562,8 +582,8 @@ function GameProjectCard({ game }) {
               </svg>
             )}
           </div>
-        </button>
-        {playing && (
+        </button>}
+        {playing && !game.youtubeId && (
           <div
             style={{
               position: "absolute",
