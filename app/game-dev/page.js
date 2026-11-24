@@ -30,11 +30,11 @@ const contacts = [
 ]
 
 function uniqueGameTags(tags, engine, platform) {
-  const omitted = new Set([engine, platform].map((value) => value.trim().toLowerCase()))
+  const omitted = [engine, platform].map((value) => value.trim().toLowerCase())
   const seen = new Set()
   return tags.filter((tag) => {
     const normalized = tag.trim().toLowerCase()
-    if (!normalized || omitted.has(normalized) || seen.has(normalized)) return false
+    if (!normalized || omitted.some((value) => value === normalized || value.startsWith(`${normalized} `) || normalized.startsWith(`${value} `)) || seen.has(normalized)) return false
     seen.add(normalized)
     return true
   })

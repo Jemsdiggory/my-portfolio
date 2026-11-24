@@ -479,6 +479,28 @@ export const webProjects = {
 // GAME PROJECTS 
 export const gameProjects = [
   {
+    title: "B4ND UP!!",
+    track: "game",
+    role: "GAME PROGRAMMER", // TODO: verify role
+    engine: "Unity 6",
+    platform: "Android",
+    highlights: [
+      "Drag-and-drop outfit system across multiple characters, with category-based slot replacement and per-character isolation",
+      "Tag-based scoring engine using bitmask flags to evaluate styling choices against randomized mission briefs",
+      "Cross-scene outfit persistence — last-equipped looks carry over from the fitting room to the home screen",
+    ],
+    studio: "GEPHIUM",
+    icon: null,
+    video: "/gameplay/B4NDUP.mp4",
+    link: "https://jemsdiggory.itch.io",
+    tags: ["Unity", "Android", "2D", "Mobile", "Simulation"],
+    description:
+      "2D mobile fashion-stylist simulation game for Android. Players dress up characters by matching outfit pieces to themed style briefs, built in Unity 6 with a full drag-and-drop styling system and tag-based scoring loop.",
+    team: "GAME PROGRAMMER",
+    type: "2D MOBILE SIMULATION GAME",
+    category: "Game Development",
+  },
+  {
     title: "Vita-Dulu",
     track: "game",
     role: "Programmer · Designer", // TODO: verify role

@@ -14,6 +14,10 @@ export default function GameVideo({ game }) {
   }, [])
 
   return <div ref={ref} className="relative aspect-video bg-black/40">
-    {game.video && inView ? <video src={game.video} poster={game.icon} muted loop playsInline autoPlay className="h-full w-full object-cover" /> : <Image src={game.icon} alt={`${game.title} artwork`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />}
+    {game.video && inView
+      ? <video src={game.video} poster={game.icon || undefined} muted loop playsInline autoPlay className="h-full w-full object-cover" />
+      : game.icon
+        ? <Image src={game.icon} alt={`${game.title} artwork`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+        : <div className="absolute inset-0 grid place-content-center text-center bg-gradient-to-br from-fuchsia-950 via-[#10111b] to-cyan-950"><span className="font-mono text-[10px] tracking-[.3em] text-cyan-200">GEPHIUM / ANDROID</span><span className="font-display text-3xl font-bold mt-2">B4ND UP!!</span></div>}
   </div>
 }
