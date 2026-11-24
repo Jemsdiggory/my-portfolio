@@ -2,21 +2,24 @@ import "./globals.css"
 import MusicPlayer from "./components/MusicPlayer"
 
 export const metadata = {
-  metadataBase: new URL("https://jemsprojects.vercel.app/"), 
+  metadataBase: new URL("https://jemsprojects.vercel.app/"),
   title: {
-    default: "Kahlaa Aulia Jemima — Creative Developer",
+    default: "Kahlaa Aulia Jemima | Game Developer & Design Engineer",
     template: "%s | Kahlaa Aulia Jemima",
   },
-  description:
-    "Portfolio of Kahlaa Aulia Jemima — Creative Developer.",
+  description: "Game Developer specializing in Unity, gameplay programming, and game design in Indonesia, with a secondary focus on design engineering, frontend engineering, UX research, and design systems.",
   keywords: [
-    "Kahlaa Aulia Jemima",
-    "Jemima portfolio",
     "game developer Indonesia",
     "Unity developer",
-    "web developer Indonesia",
+    "gameplay programmer",
+    "game designer",
+    "Kahlaa Aulia Jemima",
+    "Jemima portfolio",
+    "design engineer",
+    "frontend engineering",
+    "UX research",
+    "design systems",
     "Polimedia Jakarta",
-    "web developer intern",
   ],
   authors: [{ name: "Kahlaa Aulia Jemima" }],
   creator: "Kahlaa Aulia Jemima",
@@ -25,25 +28,18 @@ export const metadata = {
     locale: "en_US",
     url: "https://jemsprojects.vercel.app/",
     siteName: "jemsprojects",
-    title: "Kahlaa Aulia Jemima — Creative Developer",
-    description:
-      "Portfolio of Kahlaa Aulia Jemima — Creative Developer.",
-    
+    title: "Kahlaa Aulia Jemima | Game Developer & Design Engineer",
+    description: "Game Developer specializing in Unity, gameplay programming, and game design in Indonesia.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kahlaa Aulia Jemima — Creative Developer",
-    description: "Portfolio of Kahlaa Aulia Jemima — Creative Developer.",
-    images: ["/og-image.png"],
+    title: "Kahlaa Aulia Jemima | Game Developer & Design Engineer",
+    description: "Game Developer specializing in Unity, gameplay programming, and game design in Indonesia.",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
 }
 
@@ -53,16 +49,11 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
       </head>
       <body className="relative overflow-x-hidden">
         <MusicPlayer />
-        <div className="relative z-10">
-          {children}
-        </div>
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   )
