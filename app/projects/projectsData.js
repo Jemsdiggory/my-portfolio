@@ -481,7 +481,7 @@ export const gameProjects = [
   {
     title: "Vita-Dulu",
     track: "game",
-    role: "Programmer · Designer",
+    role: "Programmer · Designer", // TODO: verify role
     engine: "Unity",
     platform: "PC and mobile",
     highlights: ["Gameplay mechanics", "NPC AI behaviour", "Interactive systems"],
@@ -499,7 +499,7 @@ export const gameProjects = [
   {
     title: "Rise Against",
     track: "game",
-    role: "Programmer · Designer",
+    role: "Programmer · Designer", // TODO: verify role
     engine: "Unity",
     platform: "PC",
     highlights: ["Quest systems", "AI and combat", "Dialogue and inventory management"],
@@ -517,7 +517,7 @@ export const gameProjects = [
   {
     title: "Let's Explore",
     track: "game",
-    role: "Programmer · Designer",
+    role: "Programmer · Designer", // TODO: verify role
     engine: "Unity",
     platform: "PC",
     highlights: ["Mini-game mechanics", "Interactive systems", "UI/UX"],
@@ -535,7 +535,7 @@ export const gameProjects = [
   {
     title: "Roblorant",
     track: "game",
-    role: "Programmer (Solo Project)",
+    role: "Programmer (Solo Project)", // TODO: verify role
     engine: "Unity",
     platform: "Web-based",
     highlights: ["Player movement", "Shooting mechanics", "Enemy AI"],
@@ -553,7 +553,7 @@ export const gameProjects = [
   {
     title: "Congklak Adventures",
     track: "game",
-    role: "UI Artist · Designer",
+    role: "UI Artist · Designer", // TODO: verify role
     engine: "Unity",
     platform: "PC",
     highlights: ["Traditional Congklak board game", "UI art", "Co-game design"],

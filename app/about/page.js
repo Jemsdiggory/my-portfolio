@@ -108,7 +108,7 @@ export default function AboutPage() {
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <p className="font-display text-lg leading-relaxed mb-5" style={{ color: "var(--text-muted)" }}>
-                I'm{" "}
+                I&apos;m{" "}
                 <span style={{ color: "var(--text)" }} className="font-semibold">Kahlaa Aulia Jemima</span>
                 , a <span style={{ color: "var(--accent2)" }}>creative front-end developer</span> and{" "}
                 <span style={{ color: "var(--accent2)" }}>interactive technologist</span> passionate about building immersive digital experiences.

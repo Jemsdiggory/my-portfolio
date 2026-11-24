@@ -90,7 +90,7 @@ export default function ClassSelect() {
           <p className="font-mono text-sm text-white/55 mt-3">Select a class to continue</p>
         </header>
 
-        <div role="radiogroup" aria-label="Choose a portfolio track" className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-5 items-stretch">
+        <div role="radiogroup" aria-label="Choose a portfolio track" className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-5 items-stretch">
           {tracks.map((track) => {
             const active = selected === track.id
             const isGame = track.id === "game"
@@ -110,7 +110,7 @@ export default function ClassSelect() {
                   <span className="absolute bottom-3 left-4 font-mono text-[10px] tracking-widest text-white/80">{isGame ? firstGame.title : "KEMEN LH / UX PROPOSAL"}</span>
                 </div>
                 <div className="space-y-3 mb-6">
-                  {stats.map((stat) => <div key={stat.label}><div className="flex justify-between font-mono text-[10px] uppercase tracking-wide mb-1.5"><span>{stat.label}</span><span className="text-white/45">{stat.value}%</span></div><div className="h-1.5 rounded-full bg-white/10 overflow-hidden"><motion.div className="h-full rounded-full bg-gradient-to-r from-violet-500 to-cyan-300" initial={{ width: 0 }} animate={{ width: active ? `${stat.value}%` : 0 }} transition={{ duration: reducedMotion ? 0 : 0.55, delay: reducedMotion ? 0 : 0.08 }} /></div></div>)}
+                  {stats.map((stat) => <div key={stat.label}><div className="flex justify-between font-mono text-[10px] uppercase tracking-wide mb-1.5"><span>{stat.label}</span><span className="text-white/45">{stat.value}%</span></div><div className="h-1.5 rounded-full bg-white/10 overflow-hidden"><motion.div key={`${track.id}-${active}`} className="h-full rounded-full bg-gradient-to-r from-violet-500 to-cyan-300" initial={{ width: active ? 0 : `${stat.value}%`, opacity: active ? 1 : 0.35 }} animate={{ width: `${stat.value}%`, opacity: active ? 1 : 0.35 }} transition={{ duration: reducedMotion ? 0 : 0.55, delay: reducedMotion || !active ? 0 : 0.08 }} /></div></div>)}
                 </div>
                 <div className="border-t border-white/10 pt-4 flex justify-between items-center font-mono text-xs"><span className="text-white/55">{isGame ? `${gameCount} games shipped` : `${designCount} web projects`}</span><span className="text-cyan-200">{active ? "SELECTED" : "SELECT"}</span></div>
               </motion.button>

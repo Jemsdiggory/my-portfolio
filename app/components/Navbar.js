@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useReducedMotion } from "framer-motion"
 
 const links = [
   { label: "About", href: "/about" },
@@ -10,6 +11,14 @@ const links = [
   { label: "Visual Works", href: "/gallery" },
   { label: "Experience", href: "/experience" },
   { label: "Contact", href: "/contact" },
+]
+const gamePageLinks = [
+  { label: "About", href: "#about" },
+  { label: "Games", href: "#games" },
+  { label: "Systems", href: "#systems" },
+  { label: "Experience", href: "#experience" },
+  { label: "Writing", href: "#writing" },
+  { label: "Contact", href: "#contact" },
 ]
 
 function TrackToggle({ activeTrack, onChoose }) {
@@ -22,6 +31,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const reducedMotion = useReducedMotion()
+  const isGamePage = pathname === "/game-dev"
+  const [activeSection, setActiveSection] = useState("about")
   const [storedTrack, setStoredTrack] = useState("game")
   const pathTrack = pathname === "/design-engineer" ? "design" : pathname === "/game-dev" ? "game" : null
   const activeTrack = pathTrack || storedTrack
@@ -44,6 +56,31 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  useEffect(() => {
+    if (!isGamePage) return
+    const sections = gamePageLinks.map(({ href }) => document.getElementById(href.slice(1))).filter(Boolean)
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+      if (visible[0]) setActiveSection(visible[0].target.id)
+    }, { rootMargin: "-15% 0px -65% 0px", threshold: [0, 0.15, 0.35, 0.6] })
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [isGamePage])
+
+  const handlePageLink = (event, href) => {
+    if (!isGamePage) {
+      setOpen(false)
+      return
+    }
+    event.preventDefault()
+    const id = href.slice(1)
+    const section = document.getElementById(id)
+    section?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" })
+    window.history.replaceState(null, "", href)
+    setActiveSection(id)
+    setOpen(false)
+  }
 
   return (
     <>
@@ -124,13 +161,14 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-1">
-            <li><Link href={activeTrack === "game" ? "/game-dev" : "/design-engineer"} className="nav-item relative px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-widest">{activeTrack === "game" ? "Game Dev" : "Design Eng"}</Link></li>
-            {links.map(({ label, href }) => {
-              const active = pathname === href
+            {!isGamePage && <li><Link href={activeTrack === "game" ? "/game-dev" : "/design-engineer"} className="nav-item relative px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-widest">{activeTrack === "game" ? "Game Dev" : "Design Eng"}</Link></li>}
+            {(isGamePage ? gamePageLinks : links).map(({ label, href }) => {
+              const active = isGamePage ? activeSection === href.slice(1) : pathname === href
               return (
                 <li key={href}>
                   <Link
                     href={href}
+                    onClick={(event) => handlePageLink(event, href)}
                     className={`nav-item${active ? " active-link" : ""} relative px-4 py-2 rounded-lg font-mono text-xs uppercase tracking-widest transition-all duration-250`}
                     style={{
                       color: active
@@ -199,14 +237,14 @@ export default function Navbar() {
         >
           <ul className="flex flex-col gap-1 px-6 py-4">
             <li className="px-4 py-2"><TrackToggle activeTrack={activeTrack} onChoose={chooseTrack} /></li>
-            <li><Link href={activeTrack === "game" ? "/game-dev" : "/design-engineer"} onClick={() => setOpen(false)} className="flex items-center px-4 py-3 rounded-lg font-mono text-xs uppercase tracking-widest text-cyan-200">{activeTrack === "game" ? "Game Dev" : "Design Eng"}</Link></li>
-            {links.map(({ label, href }) => {
-              const active = pathname === href
+            {!isGamePage && <li><Link href={activeTrack === "game" ? "/game-dev" : "/design-engineer"} onClick={() => setOpen(false)} className="flex items-center px-4 py-3 rounded-lg font-mono text-xs uppercase tracking-widest text-cyan-200">{activeTrack === "game" ? "Game Dev" : "Design Eng"}</Link></li>}
+            {(isGamePage ? gamePageLinks : links).map(({ label, href }) => {
+              const active = isGamePage ? activeSection === href.slice(1) : pathname === href
               return (
                 <li key={href}>
                   <Link
                     href={href}
-                    onClick={() => setOpen(false)}
+                    onClick={(event) => handlePageLink(event, href)}
                     className="flex items-center gap-2 px-4 py-3 rounded-lg font-mono text-xs uppercase tracking-widest transition-colors duration-250"
                     style={{
                       color: active ? "var(--accent)" : "rgba(180,185,220,0.55)",

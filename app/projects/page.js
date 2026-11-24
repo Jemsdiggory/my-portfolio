@@ -775,8 +775,9 @@ function ProjectCarousel({ children, label }) {
     if (!emblaApi) return
     emblaApi.on("select", onSelect)
     emblaApi.on("reInit", onSelect)
-    onSelect()
+    const initialFrame = requestAnimationFrame(onSelect)
     return () => {
+      cancelAnimationFrame(initialFrame)
       emblaApi.off("select", onSelect)
       emblaApi.off("reInit", onSelect)
     }
