@@ -492,7 +492,7 @@ export const gameProjects = [
     studio: "GEPHIUM",
     icon: null,
     video: "/gameplay/B4NDUP.mp4",
-    link: "https://jemsdiggory.itch.io",
+    link: "https://jemsdiggory.itch.io/b4nd-up",
     tags: ["Unity", "Android", "2D", "Mobile", "Simulation"],
     description:
       "2D mobile fashion-stylist simulation game for Android. Players dress up characters by matching outfit pieces to themed style briefs, built in Unity 6 with a full drag-and-drop styling system and tag-based scoring loop.",
