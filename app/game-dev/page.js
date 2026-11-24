@@ -19,7 +19,7 @@ const systemNotes = {
   },
   "B4ND UP!!": {
     title: "Tag-Based Scoring",
-    description: "Scores combinable outfit tags against randomized style briefs, keeping combinations replayable without hand-authoring every look. Designers can extend the tag set without changing code.",
+    description: "Designed a tag-based scoring system for styling challenges, where outfit items carry combinable style tags (Cool, Dark, Y2K, Cute, etc.) and the player's full look is scored against a randomized mission brief. The core constraint was needing a scoring method that stayed fair and replayable without hand-authoring every possible outfit combination, and that a non-technical designer could extend without touching code.",
     highlights: ["Bitmask tag matching", "Randomized style briefs", "Designer-extensible"],
     code: "int overlapBits = (int)(CurrentBriefing.targetTags & equippedTags);\nint matchCount = CountBits(overlapBits);\nfloat percentage = (float)matchCount / totalTargetCount * 100f;",
   },
