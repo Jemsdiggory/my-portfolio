@@ -11,8 +11,11 @@ export const metadata = {
 }
 
 const systems = [
-  { title: "Gameplay Systems", description: "TODO: Describe a gameplay system, its design constraints, and your implementation decisions.", code: "// TODO: Add a verified gameplay code excerpt" },
-  { title: "AI & Interaction", description: "TODO: Explain an AI or interaction system and how you tested it.", code: "// TODO: Add a verified AI or interaction excerpt" },
+  {
+    title: "Tag-Based Scoring",
+    description: "Designed a tag-based scoring system for styling challenges, where outfit items carry combinable style tags (Cool, Dark, Y2K, Cute, etc.) and the player's full look is scored against a randomized mission brief. The core constraint was needing a scoring method that stayed fair and replayable without hand-authoring every possible outfit combination, and that a non-technical designer could extend without touching code.",
+    code: "int overlapBits = (int)(CurrentBriefing.targetTags & equippedTags);\nint matchCount = CountBits(overlapBits);\nfloat percentage = (float)matchCount / totalTargetCount * 100f;",
+  },
 ]
 
 const groupOrder = { game: 0, both: 1, design: 2 }
