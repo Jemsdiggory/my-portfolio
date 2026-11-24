@@ -71,7 +71,7 @@ export default function GameDevPage() {
           <p className="font-mono text-xs uppercase tracking-[.3em] text-cyan-200">Kahlaa Aulia Jemima</p>
           <h1 className="font-display text-5xl sm:text-7xl font-extrabold mt-5">Game Developer</h1>
           <p className="font-mono text-sm sm:text-base text-white/60 mt-4">Gameplay Programming &amp; Game Design</p>
-          <p className="max-w-3xl text-white/70 mt-7 leading-relaxed">I build gameplay and interactive systems with Unity and C#. My experience spans 2D and 3D RPG, FPS, and educational games, including quest systems, AI behavior, combat mechanics, and UI interactions. I work with teams and independently to bring gameplay features from concept to implementation.</p>
+          <p className="max-w-3xl text-white/70 mt-7 leading-relaxed">I’m a Unity game developer and designer who builds gameplay systems from input to feedback. My projects span C# gameplay mechanics like quests, enemy AI, combat, and inventory, mobile drag-and-drop styling with tag-based scoring, and controller-driven VR pet interactions for Meta Quest. I focus on responsive mechanics, reusable systems, and feedback that makes every interaction feel rewarding.</p>
           <div className="flex flex-wrap gap-4 mt-8">
             <a href="https://jemsdiggory.itch.io" target="_blank" rel="noopener noreferrer" className="rounded-xl bg-violet-500 px-6 py-3 font-mono text-sm font-bold">Play My Games</a>
             <a href="/contact" className="rounded-xl border border-white/15 px-6 py-3 font-mono text-sm">Contact</a>
