@@ -13,39 +13,30 @@ export const metadata = {
 const systemNotes = {
   "Pat Pat Pals": {
     title: "VR Petting Detection & Feedback",
-    description: "Recognizes intentional petting from both controllers while filtering out movement that should not count as a stroke. A reusable, per-animal component tunes rewards and cooldowns, with layered reactions making each interaction feel responsive.",
+    description: "Detects deliberate two-controller petting while filtering zone misses, slow movement, and teleport jumps. A reusable component tunes each animal’s stroke distance, heart reward, and cooldown.",
+    highlights: ["Dual-controller strokes", "Pet-zone and speed checks", "Per-animal rewards"],
   },
   "B4ND UP!!": {
     title: "Tag-Based Scoring",
-    description: "Designed a tag-based scoring system for styling challenges, where outfit items carry combinable style tags (Cool, Dark, Y2K, Cute, etc.) and the player's full look is scored against a randomized mission brief. The core constraint was needing a scoring method that stayed fair and replayable without hand-authoring every possible outfit combination, and that a non-technical designer could extend without touching code.",
+    description: "Scores combinable outfit tags against randomized style briefs, keeping combinations replayable without hand-authoring every look. Designers can extend the tag set without changing code.",
+    highlights: ["Bitmask tag matching", "Randomized style briefs", "Designer-extensible"],
     code: "int overlapBits = (int)(CurrentBriefing.targetTags & equippedTags);\nint matchCount = CountBits(overlapBits);\nfloat percentage = (float)matchCount / totalTargetCount * 100f;",
   },
   "Vita-Dulu": {
     title: "NPC AI & Interactive Gameplay",
     description: "Combines gameplay mechanics, NPC AI behavior, and interactive systems in a 3D educational simulation about traditional Indonesian snacks.",
+    highlights: ["Gameplay mechanics", "NPC AI", "Interactive systems"],
   },
   "Rise Against": {
     title: "Quest, Combat & Inventory Systems",
     description: "Quest progression connects to enemy AI and combat, dialogue interactions, and inventory management in a 2D educational RPG about environmental issues.",
-  },
-  "Let's Explore": {
-    title: "Educational Mini-Game Systems",
-    description: "Uses mini-game mechanics and interactive UI/UX to teach arithmetic and Indonesian tourism to children.",
-  },
-  Roblorant: {
-    title: "FPS Core Gameplay",
-    description: "The web-based 3D FPS assignment centers on player movement, shooting mechanics, and enemy AI.",
-  },
-  "Congklak Adventures": {
-    title: "Traditional Board-Game Experience",
-    description: "Adapts the traditional Congklak board game as a 2D educational game, supported by UI art and co-game design.",
+    highlights: ["Quest progression", "Enemy AI and combat", "Dialogue and inventory"],
   },
 }
 
-const systems = gameProjects.map((game) => ({
+const systems = gameProjects.filter((game) => systemNotes[game.title]).map((game) => ({
   game: game.title,
   ...systemNotes[game.title],
-  highlights: game.highlights,
 }))
 
 const groupOrder = { game: 0, both: 1, design: 2 }
@@ -134,7 +125,22 @@ export default function GameDevPage() {
         </div>
       </section>
 
-      <section id="systems" className="px-6 py-20 sm:px-12 lg:px-24 scroll-mt-20" style={{ scrollMarginTop: "64px" }}><div className="mx-auto max-w-6xl"><p className="font-mono text-xs uppercase tracking-[.25em] text-violet-300">Under the hood</p><h2 className="font-display text-3xl font-bold mt-3 mb-3">Systems Breakdown</h2><p className="text-sm text-white/50 mb-8">A closer look at the mechanics behind each project.</p><div aria-label="Game systems breakdowns" className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(123,108,255,.5) transparent" }}>{systems.map((system) => <article key={system.game} className="flex w-[min(84vw,400px)] shrink-0 snap-start flex-col rounded-2xl border border-white/10 bg-[#10111b] p-6"><p className="font-mono text-[10px] uppercase tracking-[.2em] text-cyan-200">{system.game}</p><h3 className="font-display text-xl font-bold mt-2">{system.title}</h3><p className="text-sm leading-relaxed text-white/60 mt-3">{system.description}</p><ul className="mt-5 space-y-2 text-xs leading-relaxed text-white/65">{system.highlights.map((highlight) => <li key={highlight}>• {highlight}</li>)}</ul>{system.code && <pre className="overflow-x-auto rounded-xl bg-black/50 p-4 mt-5 text-xs leading-relaxed text-cyan-100"><code>{system.code}</code></pre>}</article>)}</div></div></section>
+      <section id="systems" className="px-6 py-20 sm:px-12 lg:px-24 scroll-mt-20" style={{ scrollMarginTop: "64px" }}>
+        <div className="mx-auto max-w-6xl">
+          <p className="font-mono text-xs uppercase tracking-[.25em] text-violet-300">Under the hood</p>
+          <h2 className="font-display text-3xl font-bold mt-3 mb-3">Systems Breakdown</h2>
+          <p className="text-sm text-white/50 mb-8">A closer look at the mechanics behind each project.</p>
+          <div aria-label="Game systems breakdowns" className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(123,108,255,.5) transparent" }}>
+            {systems.map((system) => <article key={system.game} className="flex h-[360px] w-[min(84vw,360px)] shrink-0 snap-start flex-col rounded-2xl border border-white/10 bg-[#10111b] p-5">
+              <p className="font-mono text-[10px] uppercase tracking-[.2em] text-cyan-200">{system.game}</p>
+              <h3 className="font-display text-xl font-bold mt-2">{system.title}</h3>
+              <p className="text-sm leading-relaxed text-white/60 mt-3">{system.description}</p>
+              <div className="flex flex-wrap gap-2 mt-4">{system.highlights.map((highlight) => <span key={highlight} className="rounded-full border border-white/10 bg-white/[.04] px-2.5 py-1 font-mono text-[9px] leading-snug text-white/65">{highlight}</span>)}</div>
+              {system.code && <pre className="overflow-x-auto rounded-xl bg-black/50 p-3 mt-auto text-[11px] leading-relaxed text-cyan-100"><code>{system.code}</code></pre>}
+            </article>)}
+          </div>
+        </div>
+      </section>
 
       <section id="experience" className="px-6 py-20 sm:px-12 lg:px-24 bg-white/[.02] scroll-mt-20" style={{ scrollMarginTop: "64px" }}><div className="mx-auto max-w-6xl"><p className="font-mono text-xs uppercase tracking-[.25em] text-violet-300">Track record</p><h2 className="font-display text-3xl font-bold mt-3 mb-8">Experience</h2><div className="grid md:grid-cols-2 gap-5">{sortedExperience.map((item, index) => <article key={`${item.organization}-${item.role}`} className="rounded-2xl border border-white/10 bg-[#10111b] p-6"><p className="font-mono text-xs text-cyan-200">{item.period} <span className="ml-2 text-white/40">{item.track.toUpperCase()}</span></p><h3 className="font-display text-xl font-bold mt-3">{item.role}</h3><p className="font-mono text-sm text-violet-200 mt-1">{item.organization}</p><ul className="mt-4 space-y-2 text-sm leading-relaxed text-white/65">{item.bullets.slice(0, 3).map((bullet) => <li key={bullet}>• {bullet}</li>)}</ul><div className="flex flex-wrap gap-2 mt-5">{item.tags.map((tag) => <span key={`${index}-${tag}`} className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[9px] text-white/55">{tag}</span>)}</div></article>)}</div></div></section>
 
