@@ -93,7 +93,7 @@ export default function GameDevPage() {
                   <p className="text-sm leading-relaxed text-white/65 mt-4">{game.description}</p>
                   <div className="flex flex-wrap gap-2 mt-4 font-mono text-[10px]"><span className="rounded-full border border-white/10 px-3 py-1">{game.engine}</span><span className="rounded-full border border-white/10 px-3 py-1">{game.platform}</span>{tags.map((tag) => <span key={tag} className="rounded-full bg-white/[.06] px-3 py-1">{tag}</span>)}</div>
                   <ul className="mt-5 space-y-1 text-sm text-white/65">{game.highlights.map((highlight, index) => <li key={`${game.title}-${index}`}>• {highlight}</li>)}</ul>
-                  <a href={game.link} target="_blank" rel="noopener noreferrer" className="inline-flex mt-6 font-mono text-xs text-cyan-200 underline underline-offset-4">Play on itch.io ↗</a>
+                  <a href={game.link} target="_blank" rel="noopener noreferrer" className="inline-flex mt-6 font-mono text-xs text-cyan-200 underline underline-offset-4">{game.linkLabel || "Play on itch.io ↗"}</a>
                 </div>
               </article>
             })}

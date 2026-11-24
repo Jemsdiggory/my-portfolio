@@ -479,6 +479,30 @@ export const webProjects = {
 // GAME PROJECTS 
 export const gameProjects = [
   {
+    title: "Pat Pat Pals",
+    track: "game",
+    role: "GAME PROGRAMMER & DESIGNER", // TODO: verify role
+    engine: "Unity 6",
+    platform: "Meta Quest",
+    highlights: [
+      "Stroke detection tracks both controllers per frame and filters pet-zone radius, minimum hand speed, and teleport jumps",
+      "Reusable, Inspector-tunable petting component balances stroke distance, hearts per pet, and cooldown across three animals",
+      "Squash-and-stretch reactions, floating heart VFX, per-animal sounds, and world-space score UI that faces the player",
+      "Headset-free development with XR Interaction Simulator and a final Android APK build for Quest",
+    ],
+    studio: "GEPHIUM",
+    icon: null,
+    youtubeId: "n6H4UzO9wnk",
+    link: "https://medium.com/@jemsdiggory",
+    linkLabel: "Read on Medium ↗",
+    tags: ["Unity 6", "VR", "OpenXR", "XR Interaction Toolkit", "Meta Quest", "3D"],
+    description:
+      "VR pet-interaction game for Meta Quest. Players pet a cat, a dog, and an owl with their hands to earn floating hearts, built in Unity 6 with a custom stroke-detection system and layered feedback that makes every pet feel rewarding.",
+    team: "GEPHIUM",
+    type: "VR PET INTERACTION GAME",
+    category: "Game Development",
+  },
+  {
     title: "B4ND UP!!",
     track: "game",
     role: "GAME PROGRAMMER", // TODO: verify role
