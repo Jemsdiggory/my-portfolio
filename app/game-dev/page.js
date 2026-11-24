@@ -139,11 +139,12 @@ export default function GameDevPage() {
 
       <MediumSection />
 
-      <section id="skills" className="px-6 py-20 sm:px-12 lg:px-24 scroll-mt-20" style={{ scrollMarginTop: "64px" }}><div className="mx-auto max-w-6xl"><p className="font-mono text-xs uppercase tracking-[.25em] text-violet-300">Toolbox</p><h2 className="font-display text-3xl font-bold mt-3 mb-8">Game Dev Skills</h2><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">{[
+      <section id="skills" className="px-6 py-20 sm:px-12 lg:px-24 scroll-mt-20" style={{ scrollMarginTop: "64px" }}><div className="mx-auto max-w-6xl"><p className="font-mono text-xs uppercase tracking-[.25em] text-violet-300">Toolbox</p><h2 className="font-display text-3xl font-bold mt-3 mb-8">Game Dev Skills</h2><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">{[
         { title: "Engines", items: ["Unity"] },
         { title: "Languages", items: ["C#"] },
-        { title: "Networking", items: ["TODO: Add confirmed networking tools or concepts"] },
-        { title: "Tools", items: ["Version control", "Agile development"] },
+        { title: "Networking / Multiplayer", items: ["Unity multiplayer", "Photon PUN 2 (Free)"] },
+        { title: "Version Control", items: ["Git", "GitHub", "GitLab"] },
+        { title: "Tools", items: ["Google Docs", "Jira", "Notion"] },
       ].map((group) => <article key={group.title} className="rounded-2xl border border-white/10 bg-[#10111b] p-5"><h3 className="font-mono text-xs uppercase text-violet-300">{group.title}</h3><p className="text-sm text-white/65 mt-3">{group.items.join(", ")}</p></article>)}</div></div></section>
 
       <section id="contact" className="px-6 py-24 sm:px-12 lg:px-24 text-center bg-white/[.02] scroll-mt-20" style={{ scrollMarginTop: "64px" }}><div className="mx-auto max-w-5xl"><p className="font-mono text-xs uppercase tracking-[.25em] text-violet-300">Contact</p><h2 className="font-display text-3xl sm:text-4xl font-bold mt-3">Let’s make a game players remember.</h2><div className="flex flex-wrap justify-center gap-x-6 gap-y-4 mt-8">{contacts.map((contact) => <a key={contact.label} href={contact.href} target={contact.href.startsWith("mailto:") ? undefined : "_blank"} rel={contact.href.startsWith("mailto:") ? undefined : "noopener noreferrer"} className="font-mono text-xs text-cyan-200 underline underline-offset-4"><span className="text-white/45">{contact.label}: </span>{contact.text}</a>)}</div></div></section>
