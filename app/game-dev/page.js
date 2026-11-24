@@ -121,7 +121,7 @@ export default function GameDevPage() {
           <p className="font-mono text-xs uppercase tracking-[.25em] text-violet-300">Under the hood</p>
           <h2 className="font-display text-3xl font-bold mt-3 mb-3">Systems Breakdown</h2>
           <p className="text-sm text-white/50 mb-8">A closer look at the mechanics behind each project.</p>
-          <div aria-label="Game systems breakdowns" className="flex items-start snap-x snap-mandatory gap-5 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(123,108,255,.5) transparent" }}>
+          <div aria-label="Game systems breakdowns" className="flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(123,108,255,.5) transparent" }}>
             {systems.map((system) => <article key={system.game} className="flex min-h-[360px] w-[min(88vw,460px)] shrink-0 snap-start flex-col rounded-2xl border border-white/10 bg-[#10111b] p-5">
               <p className="font-mono text-[10px] uppercase tracking-[.2em] text-cyan-200">{system.game}</p>
               <h3 className="font-display text-xl font-bold mt-2">{system.title}</h3>
