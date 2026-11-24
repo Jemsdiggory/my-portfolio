@@ -3,6 +3,8 @@ export default function sitemap() {
 
   const routes = [
     { url: base,                          lastModified: new Date(), priority: 1.0 },
+    { url: `${base}/game-dev`,            lastModified: new Date(), priority: 0.95 },
+    { url: `${base}/design-engineer`,     lastModified: new Date(), priority: 0.9 },
     { url: `${base}/about`,               lastModified: new Date(), priority: 0.8 },
     { url: `${base}/projects`,            lastModified: new Date(), priority: 0.9 },
     { url: `${base}/projects/ciptadra`,   lastModified: new Date(), priority: 0.7 },

@@ -15,7 +15,7 @@ export default function MusicPlayer() {
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
-  const [visible, setVisible] = useState(true)
+  const [expanded, setExpanded] = useState(false)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -72,16 +72,12 @@ export default function MusicPlayer() {
 
   const pct = duration ? (progress / duration) * 100 : 0
 
-  if (!visible) return null
-
   return (
     <>
       <audio ref={audioRef} src={SONG.src} preload="metadata" />
 
-      <div
-        className="fixed bottom-6 right-6 z-50"
-        style={{ width: "260px" }}
-      >
+      <div className="fixed bottom-6 right-6 z-50" style={{ width: expanded ? "260px" : "44px" }}>
+        {!expanded ? <button type="button" onClick={() => setExpanded(true)} aria-label="Expand music player" title="Music player" className="flex h-11 w-11 items-center justify-center rounded-full border" style={{ background: "rgba(22, 27, 34, 0.92)", borderColor: "var(--border)", color: "var(--accent)" }}><FaMusic /></button> :
         <div
           className="rounded-2xl border p-4"
           style={{
@@ -127,7 +123,7 @@ export default function MusicPlayer() {
 
             {/* close */}
             <button
-              onClick={() => setVisible(false)}
+              onClick={() => setExpanded(false)}
               className="flex-shrink-0 ml-2"
               style={{ color: "var(--text-dim)", fontSize: "1rem", lineHeight: 1 }}
             >
@@ -172,7 +168,7 @@ export default function MusicPlayer() {
               {playing ? <FaPause /> : <FaPlay style={{ marginLeft: "1px" }} />}
             </button>
           </div>
-        </div>
+        </div>}
       </div>
 
       <style>{`

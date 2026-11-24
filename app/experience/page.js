@@ -2,67 +2,7 @@
 
 import { motion } from "framer-motion"
 import Navbar from "../components/Navbar"
-
-const experiences = [
-  {
-    year: "June 2026 — September 2026",
-    type: "PartTime",
-    org: "PT. Ciptadra Softindo",
-    role: "Web Designer & Developer",
-    description:
-      "Responsible for designing and developing user-friendly websites for the company and its clients, utilizing HTML, CSS, JavaScript, and other Frameworks to create responsive layouts, implement new features, and optimize website performance while ensuring a seamless user experience.",
-    tags: ["Web Development", "Web Design", "Collaboration", "Problem-Solving", "Git", "Gitlab", "Notion"],
-  },
-  {
-    year: "Feb 2026 — June 2026",
-    type: "Internship",
-    org: "PT. Ciptadra Softindo",
-    role: "Web Developer Intern",
-    description:
-      "Selected to contribute to multiple company and client web projects, ranging from corporate websites to enterprise management systems. Designed and developed responsive user interfaces, enhanced user experience through layout and feature improvements, and delivered interactive web prototypes to support product presentations and stakeholder engagement. Contributed to strengthening the company's digital portfolio by supporting the development of business-critical platforms and client-facing solutions.",
-    projects: [
-      "Company Profile Ciptadra Softindo",
-      "Landing Page for Ciptadra Mall Management System",
-      "Ciptadra Mall Management System",
-      "Onebox Website",
-      "TNI AU Proposal Web Design Enhancement",
-      "Kementrian Lingkungan Hidup Proposal Web Design Enhancement",
-    ],
-    tags: ["Web Development", "Collaboration", "Problem-Solving", "Git", "Gitlab", "Notion"],
-  },
-  {
-    year: "2024 — Present",
-    type: "Freelance",
-    org: "Tealcean Studio",
-    role: "Game Programmer",
-    description:
-      "Collaborated in a team of 4 to develop an atmospheric narrative game using Unity, contributing to gameplay programming, optimization, and bug fixing, while gaining experience in version control and agile development practices.",
-    projects: [
-      "Let's Explore",
-      "Rise Against",
-      "Vita-dulu",
-    ],
-    tags: ["Game Development", "Time Management", "Teamwork", "Unity", "C#", "Notion", "Github"],
-  },
-  {
-    year: "2024 — 2025",
-    type: "Organization",
-    org: "Polimedia Student Association of Game Technology",
-    role: "Member & Head of Human Resources Development Division (PSDM)",
-    description:
-      "Coordinated development activities while addressing internal organizational issues, assisted in the recruitment and evaluation of new members, and implemented programs designed to enhance members' knowledge and professional development.",
-    tags: ["Leadership", "HR", "Organization"],
-  },
-  {
-    year: "2024 — 2025",
-    type: "Organization",
-    org: "Student Orientation Event – Polimedia Jakarta",
-    role: "PKKMB — Member, Senior Staff & Field Coordinator",
-    description:
-      "Managed field operations while guiding new students throughout activities, contributing to the development of strong communication, leadership, and problem-solving skills.",
-    tags: ["Coordination", "Leadership", "Communication"],
-  },
-]
+import { experience as experiences } from "../data/experience"
 
 const typeStyle = {
   Internship:   { bg: "rgba(61,255,209,0.08)",  border: "rgba(61,255,209,0.25)",  color: "var(--accent2)" },
@@ -149,7 +89,7 @@ export default function ExperiencePage() {
                     >
                       {/* year + type badge */}
                       <p className="font-mono text-xs mb-3 flex items-center gap-3" style={{ color: "var(--accent)" }}>
-                        {exp.year}
+                        {exp.period}
                         <span
                           className="font-mono text-xs px-2 py-0.5 rounded"
                           style={{
@@ -164,7 +104,7 @@ export default function ExperiencePage() {
 
                       {/* org */}
                       <p className="font-mono text-sm mb-2" style={{ color: "var(--accent2)" }}>
-                        {exp.org}
+                        {exp.organization}
                       </p>
 
                       {/* role */}

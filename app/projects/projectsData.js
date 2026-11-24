@@ -21,6 +21,7 @@ export const webProjects = {
   //  PROFESSIONAL PROJECTS 
   "ciptadra": {
     slug: "ciptadra",
+    track: "design",
     title: "Ciptadra Softindo",
     subtitle: "Corporate Website Modernization",
     type: "Professional Project",
@@ -50,6 +51,7 @@ export const webProjects = {
 
   "onebox-ciptadra": {
     slug: "onebox-ciptadra",
+    track: "design",
     title: "OneBox Portal",
     subtitle: "Product Website Redesign and Content Strategy",
     type: "Professional Project",
@@ -79,6 +81,7 @@ export const webProjects = {
 
   "portal-nextjs": {
     slug: "portal-nextjs",
+    track: "design",
     title: "Portal Onebox.go.id",
     subtitle: "Smart City Portal Modernization",
     type: "Professional Project",
@@ -107,6 +110,7 @@ export const webProjects = {
 
   "mall-management": {
     slug: "mall-management",
+    track: "design",
     title: "Mall Management Landing Page",
     subtitle: "Product Landing Page for a Mall Management Solution",
     type: "Professional Project",
@@ -136,6 +140,7 @@ export const webProjects = {
 
   "mall-management-system": {
     slug: "mall-management-system",
+    track: "design",
     title: "Mall Management System",
     subtitle: "Enterprise Web Platform Enhancement",
     type: "Professional Project",
@@ -166,6 +171,7 @@ export const webProjects = {
   // PROPOSAL / CONCEPT PROJECTS 
   "kemen-lh": {
     slug: "kemen-lh",
+    track: "design",
     title: "Kemen LH Website Modernization",
     subtitle: "Environmental Agency Website Modernization Proposal",
     type: "Proposal Project",
@@ -192,6 +198,7 @@ export const webProjects = {
 
   "puskesal": {
     slug: "puskesal",
+    track: "design",
     title: "Puskesal Health Ecosystem",
     subtitle: "Healthcare Platform Design System and Prototype",
     type: "Proposal Project",
@@ -218,6 +225,7 @@ export const webProjects = {
 
   "tni-au-proposal": {
     slug: "tni-au-proposal",
+    track: "design",
     title: "TNI AU Website Modernization",
     subtitle: "Defense Organization Website Modernization Proposal",
     type: "Proposal Project",
@@ -250,6 +258,7 @@ export const webProjects = {
 
   "jagoti-lms": {
     slug: "jagoti-lms",
+    track: "design",
     title: "Jagoti LMS",
     subtitle: "Learning Platform UI Modernization",
     type: "Professional Project",
@@ -283,6 +292,7 @@ export const webProjects = {
   // Personal PROJECTS 
   "food-check": {
     slug: "food-check",
+    track: "design",
     title: "FoodCheck",
     subtitle: "Recipe Discovery Platform Based on Available Ingredients",
     type: "Personal Project",
@@ -314,6 +324,7 @@ export const webProjects = {
 
   "mini-cms": {
     slug: "mini-cms",
+    track: "design",
     title: "Mini CMS",
     subtitle: "Lightweight Content Management System for a Gaming Blog",
     type: "Personal Project",
@@ -347,6 +358,7 @@ export const webProjects = {
 
   "saku-aman-app": {
     slug: "saku-aman-app",
+    track: "design",
     title: "Saku Aman",
     subtitle: "Personal Expense Tracker App",
     type: "Personal Project",
@@ -376,6 +388,7 @@ export const webProjects = {
 
   "angular-spa": {
     slug: "angular-spa",
+    track: "design",
     title: "Angular SPA",
     subtitle: "Single Page Application Built with Angular",
     type: "Personal Project",
@@ -406,6 +419,7 @@ export const webProjects = {
 
   "mlbb-vote": {
     slug: "mlbb-vote",
+    track: "design",
     title: "MLBB Vote",
     subtitle: "Web Login and Hero Filtering UI",
     type: "Personal Project",
@@ -433,6 +447,7 @@ export const webProjects = {
    
   "personal-website": {
     slug: "personal-website",
+    track: "design",
     title: "Personal Website",
     subtitle: "Interactive Personal Portfolio Built with Next.js",
     type: "Personal Project",
@@ -464,7 +479,59 @@ export const webProjects = {
 // GAME PROJECTS 
 export const gameProjects = [
   {
+    title: "Pat Pat Pals",
+    track: "game",
+    role: "GAME PROGRAMMER & DESIGNER", // TODO: verify role
+    engine: "Unity 6",
+    platform: "Meta Quest",
+    highlights: [
+      "Stroke detection tracks both controllers per frame and filters pet-zone radius, minimum hand speed, and teleport jumps",
+      "Reusable, Inspector-tunable petting component balances stroke distance, hearts per pet, and cooldown across three animals",
+      "Squash-and-stretch reactions, floating heart VFX, per-animal sounds, and world-space score UI that faces the player",
+      "Headset-free development with XR Interaction Simulator and a final Android APK build for Quest",
+    ],
+    studio: "GEPHIUM",
+    icon: null,
+    youtubeId: "n6H4UzO9wnk",
+    link: "https://medium.com/@jemsdiggory",
+    linkLabel: "Read on Medium ↗",
+    tags: ["Unity 6", "VR", "OpenXR", "XR Interaction Toolkit", "Meta Quest", "3D"],
+    description:
+      "VR pet-interaction game for Meta Quest. Players pet a cat, a dog, and an owl with their hands to earn floating hearts, built in Unity 6 with a custom stroke-detection system and layered feedback that makes every pet feel rewarding.",
+    team: "GEPHIUM",
+    type: "VR PET INTERACTION GAME",
+    category: "Game Development",
+  },
+  {
+    title: "B4ND UP!!",
+    track: "game",
+    role: "GAME PROGRAMMER", // TODO: verify role
+    engine: "Unity 6",
+    platform: "Android",
+    highlights: [
+      "Drag-and-drop outfit system across multiple characters, with category-based slot replacement and per-character isolation",
+      "Tag-based scoring engine using bitmask flags to evaluate styling choices against randomized mission briefs",
+      "Cross-scene outfit persistence — last-equipped looks carry over from the fitting room to the home screen",
+    ],
+    studio: "GEPHIUM",
+    icon: null,
+    youtubeId: "783EEWVtExs",
+    video: "/gameplay/B4NDUP.mp4",
+    link: "https://jemsdiggory.itch.io/b4nd-up",
+    tags: ["Unity", "Android", "2D", "Mobile", "Simulation"],
+    description:
+      "2D mobile fashion-stylist simulation game for Android. Players dress up characters by matching outfit pieces to themed style briefs, built in Unity 6 with a full drag-and-drop styling system and tag-based scoring loop.",
+    team: "GAME PROGRAMMER",
+    type: "2D MOBILE SIMULATION GAME",
+    category: "Game Development",
+  },
+  {
     title: "Vita-Dulu",
+    track: "game",
+    role: "Programmer · Designer", // TODO: verify role
+    engine: "Unity",
+    platform: "PC and mobile",
+    highlights: ["Gameplay mechanics", "NPC AI behaviour", "Interactive systems"],
     studio: "Tealcean Studio",
     icon: "/game-icons/icongame1.jpg",
     video: "/gameplay/vita-dulu.mp4",
@@ -478,6 +545,11 @@ export const gameProjects = [
   },
   {
     title: "Rise Against",
+    track: "game",
+    role: "Programmer · Designer", // TODO: verify role
+    engine: "Unity",
+    platform: "PC",
+    highlights: ["Quest systems", "AI and combat", "Dialogue and inventory management"],
     studio: "Tealcean Studio",
     icon: "/game-icons/icongame2.png",
     video: "/gameplay/rise-against.mp4",
@@ -491,6 +563,11 @@ export const gameProjects = [
   },
   {
     title: "Let's Explore",
+    track: "game",
+    role: "Programmer · Designer", // TODO: verify role
+    engine: "Unity",
+    platform: "PC",
+    highlights: ["Mini-game mechanics", "Interactive systems", "UI/UX"],
     studio: "Tealcean Studio",
     icon: "/game-icons/icongame3.png",
     video: "/gameplay/lets-explore.mp4",
@@ -504,6 +581,11 @@ export const gameProjects = [
   },
   {
     title: "Roblorant",
+    track: "game",
+    role: "Programmer (Solo Project)", // TODO: verify role
+    engine: "Unity",
+    platform: "Web-based",
+    highlights: ["Player movement", "Shooting mechanics", "Enemy AI"],
     studio: "Solo Project",
     icon: "/game-icons/icongame4.png",
     video: "/gameplay/roblorant.mp4",
@@ -517,6 +599,11 @@ export const gameProjects = [
   },
   {
     title: "Congklak Adventures",
+    track: "game",
+    role: "UI Artist · Designer", // TODO: verify role
+    engine: "Unity",
+    platform: "PC",
+    highlights: ["Traditional Congklak board game", "UI art", "Co-game design"],
     studio: "Team 7",
     icon: "/game-icons/icongame5.png",
     video: "/gameplay/congklak-adventures.mp4",
