@@ -13,24 +13,15 @@ export const metadata = {
 const systemNotes = {
   "Pat Pat Pals": {
     title: "VR Petting Detection & Feedback",
-    description: "Detects deliberate two-controller petting while filtering zone misses, slow movement, and teleport jumps. A reusable component tunes each animal’s stroke distance, heart reward, and cooldown.",
-    highlights: ["Dual-controller strokes", "Pet-zone and speed checks", "Per-animal rewards"],
+    description: "Designed a stroke-based petting system for VR, where the game tracks both controllers every frame and only rewards motion that actually feels like petting. A hand earns progress only when it sits inside an animal's pet zone, moves above a minimum speed, and doesn't jump between frames, so poking, resting a hand or teleporting never counts. The core constraint was making a physical gesture feel natural and readable without relying on hand colliders that would fight the XR Interaction Toolkit's grab system, while keeping every threshold tunable per animal in the Inspector so cat, dog and owl could each have their own pace and reward.",
+    highlights: ["Dual-controller stroke tracking", "Pet-zone and jump filtering", "Per-animal Inspector tuning"],
+    code: "if (Vector3.Distance(pos, center) > petRadius) return 0f;\nif (delta > 0.2f) return 0f;\nfloat speed = delta / Time.deltaTime;\nreturn speed < minHandSpeed ? 0f : delta;",
   },
   "B4ND UP!!": {
     title: "Tag-Based Scoring",
     description: "Scores combinable outfit tags against randomized style briefs, keeping combinations replayable without hand-authoring every look. Designers can extend the tag set without changing code.",
     highlights: ["Bitmask tag matching", "Randomized style briefs", "Designer-extensible"],
     code: "int overlapBits = (int)(CurrentBriefing.targetTags & equippedTags);\nint matchCount = CountBits(overlapBits);\nfloat percentage = (float)matchCount / totalTargetCount * 100f;",
-  },
-  "Vita-Dulu": {
-    title: "NPC AI & Interactive Gameplay",
-    description: "Combines gameplay mechanics, NPC AI behavior, and interactive systems in a 3D educational simulation about traditional Indonesian snacks.",
-    highlights: ["Gameplay mechanics", "NPC AI", "Interactive systems"],
-  },
-  "Rise Against": {
-    title: "Quest, Combat & Inventory Systems",
-    description: "Quest progression connects to enemy AI and combat, dialogue interactions, and inventory management in a 2D educational RPG about environmental issues.",
-    highlights: ["Quest progression", "Enemy AI and combat", "Dialogue and inventory"],
   },
 }
 
@@ -130,8 +121,8 @@ export default function GameDevPage() {
           <p className="font-mono text-xs uppercase tracking-[.25em] text-violet-300">Under the hood</p>
           <h2 className="font-display text-3xl font-bold mt-3 mb-3">Systems Breakdown</h2>
           <p className="text-sm text-white/50 mb-8">A closer look at the mechanics behind each project.</p>
-          <div aria-label="Game systems breakdowns" className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(123,108,255,.5) transparent" }}>
-            {systems.map((system) => <article key={system.game} className="flex h-[360px] w-[min(84vw,360px)] shrink-0 snap-start flex-col rounded-2xl border border-white/10 bg-[#10111b] p-5">
+          <div aria-label="Game systems breakdowns" className="flex items-start snap-x snap-mandatory gap-5 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(123,108,255,.5) transparent" }}>
+            {systems.map((system) => <article key={system.game} className="flex min-h-[360px] w-[min(88vw,460px)] shrink-0 snap-start flex-col rounded-2xl border border-white/10 bg-[#10111b] p-5">
               <p className="font-mono text-[10px] uppercase tracking-[.2em] text-cyan-200">{system.game}</p>
               <h3 className="font-display text-xl font-bold mt-2">{system.title}</h3>
               <p className="text-sm leading-relaxed text-white/60 mt-3">{system.description}</p>
