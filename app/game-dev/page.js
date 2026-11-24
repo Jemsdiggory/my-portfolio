@@ -49,7 +49,7 @@ async function MediumSection() {
           <div><p className="font-mono text-xs uppercase tracking-[.25em] text-violet-300">Writing &amp; Devlogs</p><h2 className="font-display text-3xl sm:text-4xl font-bold mt-3">Notes from the process</h2></div>
           <a href={MEDIUM_PROFILE} target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-cyan-200 underline underline-offset-4">View all on Medium ↗</a>
         </div>
-        {posts.length > 0 && <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">{posts.map((post) => <article key={post.link} className="overflow-hidden rounded-2xl border border-white/10 bg-[#10111b]">
+        {posts.length > 0 && <div aria-label="Writing and devlog articles" className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(123,108,255,.5) transparent" }}>{posts.map((post) => <article key={post.link} className="flex w-[min(84vw,320px)] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#10111b]">
           {post.image && <img src={post.image} alt="" loading="lazy" className="w-full aspect-video object-cover" /> /* eslint-disable-line @next/next/no-img-element */}
           <div className="p-5"><p className="font-mono text-[10px] text-white/45">{post.date}</p><h3 className="font-display text-lg font-bold mt-2">{post.title}</h3>
             {post.categories.length > 0 && <div className="flex flex-wrap gap-1.5 mt-3">{post.categories.map((tag) => <span key={tag} className="rounded-full bg-violet-400/10 px-2.5 py-1 font-mono text-[9px] text-violet-200">{tag}</span>)}</div>}
