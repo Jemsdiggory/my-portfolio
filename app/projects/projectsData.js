@@ -479,17 +479,37 @@ export const webProjects = {
 // GAME PROJECTS 
 export const gameProjects = [
   {
+    title: "Blockbound",
+    track: "game",
+    role: "GAME PROGRAMMER", // TODO: verify role
+    engine: "Unity 6",
+    platform: "PC",
+    highlights: [
+      "Built two NavMesh NPC state machines with cone-of-vision detection, chase, theft, and return behaviors",
+      "Created grid-based bridge building with eight rotatable pieces and live placement validation",
+      "Added remappable gamepad controls, three-level progression, saved best times, and sprint stamina",
+    ],
+    studio: "Game Console & Game AI Class · Tealcean Studio · In Development",
+    icon: null,
+    video: null,
+    link: "https://medium.com/@jemsdiggory/blockbound-how-i-turned-my-lecturers-robot-ai-into-a-block-stealing-cat-game-3f86bf82bd37?sharedUserId=jemsdiggory",
+    linkLabel: "Devlog #1 on Medium ↗",
+    description:
+      "A Unity 6 puzzle game where players build a bridge from Tetris-shaped blocks while a Thief and Guard disrupt them. I developed the gameplay systems, NavMesh AI, and controller support from the team GDD.",
+    type: "3D GAME AI PUZZLE",
+    category: "Game Development",
+    tags: ["Unity 6", "C#", "3D", "Game AI", "NavMesh", "FSM", "Input System", "Gamepad", "Puzzle"],
+  },
+  {
     title: "Minecart Rush",
     track: "game",
     role: "GAME PROGRAMMER", // TODO: verify role
     engine: "HTML5 Canvas",
     platform: "Web",
     highlights: [
-      "Fixed-timestep game loop locked to 60 ticks per second, replacing a loop that stacked on every retry and made the game speed up",
-      "State machine for Start, Playing, Paused, Level Complete, Game Over, and Win, with canvas buttons shared by mouse, touch, and keyboard",
-      "Three levels with 500, 750, and 1,000 m distance targets, center-aligned AABB hitboxes, per-level score rollback on retry, and pause with auto-pause on tab switch",
-      "Procedural Web Audio API sound effects, plus saved high score and mute settings in localStorage",
-      "Built across eight feature branches merged with --no-ff, each documented in a changelog for team review",
+      "Implemented a fixed 60-tick game loop and state machine spanning menus, pause, levels, and win/loss states",
+      "Built three difficulty-scaled levels with AABB collisions, retry-safe scoring, and tab-switch auto-pause",
+      "Added Web Audio effects, saved settings, and shared mouse, touch, and keyboard controls",
     ],
     studio: "Web Game Programming Class · Team of 3",
     icon: null,
@@ -502,7 +522,7 @@ export const gameProjects = [
     articleLink: "https://medium.com/@jemsdiggory/minecart-rush-devlog-1-06084f4d44a3?sharedUserId=jemsdiggory",
     articleLinkLabel: "Devlog #1 on Medium ↗",
     description:
-      "A 2D top-down arcade runner built with vanilla JavaScript and HTML5 Canvas as a team final project. Ride a minecart across three rail lanes, dodge rocks and broken tracks, grab gold, and survive three levels of rising speed and obstacle density. I owned the game logic and systems, from the main menu to the end screen, and audited a teammate's prototype against our GDD before fixing it feature by feature.",
+      "A 2D Canvas arcade runner where players dodge hazards and collect gold across three increasingly difficult levels. I owned the game logic and systems, taking the team prototype from main menu through the end screen.",
     type: "2D CANVAS ARCADE RUNNER",
     category: "Game Development",
     tags: ["HTML5 Canvas", "Web", "JavaScript", "Canvas API", "2D", "Arcade Runner", "Web Audio API", "Git"],
@@ -514,9 +534,9 @@ export const gameProjects = [
     engine: "HTML5 Canvas",
     platform: "Web",
     highlights: [
-      "Frame-rate-independent requestAnimationFrame loop with capped delta time and responsive up/down flight controls",
-      "AABB coin and hazard collisions, a 60-second timer, a 100-point win target, and pause, restart, and audio controls",
-      "Endless coin and hazard recycling with spaced obstacles, layered parallax scenery, and world speed that rises from 300 to 600",
+      "Built a delta-time game loop with responsive flight controls and AABB collision handling",
+      "Created endless coin and hazard recycling with spaced obstacles and layered parallax scenery",
+      "Added a timed score target, pause/restart controls, audio settings, and ramping world speed",
     ],
     studio: "Web Game Programming Class",
     icon: null,
@@ -528,7 +548,7 @@ export const gameProjects = [
     sourceLink: "https://github.com/Jemsdiggory/windut-runner-canvas",
     articleLink: "https://medium.com/@jemsdiggory/building-treasure-canvas-from-a-moving-circle-to-an-endless-flying-runner-9935aaad7d4f?sharedUserId=jemsdiggory",
     description:
-      "A 2D endless flying runner built with vanilla JavaScript and HTML5 Canvas over four Web Game Programming class meetings. Fly a circular, image-textured player through a scrolling world, collect coins, and dodge hazards as the pace ramps up. The project grew from a simple canvas movement prototype into an endless runner.",
+      "A 2D endless flying runner made with JavaScript and Canvas. Guide a circular player through scrolling scenery, collecting coins and dodging hazards as the pace increases.",
     type: "2D CANVAS ENDLESS RUNNER",
     category: "Game Development",
     tags: ["HTML5 Canvas", "JavaScript", "Canvas API", "2D", "Endless Runner", "Web"],
@@ -540,10 +560,9 @@ export const gameProjects = [
     engine: "Unity 6",
     platform: "Meta Quest",
     highlights: [
-      "Stroke detection tracks both controllers per frame and filters pet-zone radius, minimum hand speed, and teleport jumps",
-      "Reusable, Inspector-tunable petting component balances stroke distance, hearts per pet, and cooldown across three animals",
-      "Squash-and-stretch reactions, floating heart VFX, per-animal sounds, and world-space score UI that faces the player",
-      "Headset-free development with XR Interaction Simulator and a final Android APK build for Quest",
+      "Implemented two-controller stroke detection with pet-zone, hand-speed, and teleport-jump filtering",
+      "Built a reusable petting component with tunable rewards for three animals",
+      "Added animal reactions, heart effects, per-animal sounds, and world-space score feedback",
     ],
     studio: "GEPHIUM",
     icon: null,
@@ -552,7 +571,7 @@ export const gameProjects = [
     linkLabel: "Read on Medium ↗",
     tags: ["Unity 6", "VR", "OpenXR", "XR Interaction Toolkit", "Meta Quest", "3D"],
     description:
-      "VR pet-interaction game for Meta Quest. Players pet a cat, a dog, and an owl with their hands to earn floating hearts, built in Unity 6 with a custom stroke-detection system and layered feedback that makes every pet feel rewarding.",
+      "A Unity 6 VR game for Meta Quest where players pet a cat, dog, and owl to earn hearts. I built the custom stroke-detection system and layered feedback for each animal.",
     team: "GEPHIUM",
     type: "VR PET INTERACTION GAME",
     category: "Game Development",
