@@ -129,7 +129,7 @@ export default function AboutPage() {
                   href="https://drive.google.com/drive/folders/1kt9f7LqDxekNFbaxsKN0Zo3FNiLahmDa?usp=drive_link"
                   target="_blank"
                   className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border inline-flex items-center gap-2"
-                  style={{ background: "var(--accent)", borderColor: "var(--accent)", color: "#fff", boxShadow: "0 0 20px rgba(123,108,255,0.3)" }}
+                  style={{ background: "var(--accent)", borderColor: "var(--accent)", color: "var(--ui-color-d14f9016)", boxShadow: "0 0 20px var(--ui-color-438d23bd)" }}
                 >
                   <FaCertificate size={14} />
                   View Certificates
@@ -216,8 +216,8 @@ export default function AboutPage() {
                             transition={{ delay: 0.5 + catIdx * 0.1 + idx * 0.03 }}
                             className="group flex items-center gap-2 px-3 py-2 rounded-lg font-mono text-xs font-medium tracking-wide transition-all duration-300 cursor-default"
                             style={{
-                              background: "rgba(255,255,255,0.03)",
-                              border: `1px solid ${item.highlight ? "rgba(123,108,255,0.3)" : "rgba(255,255,255,0.06)"}`,
+                              background: "var(--ui-color-74b76757)",
+                              border: `1px solid ${item.highlight ? "var(--ui-color-438d23bd)" : "var(--ui-color-e9ea3e30)"}`,
                               color: item.highlight ? "var(--accent)" : "var(--text-muted)",
                               backdropFilter: "blur(8px)",
                             }}
@@ -227,12 +227,12 @@ export default function AboutPage() {
                             }}
                             onMouseEnter={e => {
                               e.currentTarget.style.borderColor = "var(--accent)"
-                              e.currentTarget.style.background = "rgba(123,108,255,0.1)"
-                              e.currentTarget.style.boxShadow = "0 0 16px rgba(123,108,255,0.2)"
+                              e.currentTarget.style.background = "var(--ui-color-9255cdcd)"
+                              e.currentTarget.style.boxShadow = "0 0 16px var(--ui-color-4d4ddcec)"
                             }}
                             onMouseLeave={e => {
-                              e.currentTarget.style.borderColor = item.highlight ? "rgba(123,108,255,0.3)" : "rgba(255,255,255,0.06)"
-                              e.currentTarget.style.background = "rgba(255,255,255,0.03)"
+                              e.currentTarget.style.borderColor = item.highlight ? "var(--ui-color-438d23bd)" : "var(--ui-color-e9ea3e30)"
+                              e.currentTarget.style.background = "var(--ui-color-74b76757)"
                               e.currentTarget.style.boxShadow = "none"
                             }}
                           >

@@ -77,14 +77,14 @@ export default function MusicPlayer() {
       <audio ref={audioRef} src={SONG.src} preload="metadata" />
 
       <div className="fixed bottom-6 right-6 z-50" style={{ width: expanded ? "260px" : "44px" }}>
-        {!expanded ? <button type="button" onClick={() => setExpanded(true)} aria-label="Expand music player" title="Music player" className="flex h-11 w-11 items-center justify-center rounded-full border" style={{ background: "rgba(22, 27, 34, 0.92)", borderColor: "var(--border)", color: "var(--accent)" }}><FaMusic /></button> :
+        {!expanded ? <button type="button" onClick={() => setExpanded(true)} aria-label="Expand music player" title="Music player" className="music-player flex h-11 w-11 items-center justify-center rounded-full border" style={{ background: "var(--ui-color-f7647f4e)", borderColor: "var(--border)", color: "var(--accent)" }}><FaMusic /></button> :
         <div
-          className="rounded-2xl border p-4"
+          className="music-player rounded-2xl border p-4"
           style={{
-            background: "rgba(22, 27, 34, 0.92)",
+            background: "var(--ui-color-f7647f4e)",
             backdropFilter: "blur(16px)",
             borderColor: "var(--border)",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+            boxShadow: "0 8px 32px var(--ui-color-0729ae0e)",
           }}
         >
           {/* top row */}
@@ -161,7 +161,7 @@ export default function MusicPlayer() {
                 height: "28px",
                 background: "var(--accent)",
                 boxShadow: playing ? "0 0 12px var(--accent)" : "none",
-                color: "#fff",
+                color: "var(--ui-color-d14f9016)",
                 fontSize: "0.65rem",
               }}
             >

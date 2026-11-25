@@ -99,16 +99,16 @@ export default function GalleryPage() {
                   className="btn-glow relative font-mono text-sm px-5 py-2 rounded-full border transition-all duration-300"
                   style={{
                     borderColor: isActive ? "var(--accent)" : "var(--border)",
-                    color: isActive ? "#fff" : "var(--text-muted)",
+                    color: isActive ? "var(--ui-color-d14f9016)" : "var(--text-muted)",
                     background: isActive ? "var(--accent)" : "transparent",
-                    boxShadow: isActive ? "0 0 16px rgba(123,108,255,0.35)" : "none",
+                    boxShadow: isActive ? "0 0 16px var(--ui-color-de53c63f)" : "none",
                   }}
                 >
                   {tab}
                   {isActive && (
                     <span
                       className="ml-2 font-mono text-xs opacity-70"
-                      style={{ color: isActive ? "rgba(255,255,255,0.7)" : "var(--text-dim)" }}
+                      style={{ color: isActive ? "var(--ui-color-b67e9e7e)" : "var(--text-dim)" }}
                     >
                       {galleryData[tab].length}
                     </span>
@@ -152,9 +152,9 @@ export default function GalleryPage() {
                   {/* overlay on hover */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                    style={{ background: "rgba(123,108,255,0.15)", backdropFilter: "blur(2px)" }}
+                    style={{ background: "var(--ui-color-a5dc4677)", backdropFilter: "blur(2px)" }}
                   >
-                    <span className="font-mono text-xs" style={{ color: "rgba(255,255,255,0.8)" }}>
+                    <span className="font-mono text-xs" style={{ color: "var(--ui-color-78f2335d)" }}>
                       View
                     </span>
                   </div>
@@ -174,7 +174,7 @@ export default function GalleryPage() {
             exit={{ opacity: 0 }}
             onClick={() => setLightbox(null)}
             className="fixed inset-0 z-[100] flex items-center justify-center p-6 cursor-pointer"
-            style={{ background: "rgba(8, 8, 16, 0.92)", backdropFilter: "blur(12px)" }}
+            style={{ background: "var(--ui-color-c0ab9d18)", backdropFilter: "blur(12px)" }}
           >
             <motion.img
               initial={{ scale: 0.9, opacity: 0 }}
@@ -184,7 +184,7 @@ export default function GalleryPage() {
               src={lightbox}
               alt=""
               className="max-w-full max-h-[85vh] rounded-2xl object-contain"
-              style={{ boxShadow: "0 0 60px rgba(123,108,255,0.3)", border: "1px solid var(--border)" }}
+              style={{ boxShadow: "0 0 60px var(--ui-color-438d23bd)", border: "1px solid var(--border)" }}
               onClick={(e) => e.stopPropagation()}
             />
             <button

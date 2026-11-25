@@ -1,51 +1,51 @@
 
 export const CATEGORY_COLORS = {
-  "Front-End Development": "rgba(99,102,241,0.15)",
-  "Full-Stack Development": "rgba(34,197,94,0.12)",
-  "Mobile Application": "rgba(251,146,60,0.12)",
-  "Web Application": "rgba(168,85,247,0.12)",
-  "Game Development": "rgba(236,72,153,0.12)",
-  "UX Research & Prototyping": "rgba(245,158,11,0.14)",
-  "UI/UX & Front-End Development": "rgba(14,165,233,0.14)",
+  "Front-End Development": "var(--ui-color-e5a987ac)",
+  "Full-Stack Development": "var(--ui-color-56499bd4)",
+  "Mobile Application": "var(--ui-color-e6fa112b)",
+  "Web Application": "var(--ui-color-028273b8)",
+  "Game Development": "var(--ui-color-96140ef3)",
+  "UX Research & Prototyping": "var(--ui-color-5c52094b)",
+  "UI/UX & Front-End Development": "var(--ui-color-dd89b315)",
 }
 
 export const CATEGORY_TEXT = {
-  "Front-End Development": "rgba(165,180,252,0.9)",
-  "Full-Stack Development": "rgba(134,239,172,0.9)",
-  "Mobile Application": "rgba(253,186,116,0.9)",
-  "Web Application": "rgba(216,180,254,0.9)",
-  "Game Development": "rgba(249,168,212,0.9)",
-  "UX Research & Prototyping": "rgba(252,211,77,0.95)",
-  "UI/UX & Front-End Development": "rgba(125,211,252,0.95)",
+  "Front-End Development": "var(--ui-color-555a7f09)",
+  "Full-Stack Development": "var(--ui-color-f3e14b50)",
+  "Mobile Application": "var(--ui-color-9201d2ac)",
+  "Web Application": "var(--ui-color-d8fce768)",
+  "Game Development": "var(--ui-color-3ed3f3c6)",
+  "UX Research & Prototyping": "var(--ui-color-ac9b7d65)",
+  "UI/UX & Front-End Development": "var(--ui-color-295b1163)",
 }
 
 export const TYPE_COLORS = {
-  "Professional Project": "rgba(99,102,241,0.16)",
-  "Proposal Project": "rgba(245,158,11,0.16)",
-  "Concept Project": "rgba(168,85,247,0.16)",
-  "Personal Project": "rgba(251,191,36,0.14)",
+  "Professional Project": "var(--ui-color-b2029b69)",
+  "Proposal Project": "var(--ui-color-06ed2f6b)",
+  "Concept Project": "var(--ui-color-2a3ebb5f)",
+  "Personal Project": "var(--ui-color-4a58fc33)",
 }
 
 export const TYPE_TEXT = {
-  "Professional Project": "rgba(165,180,252,1)",
-  "Proposal Project": "rgba(252,211,77,1)",
-  "Concept Project": "rgba(216,180,254,1)",
+  "Professional Project": "var(--ui-color-91f8091b)",
+  "Proposal Project": "var(--ui-color-5ebffc49)",
+  "Concept Project": "var(--ui-color-eb3f0340)",
  
-  "Personal Project": "rgba(253,230,138,1)",
+  "Personal Project": "var(--ui-color-68edea28)",
 }
 
 export const STATUS_COLORS = {
-  "Live Product": "rgba(34,197,94,0.14)",
-  "Internal Project": "rgba(99,102,241,0.14)",
-  "Proposal Stage": "rgba(245,158,11,0.14)",
-  "Concept & Prototype": "rgba(168,85,247,0.14)",
+  "Live Product": "var(--ui-color-6cf2b411)",
+  "Internal Project": "var(--ui-color-e3a4ca84)",
+  "Proposal Stage": "var(--ui-color-5c52094b)",
+  "Concept & Prototype": "var(--ui-color-1dcab385)",
 }
 
 export const STATUS_TEXT = {
-  "Live Product": "rgba(134,239,172,0.95)",
-  "Internal Project": "rgba(165,180,252,0.95)",
-  "Proposal Stage": "rgba(252,211,77,0.95)",
-  "Concept & Prototype": "rgba(216,180,254,0.95)",
+  "Live Product": "var(--ui-color-b64cdb8a)",
+  "Internal Project": "var(--ui-color-187a0c83)",
+  "Proposal Stage": "var(--ui-color-ac9b7d65)",
+  "Concept & Prototype": "var(--ui-color-5e5a447f)",
 }
 
 const CORE_TAGS = {
@@ -84,4 +84,9 @@ const TAG_ACCENT = {
 
 export function tagColor(tag) {
   return TAG_ACCENT[tag] || "var(--text-muted)"
+}
+
+export function withAlpha(color, hexAlpha) {
+  const alpha = (parseInt(hexAlpha, 16) / 255) * 100
+  return `color-mix(in srgb, ${color} ${alpha}%, transparent)`
 }
