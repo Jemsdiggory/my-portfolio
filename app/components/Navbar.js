@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useReducedMotion } from "framer-motion"
+import ThemeToggle from "./ThemeToggle"
 
 const links = [
   { label: "About", href: "/about" },
@@ -22,7 +23,7 @@ const gamePageLinks = [
 ]
 
 function TrackToggle({ activeTrack, onChoose }) {
-  return <div className="flex rounded-lg border border-white/10 p-1 font-mono text-[9px] tracking-wide" aria-label="Portfolio track">
+  return <div className="track-toggle flex rounded-lg border border-white/10 p-1 font-mono text-[9px] tracking-wide" aria-label="Portfolio track">
     {[{ id: "game", label: "GAME DEV" }, { id: "design", label: "DESIGN ENG" }].map((track) => <button key={track.id} type="button" onClick={() => onChoose(track.id)} aria-pressed={activeTrack === track.id} className={`rounded-md px-2 py-1.5 transition-colors ${activeTrack === track.id ? "bg-violet-500/25 text-cyan-200" : "text-white/50 hover:text-white"}`}>{track.label}</button>)}
   </div>
 }
@@ -90,7 +91,7 @@ export default function Navbar() {
           50% { text-shadow: 0 0 4px color-mix(in srgb, var(--accent) 30%, transparent); }
         }
         @keyframes statusPulse {
-          0%, 100% { opacity: 1; box-shadow: 0 0 5px #64dc8c; }
+          0%, 100% { opacity: 1; box-shadow: 0 0 5px var(--ui-color-9f741a48); }
           50% { opacity: 0.35; box-shadow: none; }
         }
         @keyframes barBounce {
@@ -124,8 +125,8 @@ export default function Navbar() {
           opacity: 1;
         }
         .nav-item:hover {
-          color: rgba(220, 225, 255, 0.95) !important;
-          background: rgba(123, 108, 255, 0.07) !important;
+          color: var(--ui-color-0126fe16) !important;
+          background: var(--ui-color-09e60052) !important;
           transform: translateY(-1px);
         }
         
@@ -134,10 +135,10 @@ export default function Navbar() {
       <nav
         className="fixed top-0 w-full z-50 transition-all duration-500"
         style={{
-          background: scrolled ? "rgba(8, 8, 16, 0.88)" : "transparent",
+          background: scrolled ? "var(--ui-color-49f20a7c)" : "transparent",
           backdropFilter: scrolled ? "blur(20px) saturate(1.4)" : "none",
           borderBottom: scrolled
-            ? "1px solid rgba(123,108,255,0.15)"
+            ? "1px solid var(--ui-color-a5dc4677)"
             : "1px solid transparent",
           height: scrolled ? "56px" : "64px",
         }}
@@ -157,7 +158,7 @@ export default function Navbar() {
 
           </Link>
 
-          <div className="hidden sm:block ml-auto mr-2"><TrackToggle activeTrack={activeTrack} onChoose={chooseTrack} /></div>
+          <div className="hidden sm:flex ml-auto mr-2 items-center gap-2"><TrackToggle activeTrack={activeTrack} onChoose={chooseTrack} /><ThemeToggle className="hidden md:inline-flex" /></div>
 
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-1">
@@ -173,9 +174,9 @@ export default function Navbar() {
                     style={{
                       color: active
                         ? "var(--accent)"
-                        : "rgba(180, 185, 220, 0.55)",
+                        : "var(--ui-color-9e9e8445)",
                       background: active
-                        ? "rgba(123,108,255,0.08)"
+                        ? "var(--ui-color-afdd03ac)"
                         : "transparent",
                       letterSpacing: "0.09em",
                       display: "inline-block",
@@ -191,7 +192,6 @@ export default function Navbar() {
 
           {/* Right side  */}
           <div className="flex items-center gap-3">
-            
 
             {/* Hamburger */}
             <button
@@ -231,12 +231,13 @@ export default function Navbar() {
           style={{
             maxHeight: open ? "600px" : "0",
             opacity: open ? 1 : 0,
-            borderTop: open ? "1px solid rgba(123,108,255,0.12)" : "none",
+            borderTop: open ? "1px solid var(--ui-color-d363f0d0)" : "none",
             background: "var(--surface)",
           }}
         >
           <ul className="flex flex-col gap-1 px-6 py-4">
             <li className="px-4 py-2"><TrackToggle activeTrack={activeTrack} onChoose={chooseTrack} /></li>
+            <li className="px-4 py-2"><ThemeToggle /></li>
             {!isGamePage && <li><Link href={activeTrack === "game" ? "/game-dev" : "/design-engineer"} onClick={() => setOpen(false)} className="flex items-center px-4 py-3 rounded-lg font-mono text-xs uppercase tracking-widest text-cyan-200">{activeTrack === "game" ? "Game Dev" : "Design Eng"}</Link></li>}
             {(isGamePage ? gamePageLinks : links).map(({ label, href }) => {
               const active = isGamePage ? activeSection === href.slice(1) : pathname === href
@@ -247,8 +248,8 @@ export default function Navbar() {
                     onClick={(event) => handlePageLink(event, href)}
                     className="flex items-center gap-2 px-4 py-3 rounded-lg font-mono text-xs uppercase tracking-widest transition-colors duration-250"
                     style={{
-                      color: active ? "var(--accent)" : "rgba(180,185,220,0.55)",
-                      background: active ? "rgba(123,108,255,0.08)" : "transparent",
+                      color: active ? "var(--accent)" : "var(--ui-color-d4ab96b2)",
+                      background: active ? "var(--ui-color-afdd03ac)" : "transparent",
                       letterSpacing: "0.09em",
                     }}
                   >

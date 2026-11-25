@@ -13,6 +13,7 @@ import {
   TYPE_COLORS,
   TYPE_TEXT,
   coreTags,
+  withAlpha,
 } from "./styleTokens"
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
@@ -31,9 +32,9 @@ function ArrowButton({ direction, onClick, disabled }) {
         width: "44px",
         height: "44px",
         borderRadius: "50%",
-        border: `1px solid ${disabled ? "rgba(255,255,255,0.08)" : "rgba(99,102,241,0.5)"}`,
-        background: disabled ? "rgba(255,255,255,0.03)" : "rgba(99,102,241,0.12)",
-        color: disabled ? "rgba(255,255,255,0.2)" : "rgba(165,180,252,1)",
+        border: `1px solid ${disabled ? "var(--ui-color-bfeccfcf)" : "var(--ui-color-d3979015)"}`,
+        background: disabled ? "var(--ui-color-74b76757)" : "var(--ui-color-24eed0aa)",
+        color: disabled ? "var(--ui-color-a5a9c1a4)" : "var(--ui-color-91f8091b)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -44,13 +45,13 @@ function ArrowButton({ direction, onClick, disabled }) {
       onMouseEnter={(e) => {
         if (!disabled) {
           const el = e.currentTarget
-          el.style.background = "rgba(99,102,241,0.3)"
-          el.style.boxShadow = "0 0 16px rgba(99,102,241,0.35)"
+          el.style.background = "var(--ui-color-5244f807)"
+          el.style.boxShadow = "0 0 16px var(--ui-color-0d332c90)"
         }
       }}
       onMouseLeave={(e) => {
         const el = e.currentTarget
-        el.style.background = disabled ? "rgba(255,255,255,0.03)" : "rgba(99,102,241,0.12)"
+        el.style.background = disabled ? "var(--ui-color-74b76757)" : "var(--ui-color-24eed0aa)"
         el.style.boxShadow = "none"
       }}
     >
@@ -79,7 +80,7 @@ function DotIndicators({ count, selected, onSelect }) {
           width: "120px",
           height: "3px",
           borderRadius: "999px",
-          background: "rgba(255,255,255,0.1)",
+          background: "var(--ui-color-f8200947)",
           overflow: "hidden",
         }}
       >
@@ -87,7 +88,7 @@ function DotIndicators({ count, selected, onSelect }) {
           style={{
             height: "100%",
             borderRadius: "999px",
-            background: "var(--accent, #6366f1)",
+            background: "var(--accent, var(--ui-color-8e1a3019))",
             width: `${((selected + 1) / count) * 100}%`,
             transition: "width 0.3s ease",
           }}
@@ -108,7 +109,7 @@ function DotIndicators({ count, selected, onSelect }) {
             height: "6px",
             borderRadius: "999px",
             border: "none",
-            background: i === selected ? "rgba(165,180,252,1)" : "rgba(255,255,255,0.2)",
+            background: i === selected ? "var(--ui-color-91f8091b)" : "var(--ui-color-a5a9c1a4)",
             cursor: "pointer",
             padding: 0,
             transition: "all 0.3s ease",
@@ -142,7 +143,7 @@ function ThumbnailPlaceholder({ title, hovered }) {
         alignItems: "center",
         justifyContent: "center",
         background:
-          "radial-gradient(circle at 30% 20%, rgba(99,102,241,0.18), transparent 55%), rgba(255,255,255,0.04)",
+          "radial-gradient(circle at 30% 20%, var(--ui-color-cdd03946), transparent 55%), var(--ui-color-84da7a19)",
         transform: hovered ? "scale(1.04)" : "scale(1)",
         transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1)",
       }}
@@ -152,7 +153,7 @@ function ThumbnailPlaceholder({ title, hovered }) {
           fontWeight: 800,
           fontSize: "2.6rem",
           letterSpacing: "-0.03em",
-          color: "rgba(255,255,255,0.18)",
+          color: "var(--ui-color-0e74138b)",
         }}
       >
         {initials}
@@ -166,14 +167,15 @@ function ThumbnailPlaceholder({ title, hovered }) {
 function WebProjectCard({ web }) {
   const [hovered, setHovered] = useState(false)
 
-  const catBg = CATEGORY_COLORS[web.category] || "rgba(99,102,241,0.12)"
-  const catText = CATEGORY_TEXT[web.category] || "rgba(165,180,252,0.9)"
-  const typeText = TYPE_TEXT[web.type] || "rgba(255,255,255,0.55)"
-  const typeBg = TYPE_COLORS[web.type] || "rgba(255,255,255,0.06)"
+  const catBg = CATEGORY_COLORS[web.category] || "var(--ui-color-24eed0aa)"
+  const catText = CATEGORY_TEXT[web.category] || "var(--ui-color-555a7f09)"
+  const typeText = TYPE_TEXT[web.type] || "var(--ui-color-a7d7499c)"
+  const typeBg = TYPE_COLORS[web.type] || "var(--ui-color-e9ea3e30)"
   const showStatus = web.status && web.status !== "Live Product"
 
   return (
     <Link
+      className="project-card"
       href={`/projects/${web.slug}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -182,12 +184,12 @@ function WebProjectCard({ web }) {
         flexDirection: "column",
         borderRadius: "16px",
         overflow: "hidden",
-        border: `1px solid ${hovered ? "rgba(99,102,241,0.55)" : "rgba(255,255,255,0.08)"}`,
-        background: "rgba(13,17,23,0.85)",
+        border: `1px solid ${hovered ? "var(--ui-color-371bc22f)" : "var(--ui-color-bfeccfcf)"}`,
+        background: "var(--ui-color-7c957a57)",
         backdropFilter: "blur(12px)",
         boxShadow: hovered
-          ? "0 0 0 1px rgba(99,102,241,0.25), 0 24px 64px rgba(0,0,0,0.5), 0 0 48px rgba(99,102,241,0.1)"
-          : "0 4px 24px rgba(0,0,0,0.25)",
+          ? "0 0 0 1px var(--ui-color-9d2906c1), 0 24px 64px var(--ui-color-4c46ca18), 0 0 48px var(--ui-color-a5a6f8d9)"
+          : "0 4px 24px var(--ui-color-7371e081)",
         transition: "border-color 0.3s ease, box-shadow 0.3s ease",
         height: "100%",
         textDecoration: "none",
@@ -201,7 +203,7 @@ function WebProjectCard({ web }) {
           aspectRatio: "16 / 9",
           flexShrink: 0,
           overflow: "hidden",
-          background: "rgba(255,255,255,0.04)",
+          background: "var(--ui-color-84da7a19)",
         }}
       >
         {web.thumbnail ? (
@@ -225,7 +227,7 @@ function WebProjectCard({ web }) {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.3) 50%, transparent 100%)",
+              "linear-gradient(to top, var(--ui-color-fde58898) 0%, var(--ui-color-96debd05) 50%, transparent 100%)",
           }}
         />
         {hovered && (
@@ -233,7 +235,7 @@ function WebProjectCard({ web }) {
             style={{
               position: "absolute",
               inset: 0,
-              boxShadow: "inset 0 0 60px rgba(99,102,241,0.12)",
+              boxShadow: "inset 0 0 60px var(--ui-color-24eed0aa)",
               pointerEvents: "none",
             }}
           />
@@ -250,7 +252,7 @@ function WebProjectCard({ web }) {
             color: typeText,
             background: typeBg,
             backdropFilter: "blur(8px)",
-            border: `1px solid ${typeText}40`,
+            border: `1px solid ${withAlpha(typeText, "40")}`,
             padding: "3px 10px",
             borderRadius: "999px",
           }}
@@ -272,13 +274,14 @@ function WebProjectCard({ web }) {
         {/* Category + status badges */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
           <span
+            className="project-tag"
             style={{
               fontSize: "0.65rem",
               fontFamily: "monospace",
               letterSpacing: "0.06em",
               color: catText,
               background: catBg,
-              border: `1px solid ${catText.replace("0.9", "0.25").replace("0.95", "0.25")}`,
+              border: `1px solid ${withAlpha(catText, "40")}`,
               padding: "2px 10px",
               borderRadius: "999px",
               alignSelf: "flex-start",
@@ -288,13 +291,14 @@ function WebProjectCard({ web }) {
           </span>
           {showStatus && (
             <span
+              className="project-tag"
               style={{
                 fontSize: "0.65rem",
                 fontFamily: "monospace",
                 letterSpacing: "0.06em",
-                color: "rgba(255,255,255,0.4)",
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.12)",
+                color: "var(--ui-color-2f59e747)",
+                background: "var(--ui-color-85f89ec1)",
+                border: "1px solid var(--ui-color-e8db4790)",
                 padding: "2px 10px",
                 borderRadius: "999px",
                 alignSelf: "flex-start",
@@ -312,7 +316,7 @@ function WebProjectCard({ web }) {
               fontWeight: 700,
               fontSize: "1rem",
               lineHeight: 1.3,
-              color: hovered ? "#ffffff" : "rgba(255,255,255,0.9)",
+              color: hovered ? "var(--ui-color-c659d630)" : "var(--ui-color-0752d421)",
               margin: 0,
               marginBottom: "4px",
               transition: "color 0.3s ease",
@@ -324,7 +328,7 @@ function WebProjectCard({ web }) {
             style={{
               fontFamily: "monospace",
               fontSize: "0.7rem",
-              color: "rgba(255,255,255,0.4)",
+              color: "var(--ui-color-2f59e747)",
               margin: 0,
               lineHeight: 1.5,
             }}
@@ -337,7 +341,7 @@ function WebProjectCard({ web }) {
         <p
           style={{
             fontSize: "0.8rem",
-            color: "rgba(255,255,255,0.5)",
+            color: "var(--ui-color-829bbf7d)",
             lineHeight: 1.65,
             margin: 0,
             flex: 1,
@@ -358,9 +362,9 @@ function WebProjectCard({ web }) {
               style={{
                 fontFamily: "monospace",
                 fontSize: "0.62rem",
-                color: "rgba(255,255,255,0.4)",
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                color: "var(--ui-color-2f59e747)",
+                background: "var(--ui-color-85f89ec1)",
+                border: "1px solid var(--ui-color-f8200947)",
                 padding: "2px 9px",
                 borderRadius: "999px",
                 letterSpacing: "0.04em",
@@ -378,7 +382,7 @@ function WebProjectCard({ web }) {
             alignItems: "center",
             justifyContent: "space-between",
             paddingTop: "8px",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid var(--ui-color-e9ea3e30)",
           }}
         >
           <span
@@ -386,7 +390,7 @@ function WebProjectCard({ web }) {
               fontFamily: "monospace",
               fontSize: "0.68rem",
               letterSpacing: "0.06em",
-              color: hovered ? "rgba(165,180,252,1)" : "rgba(99,102,241,0.8)",
+              color: hovered ? "var(--ui-color-91f8091b)" : "var(--ui-color-cec2617b)",
               display: "flex",
               alignItems: "center",
               gap: "6px",
@@ -409,7 +413,7 @@ function WebProjectCard({ web }) {
               width: "6px",
               height: "6px",
               borderRadius: "50%",
-              background: hovered ? "rgba(99,102,241,1)" : "rgba(255,255,255,0.15)",
+              background: hovered ? "var(--ui-color-87ec575f)" : "var(--ui-color-274c1329)",
               transition: "background 0.3s ease",
             }}
           />
@@ -451,6 +455,7 @@ function GameProjectCard({ game }) {
 
   return (
     <div
+      className="project-card"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -458,12 +463,12 @@ function GameProjectCard({ game }) {
         flexDirection: "column",
         borderRadius: "16px",
         overflow: "hidden",
-        border: `1px solid ${hovered ? "rgba(236,72,153,0.45)" : "rgba(255,255,255,0.08)"}`,
-        background: "rgba(13,17,23,0.85)",
+        border: `1px solid ${hovered ? "var(--ui-color-c822920e)" : "var(--ui-color-bfeccfcf)"}`,
+        background: "var(--ui-color-7c957a57)",
         backdropFilter: "blur(12px)",
         boxShadow: hovered
-          ? "0 0 0 1px rgba(236,72,153,0.2), 0 24px 64px rgba(0,0,0,0.5), 0 0 48px rgba(236,72,153,0.08)"
-          : "0 4px 24px rgba(0,0,0,0.25)",
+          ? "0 0 0 1px var(--ui-color-0907fac3), 0 24px 64px var(--ui-color-4c46ca18), 0 0 48px var(--ui-color-51321010)"
+          : "0 4px 24px var(--ui-color-7371e081)",
         transition: "border-color 0.3s ease, box-shadow 0.3s ease",
         height: "100%",
       }}
@@ -476,7 +481,7 @@ function GameProjectCard({ game }) {
           aspectRatio: "16 / 9",
           flexShrink: 0,
           overflow: "hidden",
-          background: "rgba(255,255,255,0.04)",
+          background: "var(--ui-color-84da7a19)",
         }}
       >
         {game.youtubeId && playing ? (
@@ -508,8 +513,8 @@ function GameProjectCard({ game }) {
             }}
           />
         ) : (
-          <div style={{ position: "absolute", inset: 0, display: "grid", placeContent: "center", textAlign: "center", background: "linear-gradient(135deg,#4a044e,#10111b,#083344)", fontFamily: "monospace", color: "white" }}>
-            <span style={{ color: "#a5f3fc", fontSize: "0.65rem", letterSpacing: "0.2em" }}>GEPHIUM / ANDROID</span>
+          <div style={{ position: "absolute", inset: 0, display: "grid", placeContent: "center", textAlign: "center", background: "linear-gradient(135deg,var(--ui-color-b3069486),var(--ui-color-3d9527ff),var(--ui-color-7a2fb719))", fontFamily: "monospace", color: "white" }}>
+            <span style={{ color: "var(--ui-color-872602fc)", fontSize: "0.65rem", letterSpacing: "0.2em" }}>GEPHIUM / ANDROID</span>
             <strong style={{ fontSize: "1.5rem", marginTop: "0.5rem" }}>B4ND UP!!</strong>
           </div>
         )}
@@ -518,7 +523,7 @@ function GameProjectCard({ game }) {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.3) 50%, transparent 100%)",
+              "linear-gradient(to top, var(--ui-color-fde58898) 0%, var(--ui-color-96debd05) 50%, transparent 100%)",
           }}
         />
         <div
@@ -530,10 +535,10 @@ function GameProjectCard({ game }) {
             fontSize: "0.6rem",
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.55)",
-            background: "rgba(13,17,23,0.7)",
+            color: "var(--ui-color-a7d7499c)",
+            background: "var(--ui-color-cf9f07dc)",
             backdropFilter: "blur(8px)",
-            border: "1px solid rgba(255,255,255,0.1)",
+            border: "1px solid var(--ui-color-f8200947)",
             padding: "3px 10px",
             borderRadius: "999px",
           }}
@@ -564,21 +569,21 @@ function GameProjectCard({ game }) {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: playing ? "rgba(13,17,23,0.75)" : "rgba(236,72,153,0.85)",
-              border: `1px solid ${playing ? "rgba(255,255,255,0.15)" : "rgba(236,72,153,1)"}`,
-              boxShadow: !playing ? "0 0 24px rgba(236,72,153,0.5)" : "none",
+              background: playing ? "var(--ui-color-2824b59c)" : "var(--ui-color-beeb66fb)",
+              border: `1px solid ${playing ? "var(--ui-color-274c1329)" : "var(--ui-color-984aa7eb)"}`,
+              boxShadow: !playing ? "0 0 24px var(--ui-color-a5eb6093)" : "none",
               backdropFilter: "blur(8px)",
               transition: "all 0.3s ease",
             }}
           >
             {playing ? (
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <rect x="2" y="1" width="4" height="12" rx="1" fill="white" />
-                <rect x="8" y="1" width="4" height="12" rx="1" fill="white" />
+                <rect x="2" y="1" width="4" height="12" rx="1" fill="currentColor" />
+                <rect x="8" y="1" width="4" height="12" rx="1" fill="currentColor" />
               </svg>
             ) : (
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M3 1.5L12 7L3 12.5V1.5Z" fill="white" />
+                <path d="M3 1.5L12 7L3 12.5V1.5Z" fill="currentColor" />
               </svg>
             )}
           </div>
@@ -594,12 +599,12 @@ function GameProjectCard({ game }) {
               gap: "6px",
               padding: "3px 10px",
               borderRadius: "6px",
-              background: "rgba(13,17,23,0.75)",
-              border: "1px solid rgba(236,72,153,0.35)",
+              background: "var(--ui-color-2824b59c)",
+              border: "1px solid var(--ui-color-2375376d)",
               backdropFilter: "blur(8px)",
               fontFamily: "monospace",
               fontSize: "0.65rem",
-              color: "rgba(249,168,212,0.9)",
+              color: "var(--ui-color-3ed3f3c6)",
             }}
           >
             <span
@@ -607,7 +612,7 @@ function GameProjectCard({ game }) {
                 width: "6px",
                 height: "6px",
                 borderRadius: "50%",
-                background: "rgba(236,72,153,1)",
+                background: "var(--ui-color-984aa7eb)",
                 animation: "pulse 1.5s infinite",
               }}
             />
@@ -635,9 +640,9 @@ function GameProjectCard({ game }) {
             fontSize: "0.65rem",
             fontFamily: "monospace",
             letterSpacing: "0.06em",
-            color: "rgba(249,168,212,0.9)",
-            background: "rgba(236,72,153,0.1)",
-            border: "1px solid rgba(249,168,212,0.25)",
+            color: "var(--ui-color-3ed3f3c6)",
+            background: "var(--ui-color-196ae5cd)",
+            border: "1px solid var(--ui-color-21e9325f)",
             padding: "2px 10px",
             borderRadius: "999px",
             alignSelf: "flex-start",
@@ -657,7 +662,7 @@ function GameProjectCard({ game }) {
               height: "40px",
               borderRadius: "10px",
               objectFit: "cover",
-              border: "1px solid rgba(255,255,255,0.1)",
+              border: "1px solid var(--ui-color-f8200947)",
               flexShrink: 0,
             }}
           />
@@ -667,7 +672,7 @@ function GameProjectCard({ game }) {
                 fontWeight: 700,
                 fontSize: "1rem",
                 lineHeight: 1.3,
-                color: hovered ? "#ffffff" : "rgba(255,255,255,0.9)",
+                color: hovered ? "var(--ui-color-c659d630)" : "var(--ui-color-0752d421)",
                 margin: 0,
                 marginBottom: "2px",
                 transition: "color 0.3s ease",
@@ -679,7 +684,7 @@ function GameProjectCard({ game }) {
               style={{
                 fontFamily: "monospace",
                 fontSize: "0.68rem",
-                color: "rgba(255,255,255,0.35)",
+                color: "var(--ui-color-572ab423)",
                 margin: 0,
               }}
             >
@@ -691,7 +696,7 @@ function GameProjectCard({ game }) {
         <p
           style={{
             fontSize: "0.8rem",
-            color: "rgba(255,255,255,0.5)",
+            color: "var(--ui-color-829bbf7d)",
             lineHeight: 1.65,
             margin: 0,
             flex: 1,
@@ -711,9 +716,9 @@ function GameProjectCard({ game }) {
               style={{
                 fontFamily: "monospace",
                 fontSize: "0.62rem",
-                color: "rgba(255,255,255,0.4)",
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                color: "var(--ui-color-2f59e747)",
+                background: "var(--ui-color-85f89ec1)",
+                border: "1px solid var(--ui-color-f8200947)",
                 padding: "2px 9px",
                 borderRadius: "999px",
                 letterSpacing: "0.04em",
@@ -730,14 +735,14 @@ function GameProjectCard({ game }) {
             alignItems: "center",
             justifyContent: "space-between",
             paddingTop: "8px",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid var(--ui-color-e9ea3e30)",
           }}
         >
           <p
             style={{
               fontFamily: "monospace",
               fontSize: "0.65rem",
-              color: "rgba(255,255,255,0.25)",
+              color: "var(--ui-color-43bcc076)",
               margin: 0,
             }}
           >
@@ -747,7 +752,7 @@ function GameProjectCard({ game }) {
             style={{
               fontFamily: "monospace",
               fontSize: "0.68rem",
-              color: hovered ? "rgba(249,168,212,1)" : "rgba(236,72,153,0.8)",
+              color: hovered ? "var(--ui-color-1c059709)" : "var(--ui-color-8e508692)",
               display: "flex",
               alignItems: "center",
               gap: "6px",
@@ -880,7 +885,7 @@ function ProjectCarousel({ children, label }) {
           textAlign: "right",
           fontFamily: "monospace",
           fontSize: "0.65rem",
-          color: "rgba(255,255,255,0.2)",
+          color: "var(--ui-color-a5a9c1a4)",
           marginTop: "16px",
           letterSpacing: "0.08em",
         }}
@@ -924,7 +929,7 @@ export default function ProjectsPage() {
             top: "25%",
             left: "-8%",
             borderRadius: "50%",
-            background: "rgba(99,102,241,0.06)",
+            background: "var(--ui-color-c84988b8)",
             filter: "blur(120px)",
           }}
         />
@@ -936,7 +941,7 @@ export default function ProjectsPage() {
             top: "60%",
             right: "-5%",
             borderRadius: "50%",
-            background: "rgba(236,72,153,0.05)",
+            background: "var(--ui-color-c57ba182)",
             filter: "blur(100px)",
           }}
         />
@@ -985,7 +990,7 @@ export default function ProjectsPage() {
               fontSize: "0.7rem",
               letterSpacing: "0.3em",
               textTransform: "uppercase",
-              color: "rgba(165,180,252,0.85)",
+              color: "var(--ui-color-120b98f3)",
               display: "flex",
               alignItems: "center",
               gap: "12px",
@@ -997,7 +1002,7 @@ export default function ProjectsPage() {
                 display: "inline-block",
                 width: "32px",
                 height: "1px",
-                background: "rgba(165,180,252,0.85)",
+                background: "var(--ui-color-120b98f3)",
               }}
             />
             Creative Works
@@ -1014,7 +1019,7 @@ export default function ProjectsPage() {
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
               marginBottom: "40px",
-              color: "rgba(255,255,255,0.95)",
+              color: "var(--ui-color-a8487651)",
             }}
           >
             Digital Projects
@@ -1044,10 +1049,10 @@ export default function ProjectsPage() {
                     fontSize: "0.85rem",
                     padding: "10px 20px",
                     borderRadius: "999px",
-                    border: `1px solid ${isActive ? "rgba(99,102,241,0.8)" : "rgba(255,255,255,0.1)"}`,
-                    color: isActive ? "#fff" : "rgba(255,255,255,0.4)",
-                    background: isActive ? "rgba(99,102,241,0.85)" : "transparent",
-                    boxShadow: isActive ? "0 0 20px rgba(99,102,241,0.35)" : "none",
+                    border: `1px solid ${isActive ? "var(--ui-color-cec2617b)" : "var(--ui-color-f8200947)"}`,
+                    color: isActive ? "var(--ui-color-d14f9016)" : "var(--ui-color-2f59e747)",
+                    background: isActive ? "var(--ui-color-1036a212)" : "transparent",
+                    boxShadow: isActive ? "0 0 20px var(--ui-color-0d332c90)" : "none",
                     cursor: "pointer",
                     display: "flex",
                     alignItems: "center",
@@ -1060,8 +1065,8 @@ export default function ProjectsPage() {
                     style={{
                       fontFamily: "monospace",
                       fontSize: "0.6rem",
-                      background: isActive ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.08)",
-                      color: isActive ? "#fff" : "rgba(255,255,255,0.3)",
+                      background: isActive ? "var(--ui-color-a5a9c1a4)" : "var(--ui-color-bfeccfcf)",
+                      color: isActive ? "var(--ui-color-d14f9016)" : "var(--ui-color-338f97ac)",
                       padding: "2px 7px",
                       borderRadius: "999px",
                     }}

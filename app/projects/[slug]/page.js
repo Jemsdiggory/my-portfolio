@@ -14,6 +14,7 @@ import {
   STATUS_COLORS,
   STATUS_TEXT,
   tagColor,
+  withAlpha,
 } from "../styleTokens"
 
 // ── Auto-scrolling preview for a single tall screenshot. Pauses on hover. ──
@@ -91,7 +92,7 @@ function ScrollPreview({ src, alt }) {
         <div
           className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs px-3 py-1.5 rounded-lg pointer-events-none"
           style={{
-            background: "rgba(13,17,23,0.8)",
+            background: "var(--ui-color-d0a820e5)",
             color: "var(--text-muted)",
             border: "1px solid var(--border)",
             backdropFilter: "blur(8px)",
@@ -122,7 +123,7 @@ function Lightbox({ images, index, onClose, onNavigate }) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-6"
-      style={{ background: "rgba(5,7,10,0.92)", backdropFilter: "blur(6px)" }}
+      style={{ background: "var(--ui-color-a1b867b7)", backdropFilter: "blur(6px)" }}
       onClick={onClose}
     >
       <button
@@ -138,14 +139,14 @@ function Lightbox({ images, index, onClose, onNavigate }) {
           <button
             onClick={(e) => { e.stopPropagation(); onNavigate((index - 1 + images.length) % images.length) }}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border flex items-center justify-center"
-            style={{ borderColor: "var(--border)", color: "var(--text-muted)", background: "rgba(13,17,23,0.6)" }}
+            style={{ borderColor: "var(--border)", color: "var(--text-muted)", background: "var(--ui-color-30e7139a)" }}
           >
             ‹
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); onNavigate((index + 1) % images.length) }}
             className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border flex items-center justify-center"
-            style={{ borderColor: "var(--border)", color: "var(--text-muted)", background: "rgba(13,17,23,0.6)" }}
+            style={{ borderColor: "var(--border)", color: "var(--text-muted)", background: "var(--ui-color-30e7139a)" }}
           >
             ›
           </button>
@@ -162,7 +163,7 @@ function Lightbox({ images, index, onClose, onNavigate }) {
 
       <div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-xs px-3 py-1.5 rounded-lg"
-        style={{ background: "rgba(13,17,23,0.8)", color: "var(--text-muted)", border: "1px solid var(--border)" }}
+        style={{ background: "var(--ui-color-d0a820e5)", color: "var(--text-muted)", border: "1px solid var(--border)" }}
       >
         {index + 1} / {images.length}
       </div>
@@ -210,19 +211,19 @@ export default function WebProjectDetail({ params }) {
             <div className="flex flex-wrap items-center gap-2 mb-6">
               <span
                 className="font-mono text-xs px-3 py-1 rounded-full border"
-                style={{ color: TYPE_TEXT[project.type], background: TYPE_COLORS[project.type], borderColor: `${TYPE_TEXT[project.type]}30` }}
+                style={{ color: TYPE_TEXT[project.type], background: TYPE_COLORS[project.type], borderColor: withAlpha(TYPE_TEXT[project.type], "30") }}
               >
                 {project.type}
               </span>
               <span
                 className="font-mono text-xs px-3 py-1 rounded-full border"
-                style={{ color: CATEGORY_TEXT[project.category], background: CATEGORY_COLORS[project.category], borderColor: `${CATEGORY_TEXT[project.category]}30` }}
+                style={{ color: CATEGORY_TEXT[project.category], background: CATEGORY_COLORS[project.category], borderColor: withAlpha(CATEGORY_TEXT[project.category], "30") }}
               >
                 {project.category}
               </span>
               <span
                 className="font-mono text-xs px-3 py-1 rounded-full border"
-                style={{ color: STATUS_TEXT[project.status], background: STATUS_COLORS[project.status], borderColor: `${STATUS_TEXT[project.status]}30` }}
+                style={{ color: STATUS_TEXT[project.status], background: STATUS_COLORS[project.status], borderColor: withAlpha(STATUS_TEXT[project.status], "30") }}
               >
                 {project.status}
               </span>
@@ -248,7 +249,7 @@ export default function WebProjectDetail({ params }) {
                 <span
                   key={t.name}
                   className="font-mono text-xs px-2.5 py-1 rounded-lg border"
-                  style={{ color: tagColor(t.name), background: `${tagColor(t.name)}18`, borderColor: `${tagColor(t.name)}30` }}
+                  style={{ color: tagColor(t.name), background: withAlpha(tagColor(t.name), "18"), borderColor: withAlpha(tagColor(t.name), "30") }}
                 >
                   {t.name}
                 </span>
@@ -261,7 +262,7 @@ export default function WebProjectDetail({ params }) {
                 <div className="flex justify-center">
                   <div
                     className="relative rounded-[2rem] overflow-hidden border-2"
-                    style={{ width: "280px", borderColor: "var(--border)", background: "var(--surface2)", boxShadow: "0 0 40px rgba(99,102,241,0.12)" }}
+                    style={{ width: "280px", borderColor: "var(--border)", background: "var(--surface2)", boxShadow: "0 0 40px var(--ui-color-24eed0aa)" }}
                   >
                     <div
                       className="absolute top-3 left-1/2 -translate-x-1/2 z-10 rounded-full"
@@ -279,7 +280,7 @@ export default function WebProjectDetail({ params }) {
                 style={{
                   height: "320px",
                   borderColor: "var(--border)",
-                  background: "radial-gradient(circle at 30% 20%, rgba(99,102,241,0.16), transparent 55%), var(--surface2)",
+                  background: "radial-gradient(circle at 30% 20%, var(--ui-color-b2029b69), transparent 55%), var(--surface2)",
                 }}
               >
                 <p className="font-mono text-xs max-w-xs" style={{ color: "var(--text-dim)" }}>

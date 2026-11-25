@@ -5,10 +5,10 @@ import Navbar from "../components/Navbar"
 import { experience as experiences } from "../data/experience"
 
 const typeStyle = {
-  Internship:   { bg: "rgba(61,255,209,0.08)",  border: "rgba(61,255,209,0.25)",  color: "var(--accent2)" },
-  Freelance:    { bg: "rgba(99,102,241,0.08)",  border: "rgba(99,102,241,0.25)",  color: "var(--accent)"  },
-  Organization: { bg: "rgba(100,116,139,0.08)", border: "rgba(100,116,139,0.25)", color: "var(--accent3)" },
-  PartTime:      { bg: "rgba(255,99,102,0.08)", border: "rgba(255,99,102,0.25)", color: "var(--accent4)"  },
+  Internship:   { bg: "var(--ui-color-7d3d9265)",  border: "var(--ui-color-8974b58d)",  color: "var(--accent2)" },
+  Freelance:    { bg: "var(--ui-color-64c05f89)",  border: "var(--ui-color-9d2906c1)",  color: "var(--accent)"  },
+  Organization: { bg: "var(--ui-color-063bc3ae)", border: "var(--ui-color-dad15001)", color: "var(--accent3)" },
+  PartTime:      { bg: "var(--ui-color-8b7e6d98)", border: "var(--ui-color-a0e89a25)", color: "var(--accent4)"  },
 }
 
 export default function ExperiencePage() {
@@ -74,7 +74,7 @@ export default function ExperiencePage() {
                       style={{
                         background: "var(--surface2)",
                         border: "1px solid var(--accent)",
-                        boxShadow: "0 0 16px rgba(99,102,241,0.3)",
+                        boxShadow: "0 0 16px var(--ui-color-5244f807)",
                       }}
                     >
                       <span className="font-mono text-xs font-bold" style={{ color: "var(--accent)" }}>
@@ -91,7 +91,8 @@ export default function ExperiencePage() {
                       <p className="font-mono text-xs mb-3 flex items-center gap-3" style={{ color: "var(--accent)" }}>
                         {exp.period}
                         <span
-                          className="font-mono text-xs px-2 py-0.5 rounded"
+                          className="experience-chip font-mono text-xs px-2 py-0.5 rounded"
+                          data-type={exp.type}
                           style={{
                             background: badge.bg,
                             border: `1px solid ${badge.border}`,

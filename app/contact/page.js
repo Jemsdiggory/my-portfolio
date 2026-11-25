@@ -113,12 +113,12 @@ export default function ContactPage() {
           >
             <a
               href="mailto:jemimadiggory@gmail.com"
-              className="btn-glow inline-flex items-center gap-3 font-mono text-base px-8 py-4 rounded-xl border font-medium"
+              className="primary-action btn-glow inline-flex items-center gap-3 font-mono text-base px-8 py-4 rounded-xl border font-medium"
               style={{
                 background: "var(--accent)",
                 borderColor: "var(--accent)",
-                color: "#fff",
-                boxShadow: "0 0 30px rgba(123,108,255,0.35)",
+                color: "var(--ui-color-d14f9016)",
+                boxShadow: "0 0 30px var(--ui-color-de53c63f)",
               }}
             >
               <FaEnvelope />
