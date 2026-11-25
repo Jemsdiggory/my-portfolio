@@ -355,7 +355,7 @@ export default function Page() {
             </motion.p>
 
             <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.55 }} className="flex flex-wrap gap-4">
-              <Link href="/projects" className="btn-glow font-mono text-sm px-6 py-3 rounded-xl border font-medium"
+              <Link href="/projects" className="primary-action btn-glow font-mono text-sm px-6 py-3 rounded-xl border font-medium"
                 style={{ background:"var(--accent)", borderColor:"var(--accent)", color:"var(--ui-color-d14f9016)", boxShadow:"0 0 20px var(--ui-color-438d23bd)" }}>
                 View Projects
               </Link>
