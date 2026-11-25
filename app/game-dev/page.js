@@ -108,7 +108,12 @@ export default function GameDevPage() {
                   <p className="text-sm leading-relaxed text-white/65 mt-4">{game.description}</p>
                   <div className="flex flex-wrap gap-2 mt-4 font-mono text-[10px]"><span className="tag-chip rounded-full border border-white/10 px-3 py-1">{game.engine}</span><span className="tag-chip rounded-full border border-white/10 px-3 py-1">{game.platform}</span>{tags.map((tag) => <span key={tag} className="tag-chip rounded-full bg-white/[.06] px-3 py-1">{tag}</span>)}</div>
                   <ul className="mt-5 space-y-1 text-sm text-white/65">{game.highlights.map((highlight, index) => <li key={`${game.title}-${index}`}>• {highlight}</li>)}</ul>
-                  <a href={game.link} target="_blank" rel="noopener noreferrer" className="inline-flex mt-6 font-mono text-xs text-cyan-200 underline underline-offset-4">{game.linkLabel || "Play on itch.io ↗"}</a>
+                  <div className="flex flex-wrap gap-x-5 gap-y-2 mt-6">
+                    <a href={game.link} target="_blank" rel="noopener noreferrer" className="inline-flex font-mono text-xs text-cyan-200 underline underline-offset-4">{game.linkLabel || "Play on itch.io ↗"}</a>
+                    {game.gameplayLink && <a href={game.gameplayLink} target="_blank" rel="noopener noreferrer" className="inline-flex font-mono text-xs text-cyan-200 underline underline-offset-4">Gameplay on YouTube ↗</a>}
+                    {game.sourceLink && <a href={game.sourceLink} target="_blank" rel="noopener noreferrer" className="inline-flex font-mono text-xs text-cyan-200 underline underline-offset-4">Source on GitHub ↗</a>}
+                    {game.articleLink && <a href={game.articleLink} target="_blank" rel="noopener noreferrer" className="inline-flex font-mono text-xs text-cyan-200 underline underline-offset-4">{game.articleLinkLabel || "Behind the scenes on Medium ↗"}</a>}
+                  </div>
                 </div>
               </article>
             })}

@@ -479,6 +479,61 @@ export const webProjects = {
 // GAME PROJECTS 
 export const gameProjects = [
   {
+    title: "Minecart Rush",
+    track: "game",
+    role: "GAME PROGRAMMER", // TODO: verify role
+    engine: "HTML5 Canvas",
+    platform: "Web",
+    highlights: [
+      "Fixed-timestep game loop locked to 60 ticks per second, replacing a loop that stacked on every retry and made the game speed up",
+      "State machine for Start, Playing, Paused, Level Complete, Game Over, and Win, with canvas buttons shared by mouse, touch, and keyboard",
+      "Three levels with 500, 750, and 1,000 m distance targets, center-aligned AABB hitboxes, per-level score rollback on retry, and pause with auto-pause on tab switch",
+      "Procedural Web Audio API sound effects, plus saved high score and mute settings in localStorage",
+      "Built across eight feature branches merged with --no-ff, each documented in a changelog for team review",
+    ],
+    studio: "Web Game Programming Class · Team of 3",
+    icon: null,
+    youtubeId: "zX4ufcWD0q0",
+    video: null,
+    gameplayLink: "https://youtu.be/zX4ufcWD0q0?si=xO1q8PnIGk_mLqzj",
+    link: "https://minecart-rush.vercel.app/",
+    linkLabel: "Play Minecart Rush ↗",
+    sourceLink: "https://github.com/Jemsdiggory/Minecart-Rush",
+    articleLink: "https://medium.com/@jemsdiggory/minecart-rush-devlog-1-06084f4d44a3?sharedUserId=jemsdiggory",
+    articleLinkLabel: "Devlog #1 on Medium ↗",
+    description:
+      "A 2D top-down arcade runner built with vanilla JavaScript and HTML5 Canvas as a team final project. Ride a minecart across three rail lanes, dodge rocks and broken tracks, grab gold, and survive three levels of rising speed and obstacle density. I owned the game logic and systems, from the main menu to the end screen, and audited a teammate's prototype against our GDD before fixing it feature by feature.",
+    type: "2D CANVAS ARCADE RUNNER",
+    category: "Game Development",
+    tags: ["HTML5 Canvas", "Web", "JavaScript", "Canvas API", "2D", "Arcade Runner", "Web Audio API", "Git"],
+  },
+  {
+    title: "Windut Runner Canvas",
+    track: "game",
+    role: "GAME PROGRAMMER", // TODO: verify role
+    engine: "HTML5 Canvas",
+    platform: "Web",
+    highlights: [
+      "Frame-rate-independent requestAnimationFrame loop with capped delta time and responsive up/down flight controls",
+      "AABB coin and hazard collisions, a 60-second timer, a 100-point win target, and pause, restart, and audio controls",
+      "Endless coin and hazard recycling with spaced obstacles, layered parallax scenery, and world speed that rises from 300 to 600",
+    ],
+    studio: "Web Game Programming Class",
+    icon: null,
+    youtubeId: "WUhlsDmMSKo",
+    video: null,
+    gameplayLink: "https://youtu.be/WUhlsDmMSKo",
+    link: "https://windut-runner-canvasbyjems.netlify.app/",
+    linkLabel: "Play Windut Runner ↗",
+    sourceLink: "https://github.com/Jemsdiggory/windut-runner-canvas",
+    articleLink: "https://medium.com/@jemsdiggory/building-treasure-canvas-from-a-moving-circle-to-an-endless-flying-runner-9935aaad7d4f?sharedUserId=jemsdiggory",
+    description:
+      "A 2D endless flying runner built with vanilla JavaScript and HTML5 Canvas over four Web Game Programming class meetings. Fly a circular, image-textured player through a scrolling world, collect coins, and dodge hazards as the pace ramps up. The project grew from a simple canvas movement prototype into an endless runner.",
+    type: "2D CANVAS ENDLESS RUNNER",
+    category: "Game Development",
+    tags: ["HTML5 Canvas", "JavaScript", "Canvas API", "2D", "Endless Runner", "Web"],
+  },
+  {
     title: "Pat Pat Pals",
     track: "game",
     role: "GAME PROGRAMMER & DESIGNER", // TODO: verify role

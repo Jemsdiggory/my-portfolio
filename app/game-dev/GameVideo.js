@@ -20,6 +20,6 @@ export default function GameVideo({ game }) {
       ? <video src={game.video} poster={game.icon || undefined} muted loop playsInline autoPlay className="h-full w-full object-cover" />
       : game.icon
         ? <Image src={game.icon} alt={`${game.title} artwork`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
-        : <div className="game-preview-placeholder absolute inset-0 grid place-content-center text-center bg-gradient-to-br from-fuchsia-950 via-[var(--ui-color-3d9527ff)] to-cyan-950"><span className="font-mono text-[10px] tracking-[.3em] text-cyan-200">GEPHIUM / ANDROID</span><span className="font-display text-3xl font-bold mt-2">B4ND UP!!</span></div>}
+        : <div className="game-preview-placeholder absolute inset-0 grid place-content-center text-center bg-gradient-to-br from-fuchsia-950 via-[var(--ui-color-3d9527ff)] to-cyan-950"><span className="font-mono text-[10px] tracking-[.3em] text-cyan-200">{game.studio} / {game.platform}</span><span className="font-display text-3xl font-bold mt-2">{game.title}</span></div>}
   </div>
 }
